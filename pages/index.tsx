@@ -39,7 +39,7 @@ const Home: NextPage = () => {
                   strokeWidth="1"
                   fontSize="200"
                   fontFamily="Roboto-Bold, Roboto"
-                  fontWeight="700"
+                  fontWeight="100"
                   opacity="0.15"
                 >
                   <tspan x="0" y="0">
