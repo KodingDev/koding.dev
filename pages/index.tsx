@@ -5,6 +5,7 @@ import TwitterIcon from "../assets/img/icons/twitter.svg";
 import GitHubIcon from "../assets/img/icons/github.svg";
 import EmailIcon from "../assets/img/icons/email.svg";
 import ChevronDownIcon from "../assets/img/icons/chevron-down.svg";
+import MenuIcon from "../assets/img/icons/menu.svg";
 
 const Home: NextPage = () => {
   return (
@@ -14,22 +15,27 @@ const Home: NextPage = () => {
         background: `linear-gradient(-45deg, rgba(131,58,180,0.9) 0%, rgba(35,53,110,0.9) 100%), url(${HomeHeaderImage.src})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
-      <div className="flex flex-col justify-between m-auto h-full w-full text-center p-10 text-white">
+      <div className="flex flex-col justify-between m-auto h-full w-full text-left md:text-center p-10 text-white">
         <div className="flex flex-row justify-between text-lg">
           <span className="font-semibold">Koding</span>
 
-          <div className="flex gap-10">
+          <div className="flex gap-10 invisible md:visible">
             <span className="font-light">Home</span>
             <span className="font-light">Projects</span>
             <span className="font-light">About</span>
+          </div>
+
+          <div className="visible md:hidden">
+            <MenuIcon className="w-6 fill-white" />
           </div>
         </div>
 
         <div>
           <div className="relative">
-            <div className="flex z-0 absolute m-auto left-0 right-0 -top-24 justify-center">
+            <div className="flex z-0 absolute m-auto left-0 right-0 -top-24 justify-center invisible md:visible">
               <svg xmlns="http://www.w3.org/2000/svg" width="730" height="266" viewBox="0 0 730 266">
                 <text
                   id="KODING"
@@ -55,9 +61,7 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div className="h-14" />
-
-          <div className="flex flex-row gap-10 justify-center">
+          <div className="flex flex-row gap-10 justify-start md:justify-center mt-14">
             <TwitterIcon className="w-6 fill-white" />
             <GitHubIcon className="w-6 fill-white" />
             <EmailIcon className="w-6 fill-white" />
