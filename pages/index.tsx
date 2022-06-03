@@ -35,6 +35,7 @@ const Home: NextPage = () => {
   return (
     <>
       <NextSeo title="Home" description="Crafting rich experiences for over 8 years." />
+
       <div
         className="h-screen flex -z-10 bg-cover bg-center bg-no-repeat"
         style={{ background: `linear-gradient(-45deg, rgba(131,58,180,0.9) 0%, rgba(35,53,110,0.9) 100%), url(${HomeHeaderImage.src})` }}
@@ -61,7 +62,7 @@ const Home: NextPage = () => {
               </div>
 
               <div className="z-10">
-                <h1 className="font-semibold text-5xl mb-2">Hey, I'm Koding.</h1>
+                <h1 className="font-semibold text-5xl mb-2 leading-[56px]">Hey, I'm Koding.</h1>
                 <span className="font-light text-xl text-white">Crafting rich experiences for over 8 years.</span>
               </div>
             </div>
@@ -81,6 +82,37 @@ const Home: NextPage = () => {
 
           <div className="flex justify-center">
             <ChevronDownIcon className="fill-white" />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-900 p-16 text-white">
+        <div className="flex flex-col items-start md:items-center w-full space-y-2">
+          <h1 className="font-semibold text-5xl mb-2">Projects</h1>
+          <span className="font-light text-xl">Check out some of my recent projects.</span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center pt-12">
+            {[...Array(6)].map((_, i) => (
+              <div className="bg-gray-800 rounded-md shadow-lg overflow-clip" key={i}>
+                <div className="bg-gradient-to-br from-[#3955ad] to-[#833ab4] p-4">
+                  <h2 className="font-semibold text-2xl">Koding.dev</h2>
+                </div>
+
+                <div className="p-6">
+                  <span className="font-light">
+                    My personal website. Built with Next.js, TypeScript, and TailwindCSS. Lorem ipsum dolor sit amet among us swag drip 22
+                    epic games amazon prime
+                  </span>
+
+                  <div className="flex flex-row mt-4 gap-2 justify-center">
+                    <span className="bg-[#833ab4] p-1 rounded text-xs">Next.js</span>
+                    <span className="bg-[#6A43B2] p-1 rounded text-xs">TypeScript</span>
+                    <span className="bg-[#524CAF] p-1 rounded text-xs">TailwindCSS</span>
+                    <span className="bg-[#3955AD] p-1 rounded text-xs">Example</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
