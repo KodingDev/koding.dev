@@ -8,18 +8,12 @@ interface IconButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLButtonEle
 }
 
 const IconButton = ({ children, href, ...props }: IconButtonProps) => {
-  const component = (
-    <button
-      {...props}
-      className={clsx("w-6 h-6", props.className, "fill-white hover:fill-neutral-300 hover:cursor-pointer transition-all")}
-    >
-      {children}
-    </button>
-  );
+  props.className = clsx("w-6 h-6", props.className, "fill-white hover:fill-purple-300 hover:cursor-pointer transition-all");
+  const component = <button {...props}>{children}</button>;
 
   if (href && !href.startsWith("/")) {
     return (
-      <a href={href} target="_blank" rel="noreferrer">
+      <a className={props.className} href={href} target="_blank" rel="noreferrer">
         {component}
       </a>
     );

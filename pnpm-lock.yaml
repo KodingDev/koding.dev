@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/poppins': ^4.5.8
   '@fontsource/roboto': ^4.5.7
   '@svgr/webpack': ^6.2.1
   '@types/node': 17.0.35
@@ -28,6 +29,7 @@ specifiers:
   typescript: 4.7.2
 
 dependencies:
+  '@fontsource/poppins': 4.5.8
   '@fontsource/roboto': 4.5.7
   clsx: 1.1.1
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
@@ -1336,6 +1338,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/poppins/4.5.8:
+    resolution: {integrity: sha512-HE9yLDxYJEcxooVrYvvEhtyxaYU32hQIx1+npKegVefceE0l0zi0ePqKWWxYxkFpyy6WuZSQ+9rai3INnYKEJA==}
+    dev: false
 
   /@fontsource/roboto/4.5.7:
     resolution: {integrity: sha512-m57UMER23Mk6Drg9OjtHW1Y+0KPGyZfE5XJoPTOsLARLar6013kJj4X2HICt+iFLJqIgTahA/QAvSn9lwF1EEw==}

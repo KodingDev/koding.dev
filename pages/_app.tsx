@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "@fontsource/poppins";
 import "@fontsource/roboto";
 import type { AppProps } from "next/app";
 import { NextSeo } from "next-seo";

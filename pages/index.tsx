@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import HomeHeaderImage from "../assets/img/home-header.png";
+import AvatarImage from "../assets/img/avatar.png";
 
 import TwitterIcon from "../assets/img/icons/twitter.svg";
 import GitHubIcon from "../assets/img/icons/github.svg";
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
       >
         <div className="flex flex-col justify-between m-auto h-full w-full text-left md:text-center p-10 text-white">
           <div className="flex flex-row justify-between text-lg">
-            <span className="font-semibold">Koding</span>
+            <img src={AvatarImage.src} alt="Avatar" className="w-10 h-10 rounded-full" />
 
             <div className="flex gap-10 invisible md:visible">
               <LinkButton href="/">Home</LinkButton>
