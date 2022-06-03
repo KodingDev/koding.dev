@@ -80,7 +80,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className="flex justify-center">
-            <ChevronDownIcon className="w-12 h-12 fill-white" />
+            <ChevronDownIcon className="fill-white" />
           </div>
         </div>
       </div>
