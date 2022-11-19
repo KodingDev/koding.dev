@@ -1,0 +1,25 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Setup page theming */
+body {
+	@apply bg-white text-black dark:bg-neutral-900 dark:text-white transition-all;
+}
+
+/* Typography */
+@layer utilities {
+	.text-title {
+		@apply text-2xl font-bold dark:text-neutral-300;
+	}
+
+	.text-subtitle {
+		@apply text-lg text-neutral-600 dark:text-neutral-400;
+	}
+}
+
+/* Icon sizing */
+.icon.sm {
+	@apply w-[24px] h-[24px];
+}
