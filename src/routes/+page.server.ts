@@ -26,7 +26,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 
 		return {
 			name: (properties.Name as any).title[0].plain_text,
-			description: (properties.Description as any).rich_text[0].plain_text,
+			description: (properties.Description as any).rich_text[0]?.plain_text ?? "Very mysterious!",
 			website: (properties.Website as any).url,
 			
 			logo: (page.icon as any).file.url,
