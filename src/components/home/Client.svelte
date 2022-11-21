@@ -4,6 +4,14 @@
 	export let client: ClientItem;
 
 	const { name, description, website, logo, cover } = client;
+
+    const formatDate = (date: Date) =>  date.toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric',
+    });
+
+    const start = formatDate(client.dates.start);
+    const end = client.dates.end ? formatDate(client.dates.end) : 'Present';
 </script>
 
 <a href={website} rel="noopener noreferrer" target="_blank">
@@ -20,9 +28,15 @@
             </div>
 		{/if}
 
-        <div class="px-4 pb-4">
-            <h2 class="font-medium text-blue-400">{name}</h2>
-            <p class="text-body line-clamp-2 text-ellipsis">{description}</p>
+        <div class="px-4 pb-4 flex flex-col justify-between h-full">
+            <div>
+                <h2 class="font-medium text-blue-400">{name}</h2>
+                <p class="text-body line-clamp-2 text-ellipsis">{description}</p>
+            </div>
+            
+            <div class="pt-2">
+                <p class="text-sm text-neutral-500 dark:text-neutral-400">{start} - {end}</p>
+            </div>
         </div>
 	</div>
 </a>
