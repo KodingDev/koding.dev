@@ -26,7 +26,7 @@
 		<h1 class="text-3xl font-bold">Images</h1>
 		<p class="text-neutral-400 pb-4">Click on an image to view it in full size.</p>
 
-		<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+		<div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
 			{#each data.images as image}
 				<CommissionImage
 					src={getURL(image)}
