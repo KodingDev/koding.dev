@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Client from '$components/home/Client.svelte';
 	import Repository from '$components/home/Repository.svelte';
+	import SEO from '$components/seo/SEO.svelte';
 	import { onInterval } from '../utils/utils';
-	import GradientCanvas from '../components/home/GradientCanvas.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -16,12 +16,10 @@
 	};
 
 	let years = calcYears();
-	onInterval(() => years = calcYears(), 1000);
+	onInterval(() => (years = calcYears()), 1000);
 </script>
 
-<div class="fixed left-0 top-0 w-screen h-screen -z-50 opacity-10">
-	<GradientCanvas />
-</div>
+<SEO title="Home" slug="/" />
 
 <div class="flex flex-col gap-10 w-10/12 mx-auto pb-12">
 	<div class="flex flex-col gap-2">

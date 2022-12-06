@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import clsx from 'clsx';
 
 	export let to: string;
+	export let mode: 'startswith' | 'exact' = 'startswith';
 
 	const newTab = !to.startsWith('/');
 
-	$: active = $page.url.pathname === to;
+	$: active = mode === 'exact' ? $page.url.pathname === to : $page.url.pathname.startsWith(to);
 </script>
 
 <a
 	href={to}
-	class="opacity-75 hover:opacity-100 transition-all {active ? 'font-semibold underline' : ''}"
+	class={clsx('opacity-75 hover:opacity-100 transition-all', active ? 'font-bold' : '')}
 	target={newTab ? '_blank' : undefined}
 	rel={newTab ? 'noreferrer' : undefined}
 >
