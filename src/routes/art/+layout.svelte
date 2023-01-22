@@ -5,7 +5,7 @@
 	export let data: PageData;
 </script>
 
-<div class="flex flex-col gap-10 w-10/12 mx-auto pb-12">
+<div class="mx-auto flex w-10/12 flex-col gap-10 pb-12">
 	<div class="flex flex-col gap-2">
 		<h1 class="text-title">🎨 Art</h1>
 		<h2 class="text-subtitle">

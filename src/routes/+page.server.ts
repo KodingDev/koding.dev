@@ -11,15 +11,20 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	const req = await fetch('https://gh-pinned-repos.egoist.dev/?username=KodingDev');
 	const pinned: Repository[] = await req.json();
 
-	const pages = await notion.databases.query({
-		database_id: NOTION_CLIENTS_DB_ID,
-		filter: {
-			property: 'Public',
-			checkbox: {
-				equals: true
+	const pages = await notion.databases
+		.query({
+			database_id: NOTION_CLIENTS_DB_ID,
+			filter: {
+				property: 'Public',
+				checkbox: {
+					equals: true
+				}
 			}
-		}
-	});
+		})
+		.catch((err) => {
+			console.error('Failed to fetch clients from Notion', err);
+			return { results: [] };
+		});
 
 	const clients: ClientItem[] = pages.results
 		.map((_page) => {

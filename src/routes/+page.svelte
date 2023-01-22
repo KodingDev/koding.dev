@@ -21,7 +21,7 @@
 
 <SEO title="Home" slug="/" />
 
-<div class="flex flex-col gap-10 w-10/12 mx-auto pb-12">
+<div class="mx-auto flex w-10/12 flex-col gap-10 pb-12">
 	<div class="flex flex-col gap-2">
 		<h1 class="text-title">👋 Hi, I'm Stella</h1>
 		<h2 class="text-subtitle">
@@ -33,7 +33,7 @@
 		<h1 class="text-title">💻 Projects</h1>
 		<h2 class="text-subtitle">Some of my personal projects, pulled from my GitHub.</h2>
 
-		<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 pt-4">
+		<div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2 xl:grid-cols-3">
 			{#each data.pinned as repository}
 				<Repository {repository} />
 			{/each}
@@ -46,7 +46,7 @@
 			I've worked with some great clients over the years. Here are some of them.
 		</h2>
 
-		<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 pt-4">
+		<div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2 xl:grid-cols-3">
 			{#each data.clients as client}
 				<Client {client} />
 			{/each}

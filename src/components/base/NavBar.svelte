@@ -15,11 +15,11 @@
 </script>
 
 <div class="flex flex-row justify-between">
-	<div class="flex flex-row gap-6 items-center">
+	<div class="flex flex-row items-center gap-6">
 		<img
 			src="https://avatars.githubusercontent.com/u/23714764?v=4"
 			alt="Stella"
-			class="rounded-full w-10 h-10"
+			class="h-10 w-10 rounded-full"
 		/>
 
 		{#each links as { label, to, mode }}
@@ -27,7 +27,7 @@
 		{/each}
 	</div>
 
-	<div class="flex flex-row gap-6 items-center">
+	<div class="flex flex-row items-center gap-6">
 		<NavLink to="https://twitter.com/KodingDev_">
 			<div class="icon sm">
 				<FaTwitter />

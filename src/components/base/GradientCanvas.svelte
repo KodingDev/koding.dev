@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 
 	let canvas: HTMLCanvasElement;
-	let t: number = 0;
+	let t = 0;
 
 	onMount(() => {
 		canvas.classList.remove('opacity-0');
@@ -50,5 +50,5 @@
 	bind:this={canvas}
 	width="32"
 	height="32"
-	class="w-full h-full opacity-0 transition-all duration-500"
+	class="h-full w-full opacity-0 transition-all duration-500"
 />

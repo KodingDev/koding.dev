@@ -4,4 +4,4 @@
 	export let skill: Skill;
 </script>
 
-<span class="p-2 rounded font-semibold" style="background-color: {skill.color};">{skill.name}</span>
+<span class="rounded p-2 font-semibold" style="background-color: {skill.color};">{skill.name}</span>

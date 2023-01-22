@@ -8,7 +8,7 @@
 	export let image: { url: string; alt: string } | undefined = undefined;
 	export let squareImage: { url: string; alt: string } | undefined = undefined;
 
-	export let ogLanguage: string = 'en';
+	export let ogLanguage = 'en';
 </script>
 
 <svelte:head>

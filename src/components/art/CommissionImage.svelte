@@ -1,5 +1,5 @@
 <script lang="ts">
-	import clsx from "clsx";
+	import clsx from 'clsx';
 
 	export let src: string;
 	export let title: string | undefined = undefined;
@@ -13,9 +13,12 @@
 	href={src}
 	target="_blank"
 	rel="noopener noreferrer"
-	class={clsx("relative rounded-3xl overflow-clip transition-all hover:scale-[101%] hover:shadow-2xl", className)}
+	class={clsx(
+		'relative overflow-clip rounded-3xl transition-all hover:scale-[101%] hover:shadow-2xl',
+		className
+	)}
 >
-	<img {src} alt={title} class="aspect-auto object-cover h-full w-full" />
+	<img {src} alt={title} class="aspect-auto h-full w-full object-cover" />
 
 	{#if title || subtitle}
 		<div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50" />

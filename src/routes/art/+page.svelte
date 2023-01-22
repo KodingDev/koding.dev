@@ -11,7 +11,7 @@
 
 <div class="flex flex-col gap-2">
 	<!-- Pinned card -->
-	<div class="basic-card flex flex-col lg:flex-row justify-between gap-4">
+	<div class="basic-card flex flex-col justify-between gap-4 lg:flex-row">
 		<div class="flex flex-col justify-between">
 			<CommissionPage commission={pinned} />
 			<a class="link" href={`/art/${pinned.slug}`}>Click to view &rarr;</a>
@@ -20,7 +20,7 @@
 		<CommissionImage className="w-full lg:w-1/4" src={getURL(pinned.images[0])} />
 	</div>
 
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4">
+	<div class="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 		{#each commissions.filter((c) => !c.hidden) as commission}
 			<CommissionCard {commission} />
 		{/each}

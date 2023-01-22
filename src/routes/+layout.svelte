@@ -21,20 +21,20 @@
 	}
 </script>
 
-<div class="mx-auto flex flex-col w-full min-h-screen">
-	<div class="pt-8 px-8">
+<div class="mx-auto flex min-h-screen w-full flex-col">
+	<div class="px-8 pt-8">
 		<NavBar />
 	</div>
 
-	<div class="pt-12 md:px-8 h-full grow">
-		<div class="fixed left-0 top-0 w-screen h-screen -z-50 opacity-10">
+	<div class="h-full grow pt-12 md:px-8">
+		<div class="fixed left-0 top-0 -z-50 h-screen w-screen opacity-10">
 			<GradientCanvas />
 		</div>
 
 		<slot />
 	</div>
 
-	<div class="pb-8 px-8">
+	<div class="px-8 pb-8">
 		<Footer />
 	</div>
 </div>

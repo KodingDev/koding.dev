@@ -2,13 +2,13 @@
 	import OpenGraph from './OpenGraph.svelte';
 	import Twitter from './Twitter.svelte';
 
-	import CompactBannerPurple from "$assets/branding/compact-banner-purple.png";
+	import CompactBannerPurple from '$assets/branding/compact-banner-purple.png';
 
 	import website from '$lib/config/website';
 
 	export let title: string;
 	export let slug: string;
-	export let description: string = '';
+	export let description = '';
 
 	export let ogImage: { url: string; alt: string } | undefined = undefined;
 	export let ogSquareImage: { url: string; alt: string } | undefined = undefined;

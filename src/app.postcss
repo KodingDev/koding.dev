@@ -5,7 +5,7 @@
 
 /* Setup page theming */
 body {
-	@apply bg-white text-black dark:bg-neutral-900 dark:text-white transition-all;
+	@apply bg-white text-black transition-all dark:bg-neutral-900 dark:text-white;
 }
 
 @layer utilities {
@@ -20,16 +20,16 @@ body {
 
 	/* Basic Cards */
 	.basic-card {
-		@apply p-4 border-[1px] rounded-md border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 bg-opacity-70 dark:bg-opacity-70;
+		@apply rounded-md border-[1px] border-neutral-300 bg-neutral-100 bg-opacity-70 p-4 dark:border-neutral-700 dark:bg-neutral-800 dark:bg-opacity-70;
 	}
 
 	/* Links */
 	.link {
-		@apply text-neutral-400 hover:text-neutral-200 transition-all;
+		@apply text-neutral-400 transition-all hover:text-neutral-200;
 	}
 }
 
 /* Icon sizing */
 .icon.sm {
-	@apply w-[24px] h-[24px];
+	@apply h-[24px] w-[24px];
 }

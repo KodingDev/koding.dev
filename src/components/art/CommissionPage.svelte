@@ -8,7 +8,7 @@
 
 <div
 	class={clsx(
-		'flex flex-col gap-6 content-between',
+		'flex flex-col content-between gap-6',
 		commission.layout === 'horizontal' ? 'lg:flex-row' : ''
 	)}
 >
@@ -20,14 +20,14 @@
 				<img
 					src={commission.artist.icon}
 					alt={commission.artist.name}
-					class="w-12 h-12 rounded-full object-cover"
+					class="h-12 w-12 rounded-full object-cover"
 				/>
 			{/if}
 
 			{#if commission.artist.link}
 				<a
 					href={commission.artist.link}
-					class="flex flex-col group"
+					class="group flex flex-col"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -50,12 +50,12 @@
 		{#if commission.links}
 			<div>
 				<p class="font-semibold text-neutral-400">Links</p>
-				<ul class="flex flex-col sm:flex-row gap-4">
+				<ul class="flex flex-col gap-4 sm:flex-row">
 					{#each commission.links as link}
 						<li>
 							<a
 								href={link.href}
-								class="flex flex-col group"
+								class="group flex flex-col"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
