@@ -12,7 +12,8 @@ module.exports = {
 	ignorePatterns: ['*.cjs'],
 	rules: {
 		'prettier/prettier': 'error',
-		'@typescript-eslint/no-non-null-assertion': 'off'
+		'@typescript-eslint/no-non-null-assertion': 'off',
+		'svelte/no-at-html-tags': 'off'
 	},
 	parserOptions: {
 		sourceType: 'module',
