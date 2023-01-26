@@ -7,15 +7,11 @@
 		"dev:open": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write . && eslint . --fix",
 		"tunnel": "cloudflared tunnel run --url http://localhost:5173"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.25.0",
 		"@sveltejs/adapter-vercel": "^1.0.0-next.81",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/line-clamp": "^0.4.2",
