@@ -1,31 +1,48 @@
 <script lang="ts">
-	import type { ClientItem } from 'src/routes/+page.server';
+	import type {
+		DateProperty,
+		NotionPage,
+		RichTextProperty,
+		TitleProperty,
+		UrlProperty
+	} from '$lib/notion';
+	import NotionRichText from '$lib/notion/blocks/NotionRichText.svelte';
 
-	export let client: ClientItem;
+	export let client: NotionPage;
 
-	const { name, description, website, logo, cover } = client;
+	// Extract the properties from the client object
+	// TODO: Type these properties
+	const title = client.properties.Name as TitleProperty;
+	const description = client.properties.Description as RichTextProperty;
+	const website = client.properties.Website as UrlProperty;
+	const date = client.properties['Working Since'] as DateProperty;
 
+	// Date formatting
 	const formatDate = (date: Date) =>
 		date.toLocaleDateString('en-US', {
 			month: 'long',
 			year: 'numeric'
 		});
 
-	const start = formatDate(client.dates.start);
-	const end = client.dates.end ? formatDate(client.dates.end) : 'Present';
+	const start = formatDate(new Date(date.date.start));
+	const end = date.date.end ? formatDate(new Date(date.date.end)) : 'Present';
 </script>
 
-<a href={website} rel="noopener noreferrer" target="_blank">
+<a href={website.url} rel="noopener noreferrer" target="_blank">
 	<div
 		class="flex h-full flex-col gap-2 overflow-clip rounded-md border-[1px] border-neutral-300 bg-neutral-100 bg-opacity-70 transition-all hover:scale-[101%] dark:border-neutral-700 dark:bg-neutral-800"
 	>
-		{#if cover}
+		{#if client.cover}
 			<div class="relative">
-				<img src={cover} class="h-40 w-full object-cover" alt="Company cover" />
+				<img
+					src={client.cover[client.cover.type].url}
+					class="h-40 w-full object-cover"
+					alt="Company cover"
+				/>
 
-				{#if logo}
+				{#if client.icon}
 					<img
-						src={logo}
+						src={client.icon[client.icon.type].url}
 						class="absolute bottom-2 left-2 h-10 w-10 rounded-md border-[1px] border-neutral-300 bg-neutral-400 object-cover dark:border-neutral-700"
 						alt="Company logo"
 					/>
@@ -35,8 +52,12 @@
 
 		<div class="flex h-full flex-col justify-between px-4 pb-4">
 			<div>
-				<h2 class="font-medium text-blue-400">{name}</h2>
-				<p class="text-body text-ellipsis line-clamp-2">{description}</p>
+				<h2 class="font-medium text-blue-400">
+					<NotionRichText text={title.title} />
+				</h2>
+				<p class="text-body text-ellipsis line-clamp-2">
+					<NotionRichText text={description.rich_text} />
+				</p>
 			</div>
 
 			<div class="pt-2">

@@ -1,6 +1,7 @@
 import { NOTION_KEY } from '$env/static/private';
 import { Client } from '@notionhq/client';
-import type { NotionBlock } from './notion.types';
+import type { NotionBlock, NotionPage as NotionPage } from './notion.types';
+import type { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
 
 /**
  * Notion client
@@ -46,4 +47,22 @@ export const getAllBlocks = async (blockId: string) => {
 	);
 
 	return children.flat();
+};
+
+/**
+ * Query a database for pages.
+ *
+ * @param databaseId The database ID.
+ * @param filter The filter.
+ */
+export const queryDatabase = async (
+	databaseId: string,
+	filter?: QueryDatabaseParameters['filter']
+): Promise<NotionPage[]> => {
+	const { results } = await notionClient.databases.query({
+		database_id: databaseId,
+		filter
+	});
+
+	return results as unknown as NotionPage[];
 };

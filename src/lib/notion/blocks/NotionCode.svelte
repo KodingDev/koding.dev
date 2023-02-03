@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { HighlightAuto } from 'svelte-highlight';
 	import type { RichTextDataText } from '$lib/notion';
 
 	export let data: {
@@ -14,6 +13,6 @@
 
 <div class="py-2">
 	<div class="overflow-clip rounded-lg">
-		<HighlightAuto {code} />
+		<pre>{code}</pre>
 	</div>
 </div>

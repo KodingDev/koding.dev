@@ -2,10 +2,8 @@
 	import type { NotionFile, NotionRichTextData } from '../index';
 	import NotionRichText from './NotionRichText.svelte';
 
-	export let data: {
-		caption: NotionRichTextData[];
-		type: 'file';
-		file: NotionFile;
+	export let data: NotionFile & {
+		caption?: NotionRichTextData[];
 	};
 </script>
 

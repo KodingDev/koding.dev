@@ -121,6 +121,95 @@ export type NotionEmoji = {
 };
 
 export type NotionFile = {
+	type: 'file';
+	file: {
+		url: string;
+		expiry_time: string;
+	};
+};
+
+export type NotionExternal = {
+	type: 'external';
+	external: {
+		url: string;
+	};
+};
+
+/**
+ * Notion Database
+ * @see https://developers.notion.com/reference/database
+ * @see https://developers.notion.com/reference/property-object
+ */
+export type NotionPage = {
+	object: 'database';
+	id: string;
+
+	created_time: string; // ISO 8601
+	last_edited_time: string; // ISO 8601
+
+	cover?: NotionFile | NotionExternal;
+	icon?: NotionEmoji | NotionFile | NotionExternal;
+
+	properties: {
+		[key: string]: NotionProperty;
+	};
+};
+
+export type NotionProperty = GenericProperty &
+	TitleProperty &
+	RichTextProperty &
+	CheckboxProperty &
+	UrlProperty &
+	DateProperty;
+
+export type GenericProperty = {
+	id: string;
+	type:
+		| 'title'
+		| 'rich_text'
+		| 'number'
+		| 'select'
+		| 'multi_select'
+		| 'date'
+		| 'people'
+		| 'file'
+		| 'checkbox'
+		| 'url'
+		| 'email'
+		| 'phone_number'
+		| 'formula'
+		| 'relation'
+		| 'rollup'
+		| 'created_time'
+		| 'created_by'
+		| 'last_edited_time'
+		| 'last_edited_by';
+};
+
+export type TitleProperty = {
+	type: 'title';
+	title: NotionRichTextData[];
+};
+
+export type RichTextProperty = {
+	type: 'rich_text';
+	rich_text: NotionRichTextData[];
+};
+
+export type CheckboxProperty = {
+	type: 'checkbox';
+	checkbox: boolean;
+};
+
+export type UrlProperty = {
+	type: 'url';
 	url: string;
-	expiry_time: string;
+};
+
+export type DateProperty = {
+	type: 'date';
+	date: {
+		start: string; // ISO 8601
+		end?: string; // ISO 8601
+	};
 };
