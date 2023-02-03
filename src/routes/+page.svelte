@@ -2,7 +2,7 @@
 	import Client from '$components/home/Client.svelte';
 	import Repository from '$components/home/Repository.svelte';
 	import SEO from '$components/seo/SEO.svelte';
-	import { onInterval } from '../utils/utils';
+	import { onInterval } from '$lib/util/utils';
 	import type { PageData } from './$types';
 
 	export let data: PageData;

@@ -13,7 +13,8 @@ module.exports = {
 	rules: {
 		'prettier/prettier': 'error',
 		'@typescript-eslint/no-non-null-assertion': 'off',
-		'svelte/no-at-html-tags': 'off'
+		'svelte/no-at-html-tags': 'off',
+		'svelte/html-self-closing': 'off',
 	},
 	parserOptions: {
 		sourceType: 'module',

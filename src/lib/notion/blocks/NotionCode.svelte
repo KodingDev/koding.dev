@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { HighlightAuto } from 'svelte-highlight';
-	import type { RichTextDataText } from '../notion.types';
+	import type { RichTextDataText } from '$lib/notion';
 
 	export let data: {
 		caption: RichTextDataText[]; // TODO: Implement
@@ -9,7 +9,7 @@
 	};
 
 	// Map code
-	const code = data.rich_text.map((text) => text.plain_text).join('');
+	const code = data?.rich_text?.map((text) => text.plain_text ?? '')?.join('') ?? '';
 </script>
 
 <div class="py-2">

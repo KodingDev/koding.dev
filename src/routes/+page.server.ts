@@ -2,12 +2,13 @@
 import { NOTION_CLIENTS_DB_ID, NOTION_KEY } from '$env/static/private';
 import { Client } from '@notionhq/client';
 import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import { convertNotionDates, convertRichText } from '../utils/notion';
-import type { PageServerLoad } from './$types';
+import { convertNotionDates, convertRichText } from '$lib/util/notion';
+import type { ServerLoadEvent } from '@sveltejs/kit';
 
 const notion = new Client({ auth: NOTION_KEY });
 
-export const load: PageServerLoad = async ({ fetch }) => {
+// noinspection JSUnusedGlobalSymbols
+export const load = async ({ fetch }: ServerLoadEvent) => {
 	const req = await fetch('https://gh-pinned-repos.egoist.dev/?username=KodingDev');
 	const pinned: Repository[] = await req.json();
 
@@ -48,10 +49,12 @@ export const load: PageServerLoad = async ({ fetch }) => {
 				: { start: new Date(), end: null };
 
 			return {
+				dates,
+				properties,
+
 				name: convertRichText(properties.Name.title) || '',
 				description: convertRichText(properties.Description.rich_text) || 'Very mysterious!',
 				website: properties.Website.url || undefined,
-				dates,
 				logo: page.icon.file.url,
 				cover: page.cover.file.url
 			};
@@ -68,15 +71,6 @@ export interface Repository {
 	language: string;
 	languageColor: string;
 	stars: string;
-}
-
-export interface PageData {
-	pinned: Repository[];
-	clients: ClientItem[];
-}
-
-export interface SkillCategories {
-	[name: string]: Skill[];
 }
 
 export interface Skill {

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { NotionBlock } from '../index';
-	import { NOTION_BLOCK_RENDERERS } from '../notion.renderer';
+	import { NOTION_BLOCK_RENDERERS } from '$lib/notion';
 
 	// Pass in the
 	export let block: NotionBlock;
 
-	const renderer = NOTION_BLOCK_RENDERERS[block.type];
+	const renderer = NOTION_BLOCK_RENDERERS[block?.type];
 </script>
 
 {#if renderer}

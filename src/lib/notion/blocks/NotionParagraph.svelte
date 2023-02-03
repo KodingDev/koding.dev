@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NotionColor, NotionRichTextData } from '../notion.types';
+	import type { NotionColor, NotionRichTextData } from '$lib/notion';
 	import NotionRichText from './NotionRichText.svelte';
 
 	export let data: {

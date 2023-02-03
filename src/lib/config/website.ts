@@ -1,3 +1,6 @@
+/**
+ * Website config, mainly used for SEO, just to define the website's name, url, language, etc.
+ */
 const website = {
 	siteUrl: 'https://koding.dev',
 	siteTitle: 'koding.dev',

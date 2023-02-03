@@ -1,6 +1,6 @@
 <script lang="ts">
 	import clsx from 'clsx';
-	import type { NotionRichTextData } from '../notion.types';
+	import type { NotionRichTextData } from '$lib/notion';
 	import NotionBlock from './NotionBlock.svelte';
 	import NotionRichText from './NotionRichText.svelte';
 

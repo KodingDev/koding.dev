@@ -7,7 +7,12 @@ node_modules
 .env.*
 !.env.example
 
-.idea
+.idea/*
+!.idea/codeStyles
+!.idea/inspectionProfiles
+!.idea/jsLinters
+!.idea/prettier.xml
+
 .vscode
 
 yarn-error.log

@@ -37,6 +37,7 @@ export const NOTION_BLOCK_TYPES = [
 	'link_to_page',
 	'table',
 	'table_row',
+	'code',
 	'unsupported'
 ] as const;
 
@@ -72,6 +73,7 @@ export type RichTextType = typeof RICH_TEXT_TYPES[number];
 // Rich text type - text
 export type RichTextDataText = {
 	content: string;
+	plain_text: string;
 	link?: {
 		url: string;
 	};

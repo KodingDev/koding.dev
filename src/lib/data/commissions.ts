@@ -61,6 +61,7 @@ export interface ArtistData {
 
 /*
  * Actual data starts here
+ * TODO: Format this nicer
  */
 
 export const artists: Record<string, ArtistData> = {
