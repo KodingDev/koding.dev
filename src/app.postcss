@@ -5,36 +5,36 @@
 
 /* Setup page theming */
 body {
-	@apply bg-white text-black transition-all dark:bg-neutral-900 dark:text-white;
+  @apply bg-white text-black transition-all dark:bg-neutral-900 dark:text-white;
 }
 
 @layer utilities {
-	/* Typography */
-	.text-title {
-		@apply text-2xl font-bold dark:text-neutral-300;
-	}
+  /* Typography */
+  .text-title {
+    @apply text-2xl font-bold dark:text-neutral-300;
+  }
 
-	.text-subtitle {
-		@apply text-lg text-neutral-600 dark:text-neutral-400;
-	}
+  .text-subtitle {
+    @apply text-lg text-neutral-600 dark:text-neutral-400;
+  }
 
-	/* Basic Cards */
-	.basic-card {
-		@apply rounded-md border-[1px] border-neutral-300 bg-neutral-100 bg-opacity-70 p-4 dark:border-neutral-700 dark:bg-neutral-800 dark:bg-opacity-70;
-	}
+  /* Basic Cards */
+  .basic-card {
+    @apply rounded-md border-[1px] border-neutral-300 bg-neutral-100 bg-opacity-70 p-4 dark:border-neutral-700 dark:bg-neutral-800 dark:bg-opacity-70;
+  }
 
-	/* Links */
-	.link {
-		@apply text-neutral-400 transition-all hover:text-neutral-200;
-	}
+  /* Links */
+  .link {
+    @apply text-neutral-400 transition-all hover:text-neutral-200;
+  }
 }
 
 /* Icon sizing */
 .icon.sm {
-	@apply h-[24px] w-[24px];
+  @apply h-[24px] w-[24px];
 }
 
 /* TODO: Add all notion styles here */
 .notion-code-inline {
-	@apply rounded-md bg-neutral-800 p-1 font-mono text-sm text-red-400 !important;
+  @apply rounded-md bg-neutral-800 p-1 font-mono text-sm text-red-400 !important;
 }

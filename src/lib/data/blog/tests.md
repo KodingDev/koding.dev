@@ -9,7 +9,7 @@ date: 2019-01-01
 This is a test!
 
 **This is bold!**
-*This is italic!*
+_This is italic!_
 
 This is a link to [Google](https://google.com)
 

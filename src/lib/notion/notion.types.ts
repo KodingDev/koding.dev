@@ -8,37 +8,37 @@
  * @see https://developers.notion.com/reference/block#block-type-object
  */
 export const NOTION_BLOCK_TYPES = [
-	'paragraph',
-	'heading_1',
-	'heading_2',
-	'heading_3',
-	'bulleted_list_item',
-	'numbered_list_item',
-	'to_do',
-	'toggle',
-	'child_page',
-	'child_database',
-	'embed',
-	'image',
-	'video',
-	'file',
-	'pdf',
-	'bookmark',
-	'callout',
-	'quote',
-	'equation',
-	'divider',
-	'table_of_contents',
-	'column',
-	'column_list',
-	'link_preview',
-	'synced_block',
-	'template',
-	'link_to_page',
-	'table',
-	'table_row',
-	'code',
-	'unsupported'
+  'paragraph',
+  'heading_1',
+  'heading_2',
+  'heading_3',
+  'bulleted_list_item',
+  'numbered_list_item',
+  'to_do',
+  'toggle',
+  'child_page',
+  'child_database',
+  'embed',
+  'image',
+  'video',
+  'file',
+  'pdf',
+  'bookmark',
+  'callout',
+  'quote',
+  'equation',
+  'divider',
+  'table_of_contents',
+  'column',
+  'column_list',
+  'link_preview',
+  'synced_block',
+  'template',
+  'link_to_page',
+  'table',
+  'table_row',
+  'code',
+  'unsupported'
 ] as const;
 
 export type BlockType = typeof NOTION_BLOCK_TYPES[number];
@@ -48,15 +48,15 @@ export type BlockType = typeof NOTION_BLOCK_TYPES[number];
  * @see https://developers.notion.com/reference/rich-text
  */
 export const NOTION_COLORS = [
-	'blue',
-	'brown',
-	'gray',
-	'green',
-	'orange',
-	'pink',
-	'purple',
-	'red',
-	'yellow'
+  'blue',
+  'brown',
+  'gray',
+  'green',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'yellow'
 ] as const;
 
 export type NotionColorForeground = typeof NOTION_COLORS[number];
@@ -72,31 +72,31 @@ export type RichTextType = typeof RICH_TEXT_TYPES[number];
 
 // Rich text type - text
 export type RichTextDataText = {
-	content: string;
-	plain_text: string;
-	link?: {
-		url: string;
-	};
+  content: string;
+  plain_text: string;
+  link?: {
+    url: string;
+  };
 };
 
 // Annotations
 export type RichTextAnnotations = {
-	bold?: boolean;
-	italic?: boolean;
-	strikethrough?: boolean;
-	underline?: boolean;
-	code?: boolean;
-	color?: NotionColor;
+  bold?: boolean;
+  italic?: boolean;
+  strikethrough?: boolean;
+  underline?: boolean;
+  code?: boolean;
+  color?: NotionColor;
 };
 
 export type NotionRichTextData = {
-	type: RichTextType;
-	annotations: RichTextAnnotations;
-	plain_text: string;
-	href?: string;
+  type: RichTextType;
+  annotations: RichTextAnnotations;
+  plain_text: string;
+  href?: string;
 } & {
-	type: 'text';
-	text: RichTextDataText;
+  type: 'text';
+  text: RichTextDataText;
 };
 
 /**
@@ -104,11 +104,11 @@ export type NotionRichTextData = {
  * @see https://developers.notion.com/reference/block
  */
 export type NotionBlock = {
-	id: string;
-	type: BlockType;
+  id: string;
+  type: BlockType;
 
-	has_children: boolean;
-	children?: NotionBlock[];
+  has_children: boolean;
+  children?: NotionBlock[];
 };
 
 /**
@@ -116,23 +116,23 @@ export type NotionBlock = {
  * @see https://developers.notion.com/reference/emoji-object
  */
 export type NotionEmoji = {
-	type: 'emoji';
-	emoji: string;
+  type: 'emoji';
+  emoji: string;
 };
 
 export type NotionFile = {
-	type: 'file';
-	file: {
-		url: string;
-		expiry_time: string;
-	};
+  type: 'file';
+  file: {
+    url: string;
+    expiry_time: string;
+  };
 };
 
 export type NotionExternal = {
-	type: 'external';
-	external: {
-		url: string;
-	};
+  type: 'external';
+  external: {
+    url: string;
+  };
 };
 
 /**
@@ -141,75 +141,75 @@ export type NotionExternal = {
  * @see https://developers.notion.com/reference/property-object
  */
 export type NotionPage = {
-	object: 'database';
-	id: string;
+  object: 'database';
+  id: string;
 
-	created_time: string; // ISO 8601
-	last_edited_time: string; // ISO 8601
+  created_time: string; // ISO 8601
+  last_edited_time: string; // ISO 8601
 
-	cover?: NotionFile | NotionExternal;
-	icon?: NotionEmoji | NotionFile | NotionExternal;
+  cover?: NotionFile | NotionExternal;
+  icon?: NotionEmoji | NotionFile | NotionExternal;
 
-	properties: {
-		[key: string]: NotionProperty;
-	};
+  properties: {
+    [key: string]: NotionProperty;
+  };
 };
 
 export type NotionProperty = GenericProperty &
-	TitleProperty &
-	RichTextProperty &
-	CheckboxProperty &
-	UrlProperty &
-	DateProperty;
+  TitleProperty &
+  RichTextProperty &
+  CheckboxProperty &
+  UrlProperty &
+  DateProperty;
 
 export type GenericProperty = {
-	id: string;
-	type:
-		| 'title'
-		| 'rich_text'
-		| 'number'
-		| 'select'
-		| 'multi_select'
-		| 'date'
-		| 'people'
-		| 'file'
-		| 'checkbox'
-		| 'url'
-		| 'email'
-		| 'phone_number'
-		| 'formula'
-		| 'relation'
-		| 'rollup'
-		| 'created_time'
-		| 'created_by'
-		| 'last_edited_time'
-		| 'last_edited_by';
+  id: string;
+  type:
+    | 'title'
+    | 'rich_text'
+    | 'number'
+    | 'select'
+    | 'multi_select'
+    | 'date'
+    | 'people'
+    | 'file'
+    | 'checkbox'
+    | 'url'
+    | 'email'
+    | 'phone_number'
+    | 'formula'
+    | 'relation'
+    | 'rollup'
+    | 'created_time'
+    | 'created_by'
+    | 'last_edited_time'
+    | 'last_edited_by';
 };
 
 export type TitleProperty = {
-	type: 'title';
-	title: NotionRichTextData[];
+  type: 'title';
+  title: NotionRichTextData[];
 };
 
 export type RichTextProperty = {
-	type: 'rich_text';
-	rich_text: NotionRichTextData[];
+  type: 'rich_text';
+  rich_text: NotionRichTextData[];
 };
 
 export type CheckboxProperty = {
-	type: 'checkbox';
-	checkbox: boolean;
+  type: 'checkbox';
+  checkbox: boolean;
 };
 
 export type UrlProperty = {
-	type: 'url';
-	url: string;
+  type: 'url';
+  url: string;
 };
 
 export type DateProperty = {
-	type: 'date';
-	date: {
-		start: string; // ISO 8601
-		end?: string; // ISO 8601
-	};
+  type: 'date';
+  date: {
+    start: string; // ISO 8601
+    end?: string; // ISO 8601
+  };
 };

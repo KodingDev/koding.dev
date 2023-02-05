@@ -7,7 +7,7 @@ import type { QueryDatabaseParameters } from '@notionhq/client/build/src/api-end
  * Notion client
  */
 export const notionClient = new Client({
-	auth: NOTION_KEY
+  auth: NOTION_KEY
 });
 
 /**
@@ -17,11 +17,11 @@ export const notionClient = new Client({
  * @return The children.
  */
 export const getBlocks = async (blockId: string): Promise<NotionBlock[]> => {
-	const { results } = await notionClient.blocks.children.list({
-		block_id: blockId,
-		page_size: 50
-	});
-	return results as NotionBlock[];
+  const { results } = await notionClient.blocks.children.list({
+    block_id: blockId,
+    page_size: 50
+  });
+  return results as NotionBlock[];
 };
 
 /**
@@ -31,22 +31,22 @@ export const getBlocks = async (blockId: string): Promise<NotionBlock[]> => {
  * @return The children.
  */
 export const getAllBlocks = async (blockId: string) => {
-	const blocks = await getBlocks(blockId);
+  const blocks = await getBlocks(blockId);
 
-	const children: NotionBlock[] = await Promise.all(
-		blocks.map(async (block) => {
-			if (block.has_children) {
-				return {
-					...block,
-					children: await getAllBlocks(block.id)
-				};
-			}
+  const children: NotionBlock[] = await Promise.all(
+    blocks.map(async (block) => {
+      if (block.has_children) {
+        return {
+          ...block,
+          children: await getAllBlocks(block.id)
+        };
+      }
 
-			return block;
-		})
-	);
+      return block;
+    })
+  );
 
-	return children.flat();
+  return children.flat();
 };
 
 /**
@@ -56,13 +56,13 @@ export const getAllBlocks = async (blockId: string) => {
  * @param filter The filter.
  */
 export const queryDatabase = async (
-	databaseId: string,
-	filter?: QueryDatabaseParameters['filter']
+  databaseId: string,
+  filter?: QueryDatabaseParameters['filter']
 ): Promise<NotionPage[]> => {
-	const { results } = await notionClient.databases.query({
-		database_id: databaseId,
-		filter
-	});
+  const { results } = await notionClient.databases.query({
+    database_id: databaseId,
+    filter
+  });
 
-	return results as unknown as NotionPage[];
+  return results as unknown as NotionPage[];
 };
