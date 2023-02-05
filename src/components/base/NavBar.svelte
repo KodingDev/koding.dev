@@ -10,7 +10,8 @@
 		mode?: 'startswith' | 'exact';
 	}[] = [
 		{ label: 'Home', to: '/', mode: 'exact' },
-		{ label: 'Art', to: '/art' }
+		{ label: 'Art', to: '/art' },
+		{ label: 'Blog', to: '/blog' }
 	];
 </script>
 

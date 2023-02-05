@@ -1,16 +1,15 @@
 <script lang="ts">
-	// Layout
+	import { navigating } from '$app/stores';
 	import Footer from '$components/base/Footer.svelte';
 	import GradientCanvas from '$components/base/GradientCanvas.svelte';
 	import NavBar from '$components/base/NavBar.svelte';
-
-	// Styling
-	import '../app.postcss';
-
-	// Navigation
-	import { navigating } from '$app/stores';
 	import NProgress from 'nprogress';
 	import 'nprogress/nprogress.css';
+	import { fade } from 'svelte/transition';
+	import '../app.postcss';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	NProgress.configure({
 		showSpinner: false,
@@ -35,7 +34,11 @@
 			<GradientCanvas />
 		</div>
 
-		<slot />
+		{#key data.pathname}
+			<div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
+				<slot />
+			</div>
+		{/key}
 	</div>
 
 	<div class="px-8 pb-8">
