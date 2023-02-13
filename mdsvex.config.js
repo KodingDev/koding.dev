@@ -5,7 +5,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 const config = defineMDSveXConfig({
   extensions: ['.md', '.svx'],
   smartypants: {
-    dashes: 'oldschool'
+    dashes: 'oldschool',
   },
 
   rehypePlugins: [
@@ -13,10 +13,10 @@ const config = defineMDSveXConfig({
     [
       rehypeAutolinkHeadings,
       {
-        behavior: 'wrap'
-      }
-    ]
-  ]
+        behavior: 'wrap',
+      },
+    ],
+  ],
 });
 
 export default config;

@@ -13,10 +13,7 @@
   href={src}
   target="_blank"
   rel="noopener noreferrer"
-  class={clsx(
-    'relative overflow-clip rounded-3xl transition-all hover:scale-[101%] hover:shadow-2xl',
-    className
-  )}
+  class={clsx('relative overflow-clip rounded-3xl transition-all hover:scale-[101%] hover:shadow-2xl', className)}
 >
   <img {src} alt={title} class="aspect-auto h-full w-full object-cover" />
 

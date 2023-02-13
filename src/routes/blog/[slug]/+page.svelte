@@ -14,7 +14,7 @@
           >{new Date(data.metadata.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
           })}</span
         >
 

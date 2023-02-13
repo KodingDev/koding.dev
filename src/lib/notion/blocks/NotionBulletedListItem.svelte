@@ -17,16 +17,16 @@
   }[] = [
     {
       ul: 'list-disc',
-      li: 'ml-0'
+      li: 'ml-0',
     },
     {
       ul: '[list-style-type:circle]',
-      li: 'ml-8'
+      li: 'ml-8',
     },
     {
       ul: '[list-style-type:square]',
-      li: 'ml-16'
-    }
+      li: 'ml-16',
+    },
   ];
 </script>
 

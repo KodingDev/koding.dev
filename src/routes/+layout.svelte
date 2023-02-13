@@ -15,7 +15,7 @@
     showSpinner: false,
     easing: 'ease',
     speed: 250,
-    minimum: 0.3
+    minimum: 0.3,
   });
 
   $: {

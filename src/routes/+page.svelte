@@ -42,9 +42,7 @@
 
   <div class="flex flex-col gap-2">
     <h1 class="text-title">📫 Clients</h1>
-    <h2 class="text-subtitle">
-      I've worked with some great clients over the years. Here are some of them.
-    </h2>
+    <h2 class="text-subtitle">I've worked with some great clients over the years. Here are some of them.</h2>
 
     <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2 xl:grid-cols-3">
       {#each data.clients as client}

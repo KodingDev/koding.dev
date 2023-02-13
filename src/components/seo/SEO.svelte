@@ -14,7 +14,7 @@
   export let ogSquareImage: { url: string; alt: string } | undefined = undefined;
   export let twitterImage: { url: string; alt: string } | undefined = {
     url: CompactBannerPurple,
-    alt: 'Compact Banner Purple'
+    alt: 'Compact Banner Purple',
   };
 
   const url = `${website.siteUrl}/${slug}`;
@@ -28,12 +28,12 @@
     squareImage: ogSquareImage,
 
     ogLanguage: website.siteLanguage,
-    siteTitle: website.siteTitle
+    siteTitle: website.siteTitle,
   };
 
   const twitterProps = {
     image: twitterImage,
-    twitterUsername: website.twitterUsername
+    twitterUsername: website.twitterUsername,
   };
 </script>
 
@@ -41,10 +41,7 @@
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
   <meta name="theme-color" content={website.themeColor} />
-  <meta
-    name="robots"
-    content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-  />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 </svelte:head>
 
 <Twitter {...twitterProps} />

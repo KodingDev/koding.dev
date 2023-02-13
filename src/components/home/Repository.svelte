@@ -14,13 +14,8 @@
     </p>
 
     <div class="flex flex-row items-center gap-2">
-      <div
-        class="h-2 w-2 rounded-full p-2"
-        style:background-color={repository.languageColor ?? '#616161'}
-      />
-      <span class="text-body text-black dark:text-neutral-400"
-        >{repository.language ?? 'Generic'}</span
-      >
+      <div class="h-2 w-2 rounded-full p-2" style:background-color={repository.languageColor ?? '#616161'} />
+      <span class="text-body text-black dark:text-neutral-400">{repository.language ?? 'Generic'}</span>
     </div>
   </div>
 </a>

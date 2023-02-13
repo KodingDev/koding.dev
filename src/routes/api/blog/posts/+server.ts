@@ -18,7 +18,7 @@ export const GET: RequestHandler = async () => {
     // Return the post
     return {
       slug,
-      metadata: post.metadata
+      metadata: post.metadata,
     };
   });
 

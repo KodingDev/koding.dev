@@ -8,7 +8,7 @@ const website = {
 
   themeColor: '#8439ff',
 
-  twitterUsername: 'KodingDev_'
+  twitterUsername: 'KodingDev_',
 };
 
 export default website;

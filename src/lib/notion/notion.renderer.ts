@@ -29,7 +29,7 @@ export const NOTION_BLOCK_RENDERERS: Partial<Record<BlockType, () => typeof Svel
 
   image: () => NotionImage,
 
-  code: () => NotionCode
+  code: () => NotionCode,
 };
 
 /**
@@ -58,5 +58,5 @@ export const NOTION_COLOR_MAP: Record<NotionColor | 'default', string> = {
   green_background: 'bg-green-500 dark:bg-green-400',
   purple_background: 'bg-purple-500 dark:bg-purple-400',
   pink_background: 'bg-pink-500 dark:bg-pink-400',
-  red_background: 'bg-red-500 dark:bg-red-400'
+  red_background: 'bg-red-500 dark:bg-red-400',
 };

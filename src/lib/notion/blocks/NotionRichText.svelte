@@ -14,9 +14,7 @@
       class:underline={text.annotations.underline}
       class:line-through={text.annotations.strikethrough}
       class:notion-code-inline={text.annotations.code}
-      class={NOTION_COLOR_MAP[
-        text.annotations.color === 'default' ? color : text.annotations.color
-      ]}
+      class={NOTION_COLOR_MAP[text.annotations.color === 'default' ? color : text.annotations.color]}
     >
       {#if text.text.link}
         <a href={text.text.link.url}>

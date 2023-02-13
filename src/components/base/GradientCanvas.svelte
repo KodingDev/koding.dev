@@ -14,18 +14,12 @@
       ctx.fillRect(x, y, 1, 1);
     };
 
-    const calcR = (x: number, y: number, t: number) =>
-      Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
+    const calcR = (x: number, y: number, t: number) => Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
 
-    const calcG = (x: number, y: number, t: number) =>
-      Math.floor(70 + (64 * (x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3))) / 300);
+    const calcG = (x: number, y: number, t: number) => Math.floor(70 + (64 * (x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3))) / 300);
 
     const calcB = (x: number, y: number, t: number) =>
-      Math.floor(
-        192 +
-          64 *
-            Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100)
-      );
+      Math.floor(192 + 64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100));
 
     const draw = () => {
       for (let x = 0; x <= 35; x++) {
@@ -46,9 +40,4 @@
   });
 </script>
 
-<canvas
-  bind:this={canvas}
-  width="32"
-  height="32"
-  class="h-full w-full opacity-0 transition-all duration-500"
-/>
+<canvas bind:this={canvas} width="32" height="32" class="h-full w-full opacity-0 transition-all duration-500" />

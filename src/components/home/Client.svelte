@@ -1,11 +1,5 @@
 <script lang="ts">
-  import type {
-    DateProperty,
-    NotionPage,
-    RichTextProperty,
-    TitleProperty,
-    UrlProperty
-  } from '$lib/notion';
+  import type { DateProperty, NotionPage, RichTextProperty, TitleProperty, UrlProperty } from '$lib/notion';
   import NotionRichText from '$lib/notion/blocks/NotionRichText.svelte';
 
   export let client: NotionPage;
@@ -21,7 +15,7 @@
   const formatDate = (date: Date) =>
     date.toLocaleDateString('en-US', {
       month: 'long',
-      year: 'numeric'
+      year: 'numeric',
     });
 
   const start = formatDate(new Date(date.date.start));
@@ -34,11 +28,7 @@
   >
     {#if client.cover}
       <div class="relative">
-        <img
-          src={client.cover[client.cover.type].url}
-          class="h-40 w-full object-cover"
-          alt="Company cover"
-        />
+        <img src={client.cover[client.cover.type].url} class="h-40 w-full object-cover" alt="Company cover" />
 
         {#if client.icon}
           <img

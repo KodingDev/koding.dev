@@ -11,10 +11,7 @@
   </div>
 
   {#each data.posts as post}
-    <a
-      href="/blog/{post.slug}"
-      class="rounded-lg bg-neutral-800 p-4 transition-all hover:scale-[101%]"
-    >
+    <a href="/blog/{post.slug}" class="rounded-lg bg-neutral-800 p-4 transition-all hover:scale-[101%]">
       <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
 
       <div class="flex flex-row gap-2">
@@ -22,7 +19,7 @@
           >{new Date(post.metadata.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
           })}</span
         >
 

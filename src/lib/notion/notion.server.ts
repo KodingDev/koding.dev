@@ -7,7 +7,7 @@ import type { QueryDatabaseParameters } from '@notionhq/client/build/src/api-end
  * Notion client
  */
 export const notionClient = new Client({
-  auth: NOTION_KEY
+  auth: NOTION_KEY,
 });
 
 /**
@@ -19,7 +19,7 @@ export const notionClient = new Client({
 export const getBlocks = async (blockId: string): Promise<NotionBlock[]> => {
   const { results } = await notionClient.blocks.children.list({
     block_id: blockId,
-    page_size: 50
+    page_size: 50,
   });
   return results as NotionBlock[];
 };
@@ -38,7 +38,7 @@ export const getAllBlocks = async (blockId: string) => {
       if (block.has_children) {
         return {
           ...block,
-          children: await getAllBlocks(block.id)
+          children: await getAllBlocks(block.id),
         };
       }
 
@@ -55,13 +55,10 @@ export const getAllBlocks = async (blockId: string) => {
  * @param databaseId The database ID.
  * @param filter The filter.
  */
-export const queryDatabase = async (
-  databaseId: string,
-  filter?: QueryDatabaseParameters['filter']
-): Promise<NotionPage[]> => {
+export const queryDatabase = async (databaseId: string, filter?: QueryDatabaseParameters['filter']): Promise<NotionPage[]> => {
   const { results } = await notionClient.databases.query({
     database_id: databaseId,
-    filter
+    filter,
   });
 
   return results as unknown as NotionPage[];

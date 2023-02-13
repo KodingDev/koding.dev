@@ -11,17 +11,13 @@
   }[] = [
     { label: 'Home', to: '/', mode: 'exact' },
     { label: 'Art', to: '/art' },
-    { label: 'Blog', to: '/blog' }
+    { label: 'Blog', to: '/blog' },
   ];
 </script>
 
 <div class="flex flex-row justify-between">
   <div class="flex flex-row items-center gap-6">
-    <img
-      src="https://avatars.githubusercontent.com/u/23714764?v=4"
-      alt="Stella"
-      class="h-10 w-10 rounded-full"
-    />
+    <img src="https://avatars.githubusercontent.com/u/23714764?v=4" alt="Stella" class="h-10 w-10 rounded-full" />
 
     {#each links as { label, to, mode }}
       <NavLink {to} {mode}>{label}</NavLink>

@@ -14,8 +14,8 @@ export const load = async ({ fetch }: ServerLoadEvent) => {
   const pages = await queryDatabase(NOTION_CLIENTS_DB_ID, {
     property: 'Public',
     checkbox: {
-      equals: true
-    }
+      equals: true,
+    },
   }).catch((err) => {
     console.error('Failed to fetch clients from Notion', err);
     return [];
@@ -32,7 +32,7 @@ export const load = async ({ fetch }: ServerLoadEvent) => {
 
       return {
         page,
-        date
+        date,
       };
     })
     .sort((a, b) => b.date.getTime() - a.date.getTime())

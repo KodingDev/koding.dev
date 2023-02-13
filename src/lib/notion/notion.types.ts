@@ -38,28 +38,18 @@ export const NOTION_BLOCK_TYPES = [
   'table',
   'table_row',
   'code',
-  'unsupported'
+  'unsupported',
 ] as const;
 
-export type BlockType = typeof NOTION_BLOCK_TYPES[number];
+export type BlockType = (typeof NOTION_BLOCK_TYPES)[number];
 
 /**
  * Notion colors (excl. default)
  * @see https://developers.notion.com/reference/rich-text
  */
-export const NOTION_COLORS = [
-  'blue',
-  'brown',
-  'gray',
-  'green',
-  'orange',
-  'pink',
-  'purple',
-  'red',
-  'yellow'
-] as const;
+export const NOTION_COLORS = ['blue', 'brown', 'gray', 'green', 'orange', 'pink', 'purple', 'red', 'yellow'] as const;
 
-export type NotionColorForeground = typeof NOTION_COLORS[number];
+export type NotionColorForeground = (typeof NOTION_COLORS)[number];
 export type NotionColorBackground = `${NotionColorForeground}_background`;
 export type NotionColor = NotionColorForeground | NotionColorBackground;
 
@@ -68,7 +58,7 @@ export type NotionColor = NotionColorForeground | NotionColorBackground;
  * @see https://developers.notion.com/reference/rich-text
  */
 export const RICH_TEXT_TYPES = ['text', 'mention', 'equation'] as const;
-export type RichTextType = typeof RICH_TEXT_TYPES[number];
+export type RichTextType = (typeof RICH_TEXT_TYPES)[number];
 
 // Rich text type - text
 export type RichTextDataText = {
@@ -155,12 +145,7 @@ export type NotionPage = {
   };
 };
 
-export type NotionProperty = GenericProperty &
-  TitleProperty &
-  RichTextProperty &
-  CheckboxProperty &
-  UrlProperty &
-  DateProperty;
+export type NotionProperty = GenericProperty & TitleProperty & RichTextProperty & CheckboxProperty & UrlProperty & DateProperty;
 
 export type GenericProperty = {
   id: string;

@@ -8,12 +8,7 @@
   export let data: PageData;
 </script>
 
-<SEO
-  title={data.title}
-  slug={`/art/${data.slug}`}
-  description={data.description || ''}
-  twitterImage={{ url: getURL(data.images[0]), alt: 'Illustration' }}
-/>
+<SEO title={data.title} slug={`/art/${data.slug}`} description={data.description || ''} twitterImage={{ url: getURL(data.images[0]), alt: 'Illustration' }} />
 
 <div class="flex flex-col gap-6">
   <a class="link w-fit" href="/art">&larr; Back to Gallery</a>
