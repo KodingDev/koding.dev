@@ -1,10 +1,14 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
-  import Footer from '$components/base/Footer.svelte';
-  import GradientCanvas from '$components/base/GradientCanvas.svelte';
-  import NavBar from '$components/base/NavBar.svelte';
+  import Logo from '$assets/commissions/siomi/1/main.png';
+  import '@fontsource/poppins/400.css';
+  import '@fontsource/poppins/500.css';
+  import '@fontsource/poppins/700.css';
   import NProgress from 'nprogress';
   import 'nprogress/nprogress.css';
+  import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
+  import FaGitHub from 'svelte-icons/fa/FaGithub.svelte';
+  import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
   import { fade } from 'svelte/transition';
   import '../app.postcss';
   import type { PageData } from './$types';
@@ -24,24 +28,41 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full flex-col">
-  <div class="px-8 pt-8">
-    <NavBar />
-  </div>
-
-  <div class="h-full grow pt-12 md:px-8">
-    <div class="fixed left-0 top-0 -z-50 h-screen w-screen opacity-10">
-      <GradientCanvas />
-    </div>
-
-    {#key data.pathname}
-      <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
-        <slot />
+<div class="min-w-screen min-h-screen bg-primary-800">
+  <!-- Navbar -->
+  <div class="layout-container flex h-24 border-b border-b-white/10">
+    <div class="my-auto flex w-full flex-row items-center">
+      <img class="aspect-square h-11 rounded-xl object-cover object-top" src={Logo} alt="Logo" />
+      <div class="flex flex-1 flex-row items-center justify-end gap-12 pl-12 md:justify-start md:pl-24">
+        <a class="text-lg font-medium text-white opacity-75" href="/">Home</a>
+        <a class="text-lg font-medium text-white opacity-75" href="/">Blog</a>
+        <a class="text-lg font-medium text-white opacity-75" href="/">Art</a>
       </div>
-    {/key}
+      <div class="hidden flex-row items-center gap-4 md:flex">
+        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#1E96E8]/5 p-3" href="https://twitter.com/KodingDev_">
+          <span class="opacity-75"><FaTwitter /></span>
+        </a>
+
+        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#8439FF]/5 p-3" href="https://twitter.com/KodingDev_">
+          <span class="opacity-75"><FaEnvelope /></span>
+        </a>
+
+        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#000000]/5 p-3" href="https://twitter.com/KodingDev_">
+          <span class="opacity-75"><FaGitHub /></span>
+        </a>
+      </div>
+    </div>
   </div>
 
-  <div class="px-8 pb-8">
-    <Footer />
+  {#key data.pathname}
+    <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
+      <slot />
+    </div>
+  {/key}
+
+  <!-- Footer -->
+  <div class="layout-container flex flex-row pb-24">
+    <span class="flex-1 font-medium opacity-50">Copyright © Koding Development 2023</span>
+    <span class="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
   </div>
 </div>
