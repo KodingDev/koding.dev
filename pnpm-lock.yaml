@@ -2,6 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fontsource/poppins': ^4.5.10
+  '@iconify-json/vscode-icons': ^1.1.22
+  '@iconify/tailwind': ^0.1.1
   '@notionhq/client': ^2.2.2
   '@sveltejs/adapter-vercel': ^1.0.0-next.81
   '@sveltejs/kit': next
@@ -41,6 +43,8 @@ dependencies:
   nprogress: 0.2.0
 
 devDependencies:
+  '@iconify-json/vscode-icons': 1.1.22
+  '@iconify/tailwind': 0.1.1
   '@sveltejs/adapter-vercel': 1.0.6_l5ueyfihz3gpzzvvyo2ean5u3e
   '@sveltejs/kit': 1.0.0-next.589_svelte@3.55.1+vite@4.1.1
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
@@ -309,6 +313,22 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/vscode-icons/1.1.22:
+    resolution: {integrity: sha512-lO0Sl2xApg/R7PlZJOiRbwuOQFXPRVbM8c+RHOMxWEUF0Hd/UiHBemYjdUDW5pr9QNmvv183rwJiBFHBvIeZ5A==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/tailwind/0.1.1:
+    resolution: {integrity: sha512-K16lFhEIvfUNOhvZ7UC90xMWp6560nFcixDJ4m7z3N1oAG/n0Dyqem32KzgzvcCaw371znONJAwUM/LQuLBJSQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
 
   /@jridgewell/resolve-uri/3.1.0:

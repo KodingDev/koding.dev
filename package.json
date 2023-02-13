@@ -12,6 +12,8 @@
     "tunnel": "cloudflared tunnel run --url http://localhost:5173"
   },
   "devDependencies": {
+    "@iconify-json/vscode-icons": "^1.1.22",
+    "@iconify/tailwind": "^0.1.1",
     "@sveltejs/adapter-vercel": "^1.0.0-next.81",
     "@sveltejs/kit": "next",
     "@tailwindcss/line-clamp": "^0.4.2",

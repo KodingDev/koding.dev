@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const { addDynamicIconSelectors } = require('@iconify/tailwind');
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -21,12 +22,12 @@ const config = {
           700: '#25143A',
           800: '#0F071D',
           900: '#0D0A13',
-        }
-      }
+        },
+      },
     },
   },
 
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp'), addDynamicIconSelectors()],
 };
 
 module.exports = config;

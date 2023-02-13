@@ -5,6 +5,7 @@
   import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
   import FaJsSquare from 'svelte-icons/fa/FaJsSquare.svelte';
+  import { LANGUAGES, PROJECTS } from '$lib/data/projects';
 
   export let data: PageData;
 </script>
@@ -75,28 +76,27 @@
 <div class="layout-container pb-36">
   <div class="flex items-center justify-between pb-12 align-middle">
     <h1 class="text-2xl font-medium"><span class="pr-4">💻</span> Projects</h1>
-    <span class="font-medium opacity-50">Some of my personal projects, pulled from my GitHub.</span>
+    <span class="font-medium opacity-50">Some of the cool things I've worked on.</span>
   </div>
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-    {#each Array(6) as _, i}
+    {#each PROJECTS as project}
+      <!-- TODO: Link, component, year -->
       <div class="flex flex-col gap-3 rounded-md border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6">
         <div class="flex flex-row items-center">
           <!-- Language icon -->
-          <span class="h-5 w-5 text-[#FAC230]">
-            <FaJsSquare />
-          </span>
+          <span class="{LANGUAGES[project.language].icon} h-5 w-5" />
 
           <!-- Language name -->
-          <span class="ml-2 opacity-75">JavaScript</span>
+          <span class="ml-2 opacity-75">{LANGUAGES[project.language].name}</span>
 
           <!-- Year -->
-          <span class="ml-auto opacity-75">2021</span>
+          <span class="ml-auto opacity-75">{project.year ?? 'Current'}</span>
         </div>
 
         <div class="flex flex-row items-center">
           <!-- Project name -->
-          <h1 class="text-2xl font-bold">Project {i + 1}</h1>
+          <h1 class="text-2xl font-bold">{project.name}</h1>
 
           <!-- Arrow Icon -->
           <span class="ml-6">
@@ -106,7 +106,7 @@
           </span>
         </div>
 
-        <span class="opacity-75">Publishing a reference-grade YouTube channel, podcast, and website.</span>
+        <span class="opacity-75">{project.description}</span>
       </div>
     {/each}
   </div>
@@ -137,7 +137,6 @@
 </div>
 
 <!-- Clients -->
-
 <div class="layout-container pb-36">
   <div class="flex items-center justify-between pb-12 align-middle">
     <h1 class="text-2xl font-medium"><span class="pr-4">📫</span> Clients</h1>
