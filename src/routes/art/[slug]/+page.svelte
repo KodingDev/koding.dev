@@ -1,14 +1,14 @@
 <script lang="ts">
   import CommissionImage from '$components/art/CommissionImage.svelte';
   import CommissionPage from '$components/art/CommissionPage.svelte';
-  import SEO from '$components/seo/SEO.svelte';
+  import Seo from '$components/seo/Seo.svelte';
   import { getText, getURL } from '$lib/data/commissions';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
-<SEO title={data.title} slug={`/art/${data.slug}`} description={data.description || ''} twitterImage={{ url: getURL(data.images[0]), alt: 'Illustration' }} />
+<Seo title={data.title} slug={`/art/${data.slug}`} description={data.description || ''} twitterImage={{ url: getURL(data.images[0]), alt: 'Illustration' }} />
 
 <div class="flex flex-col gap-6">
   <a class="link w-fit" href="/art">&larr; Back to Gallery</a>

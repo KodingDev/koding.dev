@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import SEO from '$components/seo/SEO.svelte';
+  import SEO from '$components/seo/Seo.svelte';
 </script>
 
 <SEO title="Error" slug="/" />

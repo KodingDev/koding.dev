@@ -2,12 +2,12 @@
   import CommissionCard from '$components/art/CommissionCard.svelte';
   import CommissionImage from '$components/art/CommissionImage.svelte';
   import CommissionPage from '$components/art/CommissionPage.svelte';
+  import Seo from '$components/seo/Seo.svelte';
 
-  import SEO from '$components/seo/SEO.svelte';
   import { commissions, getURL, pinned } from '$lib/data/commissions';
 </script>
 
-<SEO title="Art" slug="/art" />
+<Seo title="Art" slug="/art" />
 
 <div class="flex flex-col gap-2">
   <!-- Pinned card -->

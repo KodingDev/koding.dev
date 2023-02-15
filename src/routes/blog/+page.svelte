@@ -1,35 +1,42 @@
 <script lang="ts">
+  import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
-<div class="mx-auto flex w-10/12 flex-col gap-10 pb-12">
-  <div class="flex flex-col gap-4">
-    <h1 class="text-4xl font-bold">Blog</h1>
-    <p class="text-neutral-300">A collection of my thoughts and ramblings.</p>
+<Seo title="Blog" slug="/blog" />
+
+<div class="layout-container pt-40 pb-36">
+  <div class="flex flex-col gap-3">
+    <p class="text-2xl font-medium"><span class="pr-4">📖</span> Blog</p>
+    <h1 class="text-5xl font-bold leading-[1.8] sm:text-5xl sm:leading-[1.8]">My thoughts on software development, web development, and more.</h1>
   </div>
 
-  {#each data.posts as post}
-    <a href="/blog/{post.slug}" class="rounded-lg bg-neutral-800 p-4 transition-all hover:scale-[101%]">
-      <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
+  <div class="flex flex-col pt-32">
+    <!-- TODO: Cleanup, tags -->
+    {#each data.posts as post}
+      <a href="/blog/{post.slug}" class="flex flex-row items-center border-b border-b-white/[15%]">
+        <!-- TODO: Make the below a component -->
+        <div class="flex grow flex-col gap-3 py-9">
+          <!-- Date -->
+          <span
+            >{new Date(post.metadata.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}</span
+          >
 
-      <div class="flex flex-row gap-2">
-        <span class="text-neutral-300"
-          >{new Date(post.metadata.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}</span
-        >
+          <!-- Title -->
+          <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
 
-        {#if post.metadata.tags}
-          {#each post.metadata.tags as tag}
-            <span class="text-neutral-400">#{tag}</span>
-          {/each}
-        {/if}
-      </div>
-      <p class="pt-2">{post.metadata.description ?? 'Take a read :)'}</p>
-    </a>
-  {/each}
+          <!-- Excerpt -->
+          <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
+        </div>
+
+        <img src={post.metadata.cover} alt="" class="aspect-video h-32 rounded-xl border border-white/25 object-cover" />
+      </a>
+    {/each}
+  </div>
 </div>

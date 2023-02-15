@@ -1,14 +1,17 @@
 <script lang="ts">
-  import SEO from '$components/seo/SEO.svelte';
+  import Seo from '$components/seo/Seo.svelte';
 
   import Project from '$components/home/Project.svelte';
   import TwinklingStar from '$components/home/TwinklingStar.svelte';
   import { PROJECTS } from '$lib/data/projects';
   import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
+  import type { PageData } from './$types';
+
+  export let data: PageData;
 </script>
 
-<SEO title="Home" slug="/" />
+<Seo title="Home" slug="/" />
 
 <!-- TODO: Check height calc on mobile -->
 <!-- calc = full height - h-24 (navbar / 6 rem) -->
@@ -106,7 +109,8 @@
 <div class="layout-container pb-36">
   <div class="flex flex-row items-center pb-12 align-middle">
     <h1 class="text-2xl font-medium opacity-75"><span class="pr-4">📖</span> Blog</h1>
-    <a class="flex flex-row items-center gap-2 pl-4 opacity-50" href="#">
+    <!-- TODO: Hover -->
+    <a class="flex flex-row items-center gap-2 pl-4 opacity-50" href="/blog">
       View all
       <span class="h-3 w-3"><FaArrowRight /></span>
     </a>
@@ -116,12 +120,26 @@
   <!-- Posts -->
   <!-- TODO: Scroll -->
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-    {#each Array(3) as _, i}
-      <div class="flex flex-col gap-3 rounded-md border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6">
-        <span class="opacity-75">December 31, 2022</span>
-        <h1 class="text-2xl font-bold">The first test blog</h1>
-        <span class="opacity-75">This is the first test. Nothing much to see here.</span>
-      </div>
+    {#each data.posts as post}
+      <a
+        href={`/blog/${post.slug}`}
+        class="hoverable hoverable-card flex flex-col gap-3 border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6 transition-all hover:scale-[101%] hover:shadow-xl"
+      >
+        <!-- Date -->
+        <span
+          >{new Date(post.metadata.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}</span
+        >
+
+        <!-- Title -->
+        <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
+
+        <!-- Excerpt -->
+        <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
+      </a>
     {/each}
   </div>
 </div>

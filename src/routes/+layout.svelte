@@ -38,8 +38,8 @@
       <img class="aspect-square h-11 rounded-xl object-cover object-top" src={Logo} alt="Logo" />
       <div class="flex flex-1 flex-row items-center justify-end gap-12 pl-12 md:justify-start md:pl-24">
         <a class="text-lg font-medium text-white opacity-75" href="/">Home</a>
-        <a class="text-lg font-medium text-white opacity-75" href="/">Blog</a>
-        <a class="text-lg font-medium text-white opacity-75" href="/">Art</a>
+        <a class="text-lg font-medium text-white opacity-75" href="/blog">Blog</a>
+        <a class="text-lg font-medium text-white opacity-75" href="/art">Art</a>
       </div>
       <div class="hidden flex-row items-center gap-4 md:flex">
         <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#1E96E8]/5 p-3" href="https://twitter.com/KodingDev_">

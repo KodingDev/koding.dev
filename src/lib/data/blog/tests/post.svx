@@ -1,0 +1,87 @@
+---
+title: Test
+description: This is a test post, there's nothing to see here.
+date: 2019-01-01
+---
+
+<script lang="ts">
+  import Cover from './images/ball.png';
+</script>
+
+# Hey!
+
+This is an example of a post written in Markdown.
+
+<!-- Write a lot of sample text here as if it was an actual post. -->
+
+In my posts recently, I've been using a lot of images. I've been using the `img` tag to do this, but I've been having to manually set the width and height of the image. This is a pain, and I don't want to have to do it every time I add an image to a post.
+
+I've been using the `img` tag like this:
+
+```html
+<img src="./images/ball.png" width="100" height="100" />
+```
+
+But I don't want to have to manually set the width and height of the image. I want it to scale to the size of the image. I found a way to do this, but I don't think it's the best way to do it.
+
+I've been using the `img` tag like this:
+
+```html
+<img src="./images/ball.png" style="width: 100%; height: 100%;" />
+```
+
+This works, but I don't think it's a good way to do it. I think I should be able to set the width and height of the image in the CSS file. I tried doing this, but it didn't work. I'm not sure why.
+
+I'm not sure what the best way to do this is. I'm not sure what the best way to do this is. I'm not sure what the best way to do this is. I'm not sure what the best way to do this is.
+
+## Images
+
+Here's an example of an image:
+
+<img src={Cover} />
+
+# Hey!
+
+This is a test!
+
+**This is bold!**
+_This is italic!_
+
+This is a link to [Google](https://google.com)
+
+This is a code block:
+
+```js
+console.log('Hello World!');
+```
+
+This is a list:
+
+- Item 1
+- Item 2
+- Item 3
+
+This is a numbered list:
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+This is a table:
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| Item 1   | Item 2   | Item 3   |
+| Item 4   | Item 5   | Item 6   |
+
+This is a quote:
+
+> This is a quote!
+
+This is an image:
+
+![Image](https://i.imgur.com/1Q9ZQ9A.png)
+
+This is a horizontal rule:
+
+---
