@@ -1,14 +1,11 @@
 <script lang="ts">
   import SEO from '$components/seo/SEO.svelte';
-  import type { PageData } from './$types';
 
+  import Project from '$components/home/Project.svelte';
+  import TwinklingStar from '$components/home/TwinklingStar.svelte';
+  import { PROJECTS } from '$lib/data/projects';
   import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
-  import FaJsSquare from 'svelte-icons/fa/FaJsSquare.svelte';
-  import { LANGUAGES, PROJECTS } from '$lib/data/projects';
-  import TwinklingStar from '$components/home/TwinklingStar.svelte';
-
-  export let data: PageData;
 </script>
 
 <SEO title="Home" slug="/" />
@@ -98,33 +95,9 @@
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
     {#each PROJECTS as project}
-      <!-- TODO: Link, component, year -->
-      <div class="flex flex-col gap-3 rounded-md border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6">
-        <div class="flex flex-row items-center">
-          <!-- Language icon -->
-          <span class="{LANGUAGES[project.language].icon} h-5 w-5" />
-
-          <!-- Language name -->
-          <span class="ml-2 opacity-75">{LANGUAGES[project.language].name}</span>
-
-          <!-- Year -->
-          <span class="ml-auto opacity-75">{project.year ?? 'Current'}</span>
-        </div>
-
-        <div class="flex flex-row items-center">
-          <!-- Project name -->
-          <h1 class="text-2xl font-bold">{project.name}</h1>
-
-          <!-- Arrow Icon -->
-          <span class="ml-6">
-            <svg class="h-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.72308 16L0 14.2769L11.8154 2.46154H1.23077V0H16V14.7692H13.5385V4.18461L1.72308 16Z" fill="white" />
-            </svg>
-          </span>
-        </div>
-
-        <span class="opacity-75">{project.description}</span>
-      </div>
+      <!-- <HoverableCard> -->
+      <Project {project} />
+      <!-- </HoverableCard> -->
     {/each}
   </div>
 </div>

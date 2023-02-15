@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fontsource/poppins': ^4.5.10
+  '@iconify-json/material-symbols': ^1.1.29
   '@iconify-json/vscode-icons': ^1.1.22
   '@iconify/tailwind': ^0.1.1
   '@notionhq/client': ^2.2.2
@@ -43,6 +44,7 @@ dependencies:
   nprogress: 0.2.0
 
 devDependencies:
+  '@iconify-json/material-symbols': 1.1.29
   '@iconify-json/vscode-icons': 1.1.22
   '@iconify/tailwind': 0.1.1
   '@sveltejs/adapter-vercel': 1.0.6_l5ueyfihz3gpzzvvyo2ean5u3e
@@ -313,6 +315,12 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/material-symbols/1.1.29:
+    resolution: {integrity: sha512-bmLNfXIgl/58FXg8i03Lpxy7pGmKYcxYX/1NFwT0BpMstwDAJGqxn8G6/e1xHFGW4zwkAv3ydifEWMxRPZWd0Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/vscode-icons/1.1.22:

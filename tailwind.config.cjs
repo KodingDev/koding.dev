@@ -27,7 +27,14 @@ const config = {
     },
   },
 
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp'), addDynamicIconSelectors()],
+  plugins: [
+    // Tailwind
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+
+    // Iconify
+    addDynamicIconSelectors(),
+  ],
 };
 
 module.exports = config;

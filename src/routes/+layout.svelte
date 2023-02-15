@@ -1,6 +1,7 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
   import Logo from '$assets/commissions/siomi/1/main.png';
+  import HoverListener from '$components/interactive/HoverListener.svelte';
   import '@fontsource/poppins/400.css';
   import '@fontsource/poppins/500.css';
   import '@fontsource/poppins/700.css';
@@ -27,6 +28,8 @@
     if (!$navigating) NProgress.done();
   }
 </script>
+
+<HoverListener />
 
 <div class="min-w-screen min-h-screen bg-primary-800">
   <!-- Navbar -->
