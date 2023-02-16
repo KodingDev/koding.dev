@@ -1,3 +1,15 @@
+<!--
+  This code is based on the work of the work of Rodney Johnson from the
+  sveltekit-seo project. The original code can be found here:
+
+  https://github.com/rodneylab/sveltekit-seo/blob/main/src/lib/components/SEO/index.svelte
+
+  Modifications have been made to the code to make it work best with my use case.
+  The original code is licensed under "BSD 3-Clause "New" or "Revised" License",
+  which can be found here:
+
+  https://github.com/rodneylab/sveltekit-seo/blob/main/LICENSE
+-->
 <script lang="ts">
   import OpenGraph from './OpenGraph.svelte';
   import Twitter from './Twitter.svelte';
