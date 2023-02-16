@@ -21,20 +21,21 @@ export const getRelativePath = (path: string): string => {
 const POST_REGEX = new RegExp(`${POST_PATH}/(?<slug>[^/]+)/post.svx`);
 const POST_METADATA_REGEX = new RegExp(`${POST_PATH}/(?<slug>[^/]+)/meta.ts`);
 
-type GlobResult = [string, () => Promise<unknown>];
+type MarkdownGlob = [string, PostFile];
+type MetadataGlob = [string, { default: Partial<PostMetadata> }];
 
 /**
  * Glob the files and return the sections
  */
-const importPosts = async (): Promise<{ markdown: GlobResult[]; metadata: GlobResult[] }> => {
+const importPosts = async (): Promise<{ markdown: MarkdownGlob[]; metadata: MetadataGlob[] }> => {
   // Use import.meta.glob to get a list of all files
   // The glob pattern doesn't support template literals, so we have to use a string
   // at compile time. This is why we need to filter the files later.
-  const imported = import.meta.glob(`/src/lib/data/blog/*/{post.svx,meta.ts}`);
+  const imported = import.meta.glob(`/src/lib/data/blog/*/{post.svx,meta.ts}`, { eager: true });
 
   // Filter the files
-  const markdown = Object.entries(imported).filter(([path]) => POST_REGEX.test(path));
-  const metadata = Object.entries(imported).filter(([path]) => POST_METADATA_REGEX.test(path));
+  const markdown = Object.entries(imported).filter(([path]) => POST_REGEX.test(path)) as MarkdownGlob[];
+  const metadata = Object.entries(imported).filter(([path]) => POST_METADATA_REGEX.test(path)) as MetadataGlob[];
 
   // Return the sections
   return { markdown, metadata };
@@ -48,16 +49,13 @@ export const getPosts = async (): Promise<Post[]> => {
 
   // Map the posts
   return Promise.all(
-    markdown.map(async ([path, resolver]): Promise<Post> => {
+    markdown.map(async ([path, post]): Promise<Post> => {
       // Get the post slug
       const slug = getRelativePath(path);
 
-      // Load the post
-      const post = (await resolver()) as PostFile;
-
       // Load the post metadata ex
       const metaResult = metadata.find(([path]) => POST_METADATA_REGEX.exec(path)?.groups?.slug === slug);
-      const meta: Partial<PostMetadata> = metaResult ? ((await metaResult[1]()) as { default: object }).default : { default: {} };
+      const meta: Partial<PostMetadata> = metaResult ? metaResult[1].default : {};
 
       // Return the post
       return {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
-  import Logo from '$assets/commissions/siomi/1/main.png';
   import HoverListener from '$components/interactive/HoverListener.svelte';
+  import { FEATURED_ARTIST } from '$lib/data/commissions';
   import '@fontsource/poppins/400.css';
   import '@fontsource/poppins/500.css';
   import '@fontsource/poppins/700.css';
@@ -35,7 +35,7 @@
   <!-- Navbar -->
   <div class="layout-container flex h-24 border-b border-b-white/10">
     <div class="my-auto flex w-full flex-row items-center">
-      <img class="aspect-square h-11 rounded-xl object-cover object-top" src={Logo} alt="Logo" />
+      <img class="aspect-square h-11 rounded-xl object-cover object-top" src={FEATURED_ARTIST.commission.images[0]} alt="Logo" />
       <div class="flex flex-1 flex-row items-center justify-end gap-12 pl-12 md:justify-start md:pl-24">
         <a class="text-lg font-medium text-white opacity-75" href="/">Home</a>
         <a class="text-lg font-medium text-white opacity-75" href="/blog">Blog</a>

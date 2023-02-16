@@ -98,9 +98,7 @@
 
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
     {#each PROJECTS as project}
-      <!-- <HoverableCard> -->
       <Project {project} />
-      <!-- </HoverableCard> -->
     {/each}
   </div>
 </div>

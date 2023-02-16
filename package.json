@@ -12,6 +12,7 @@
     "tunnel": "cloudflared tunnel run --url http://localhost:5173"
   },
   "devDependencies": {
+    "@iconify-json/logos": "^1.1.23",
     "@iconify-json/material-symbols": "^1.1.29",
     "@iconify-json/vscode-icons": "^1.1.22",
     "@iconify/tailwind": "^0.1.1",
