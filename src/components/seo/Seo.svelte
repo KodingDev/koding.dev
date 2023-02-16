@@ -30,7 +30,7 @@
   };
 
   const url = `${website.siteUrl}/${slug}`;
-  const pageTitle = `${website.siteTitle} | ${title}`;
+  const pageTitle = `${title} | ${website.siteTitle}`;
 
   const openGraphProps = {
     url,
