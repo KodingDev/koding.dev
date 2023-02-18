@@ -3,6 +3,7 @@ import avatar from './avatar.jpg';
 import commission1 from './images/1.png';
 import commission1paper from './images/1-paper.jpg';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Andredan',
   link: 'https://twitter.com/andredan_art',

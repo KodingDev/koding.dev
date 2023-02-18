@@ -49,6 +49,7 @@ export const getAllBlocks = async (blockId: string) => {
   return children.flat();
 };
 
+// noinspection JSUnusedGlobalSymbols
 /**
  * Query a database for pages.
  *

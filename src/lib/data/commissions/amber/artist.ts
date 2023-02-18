@@ -5,6 +5,7 @@ import commission1 from './images/1.jpg';
 import commission2 from './images/2.png';
 import commission3 from './images/3.png';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Amber',
   link: 'https://twitter.com/FCLmao',

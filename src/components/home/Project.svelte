@@ -4,7 +4,7 @@
   export let project: Project;
 
   // Fetch the language
-  const language = LANGUAGES[project.language];
+  const language = LANGUAGES[project?.language];
 </script>
 
 <a

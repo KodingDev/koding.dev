@@ -1,6 +1,7 @@
 import type { ArtistData } from '$lib/data/commissions';
 import commission2 from './images/2.png';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Ally',
 

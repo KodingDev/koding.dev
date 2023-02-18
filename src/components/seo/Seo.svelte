@@ -29,8 +29,8 @@
     alt: 'Compact Banner Purple',
   };
 
-  const url = `${website.siteUrl}/${slug}`;
-  const pageTitle = `${title} | ${website.siteTitle}`;
+  const url = `${website.siteUrl}/${slug || ''}`;
+  const pageTitle = `${title || 'Commission'} | ${website.siteTitle}`;
 
   const openGraphProps = {
     url,

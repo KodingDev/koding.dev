@@ -3,6 +3,7 @@ import avatar from './avatar.jpg';
 import commission1 from './images/1.png';
 import commission1bg from './images/1-bg.png';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Alpha',
   link: 'https://twitter.com/Alphiixy',

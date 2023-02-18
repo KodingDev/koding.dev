@@ -2,6 +2,7 @@ import type { ArtistData } from '$lib/data/commissions';
 import avatar from './avatar.jpg';
 import commission1 from './images/1.png';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Sophie',
   link: 'https://twitter.com/groggiie',

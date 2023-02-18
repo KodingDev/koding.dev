@@ -1,7 +1,7 @@
 <script lang="ts">
   const onHover = (event: MouseEvent) => {
     // Get all relevant elements
-    document.querySelectorAll('.hoverable').forEach((element) => {
+    document.querySelectorAll<HTMLElement>('.hoverable').forEach((element) => {
       // Get the bounding rectangle of the element
       const { left, top } = element.getBoundingClientRect();
 

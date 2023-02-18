@@ -3,6 +3,7 @@ import avatar from './avatar.jpg';
 import commission1_set1 from './images/1-set1.png';
 import commission1_set2 from './images/1-set2.png';
 
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Livillon',
   link: 'https://twitter.com/Livillon',

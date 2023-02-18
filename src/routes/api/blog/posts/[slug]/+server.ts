@@ -2,6 +2,7 @@ import { getPosts } from '$lib/data/blog';
 import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
+// noinspection JSUnusedGlobalSymbols
 export const GET: RequestHandler = async ({ params: { slug } }) => {
   const posts = await getPosts();
 
