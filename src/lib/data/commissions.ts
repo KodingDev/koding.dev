@@ -1,3 +1,9 @@
+import _ from 'lodash';
+/**
+ * The featured artist data & commission.
+ */
+import FeaturedArtist from '$lib/data/commissions/siomi/artist';
+
 /**
  * Designed to have a single file per artist, which is significantly easier to
  * organize imports for.
@@ -49,19 +55,13 @@ export const getArtists = async (): Promise<Record<string, ArtistData>> => {
   const data = await import.meta.glob<{ default: ArtistData }>('./commissions/*/artist.ts', { eager: true });
 
   // Convert the map of paths to data to a map of artist names to data.
-  return Object.fromEntries(
-    Object.entries(data).map(([path, artist]) => {
-      // Get the artist's name from the path.
-      const name = path.match(ARTIST_NAME_REGEX)?.groups?.name;
-
-      // Return the artist's name and data.
-      return [name, artist.default];
-    })
-  );
+  return _.chain(data)
+    .mapKeys((_, path) => path.match(ARTIST_NAME_REGEX)?.groups?.name) // Fetch any non-null artist names from the path.
+    .pickBy()
+    .mapValues(({ default: artist }) => artist) // Fetch the default export from the module.
+    .map((artist, name) => [name, artist]) // Convert the map to an array of [name, artist] pairs.
+    .fromPairs() // Convert the array back to a map.
+    .value();
 };
 
-/**
- * The featured artist data & commission.
- */
-import FeaturedArtist from '$lib/data/commissions/siomi/artist';
 export const FEATURED_ARTIST = { artist: FeaturedArtist, commission: FeaturedArtist.commissions[0] };

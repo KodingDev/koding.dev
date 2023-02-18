@@ -1,72 +1,50 @@
 import type { SvelteComponent } from 'svelte';
+import { importData } from '$lib/util/data';
+import _ from 'lodash';
 
 // TODO: Add lodash
 
-/**
- * Path to the posts folder
- */
-export const POST_PATH = '/src/lib/data/blog';
-
-/**
- * Get a relative path based on the post path
- * @returns The relative path
- */
-export const getRelativePath = (path: string): string => {
-  const split = path.substring(POST_PATH.length + 1).split('/');
-  split.pop();
-  return split.join('/');
-};
-
 // Expressions to match the files and extract the slug
-const POST_REGEX = new RegExp(`${POST_PATH}/(?<slug>[^/]+)/post.svx`);
-const POST_METADATA_REGEX = new RegExp(`${POST_PATH}/(?<slug>[^/]+)/meta.ts`);
-
-type MarkdownGlob = [string, PostFile];
-type MetadataGlob = [string, { default: Partial<PostMetadata> }];
-
-/**
- * Glob the files and return the sections
- */
-const importPosts = async (): Promise<{ markdown: MarkdownGlob[]; metadata: MetadataGlob[] }> => {
-  // Use import.meta.glob to get a list of all files
-  // The glob pattern doesn't support template literals, so we have to use a string
-  // at compile time. This is why we need to filter the files later.
-  const imported = import.meta.glob(`/src/lib/data/blog/*/{post.svx,meta.ts}`, { eager: true });
-
-  // Filter the files
-  const markdown = Object.entries(imported).filter(([path]) => POST_REGEX.test(path)) as MarkdownGlob[];
-  const metadata = Object.entries(imported).filter(([path]) => POST_METADATA_REGEX.test(path)) as MetadataGlob[];
-
-  // Return the sections
-  return { markdown, metadata };
-};
+const POST_REGEX = new RegExp(`/src/lib/data/blog/(?<slug>[^/]+)/post.svx`);
+const POST_METADATA_REGEX = new RegExp(`/src/lib/data/blog/(?<slug>[^/]+)/meta.ts`);
 
 /**
  * Resolve a list of posts & metadata
  */
 export const getPosts = async (): Promise<Post[]> => {
-  const { markdown, metadata } = await importPosts();
+  // Get the markdown files
+  const markdown = await importData<PostFile>(() => import.meta.glob('/src/lib/data/blog/*/post.svx', { eager: true }), {
+    regex: POST_REGEX,
+    group: 'slug',
+  });
+
+  // Get the metadata files
+  const metadata = await importData<{
+    default: Partial<PostMetadata>;
+  }>(() => import.meta.glob('/src/lib/data/blog/*/meta.ts', { eager: true }), {
+    regex: POST_METADATA_REGEX,
+    group: 'slug',
+  });
 
   // Map the posts
   return Promise.all(
-    markdown.map(async ([path, post]): Promise<Post> => {
-      // Get the post slug
-      const slug = getRelativePath(path);
+    _.chain(markdown)
+      .values()
+      .map(async ([slug, post]): Promise<Post> => {
+        // Find the metadata
+        const meta: Partial<PostMetadata> = metadata[slug]?.[1]?.default ?? {};
 
-      // Load the post metadata ex
-      const metaResult = metadata.find(([path]) => POST_METADATA_REGEX.exec(path)?.groups?.slug === slug);
-      const meta: Partial<PostMetadata> = metaResult ? metaResult[1].default : {};
-
-      // Return the post
-      return {
-        slug,
-        component: post.default,
-        metadata: {
-          ...post.metadata,
-          ...meta,
-        },
-      };
-    })
+        // Return the post
+        return {
+          slug,
+          component: post.default,
+          metadata: {
+            ...post.metadata,
+            ...meta,
+          },
+        };
+      })
+      .value()
   );
 };
 
