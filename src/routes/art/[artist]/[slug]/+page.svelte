@@ -51,7 +51,7 @@
             class="flex flex-row items-center gap-2 rounded-full border-2 border-white/10 py-3 px-5"
           >
             <!-- TODO: Icon links -->
-            <span class="icon-[logos--twitter] h-4 w-4 fill-white" />
+            <span class="icon-[mdi--twitter] h-4 w-4 fill-white" />
             <span>{link.text}</span>
             <span class="icon-[material-symbols--arrow-outward] h-4 w-4" />
           </a>

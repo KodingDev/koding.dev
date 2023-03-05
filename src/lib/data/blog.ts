@@ -5,15 +5,15 @@ import _ from 'lodash';
 // TODO: Add lodash
 
 // Expressions to match the files and extract the slug
-const POST_REGEX = new RegExp(`/src/lib/data/blog/(?<slug>[^/]+)/post.svx`);
-const POST_METADATA_REGEX = new RegExp(`/src/lib/data/blog/(?<slug>[^/]+)/meta.ts`);
+const POST_REGEX = new RegExp(`./blog/(?<slug>[^/]+)/post.svx`);
+const POST_METADATA_REGEX = new RegExp(`./blog/(?<slug>[^/]+)/meta.ts`);
 
 /**
  * Resolve a list of posts & metadata
  */
 export const getPosts = async (): Promise<Post[]> => {
   // Get the markdown files
-  const markdown = await importData<PostFile>(() => import.meta.glob('/src/lib/data/blog/*/post.svx', { eager: true }), {
+  const markdown = await importData<PostFile>(() => import.meta.glob('./blog/*/post.svx', { eager: true }), {
     regex: POST_REGEX,
     group: 'slug',
   });
@@ -21,7 +21,7 @@ export const getPosts = async (): Promise<Post[]> => {
   // Get the metadata files
   const metadata = await importData<{
     default: Partial<PostMetadata>;
-  }>(() => import.meta.glob('/src/lib/data/blog/*/meta.ts', { eager: true }), {
+  }>(() => import.meta.glob('./blog/*/meta.ts', { eager: true }), {
     regex: POST_METADATA_REGEX,
     group: 'slug',
   });

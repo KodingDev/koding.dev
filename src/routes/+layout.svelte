@@ -7,9 +7,6 @@
   import '@fontsource/poppins/700.css';
   import NProgress from 'nprogress';
   import 'nprogress/nprogress.css';
-  import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte';
-  import FaGitHub from 'svelte-icons/fa/FaGithub.svelte';
-  import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
   import { fade } from 'svelte/transition';
   import '../app.postcss';
   import type { PageData } from './$types';
@@ -43,15 +40,15 @@
       </div>
       <div class="hidden flex-row items-center gap-4 md:flex">
         <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#1E96E8]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="opacity-75"><FaTwitter /></span>
+          <span class="icon-[mdi--twitter] opacity-75" />
         </a>
 
         <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#8439FF]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="opacity-75"><FaEnvelope /></span>
+          <span class="icon-[material-symbols--mail-rounded] opacity-75" />
         </a>
 
         <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#000000]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="opacity-75"><FaGitHub /></span>
+          <span class="icon-[mdi--github] opacity-75" />
         </a>
       </div>
     </div>

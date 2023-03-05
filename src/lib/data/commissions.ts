@@ -3,6 +3,7 @@ import _ from 'lodash';
  * The featured artist data & commission.
  */
 import FeaturedArtist from '$lib/data/commissions/siomi/artist';
+import { importData } from '$lib/util/data';
 
 /**
  * Designed to have a single file per artist, which is significantly easier to
@@ -51,15 +52,16 @@ const ARTIST_NAME_REGEX = /.\/commissions\/(?<name>[^/]+)\/artist\.ts/;
  * @returns A map of artist names to their data.
  */
 export const getArtists = async (): Promise<Record<string, ArtistData>> => {
-  // Use a dynamic import to load the data from the commissions folder.
-  const data = await import.meta.glob<{ default: ArtistData }>('./commissions/*/artist.ts', { eager: true });
+  // Load the data
+  const data = await importData<{ default: ArtistData }>(() => import.meta.glob('./commissions/*/artist.ts', { eager: true }), {
+    regex: ARTIST_NAME_REGEX,
+    group: 'name',
+  });
 
   // Convert the map of paths to data to a map of artist names to data.
   return _.chain(data)
-    .mapKeys((_, path) => path.match(ARTIST_NAME_REGEX)?.groups?.name) // Fetch any non-null artist names from the path.
-    .pickBy()
-    .mapValues(({ default: artist }) => artist) // Fetch the default export from the module.
-    .map((artist, name) => [name, artist]) // Convert the map to an array of [name, artist] pairs.
+    .values()
+    .map(([name, artist]) => [name, artist.default]) // Convert the map to an array of [name, artist] pairs.
     .fromPairs() // Convert the array back to a map.
     .value();
 };

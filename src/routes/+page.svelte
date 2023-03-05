@@ -4,7 +4,6 @@
   import Project from '$components/home/Project.svelte';
   import TwinklingStar from '$components/home/TwinklingStar.svelte';
   import { PROJECTS } from '$lib/data/projects';
-  import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte';
   import type { PageData } from './$types';
   import Client from '$components/home/Client.svelte';
 
@@ -110,7 +109,7 @@
     <!-- TODO: Hover -->
     <a class="flex flex-row items-center gap-2 pl-4 opacity-50" href="/blog">
       View all
-      <span class="h-3 w-3"><FaArrowRight /></span>
+      <span class="icon-[material-symbols--arrow-forward] h-3 w-3" />
     </a>
     <span class="flex-1 text-right font-medium opacity-50">A collection of some of my thoughts and ramblings.</span>
   </div>
@@ -138,7 +137,7 @@
         <!-- Excerpt -->
         <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
       </a>
-    {/each}ø
+    {/each}
   </div>
 </div>
 
@@ -149,7 +148,7 @@
     <span class="font-medium opacity-50">A selection of clients I've worked with.</span>
   </div>
 
-  {#each Array(3) as _, i}
-    <Client />
+  {#each data.clients as client}
+    <Client {client} />
   {/each}
 </div>
