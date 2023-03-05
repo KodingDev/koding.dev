@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Image from '$components/base/Image.svelte';
+  import Link from '$components/interactive/Link.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
@@ -9,10 +11,10 @@
 
 <div class="layout-container pt-32 pb-36">
   <!-- TODO: Hover effect -->
-  <a href="/blog" class="flex flex-row items-center gap-2 opacity-50"> <span class="icon-[material-symbols--arrow-back] h-6 w-6" />Back to all posts</a>
+  <Link href="/blog" style="back" class="opacity-50">Back to all posts</Link>
 
   {#if data.metadata.cover}
-    <img src={data.metadata.cover} class="mt-8 h-[420px] w-full rounded-xl border border-white/25 object-cover" alt="Cover" />
+    <Image picture={data.metadata.cover} class="mt-8 aspect-video max-h-96 w-full rounded-xl border border-white/25 object-cover" alt="Cover" />
   {/if}
 
   <div class="flex grow flex-col gap-3 border-b border-b-white/[15%] py-9">

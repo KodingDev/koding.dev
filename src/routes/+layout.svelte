@@ -1,12 +1,8 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
-  import HoverListener from '$components/interactive/HoverListener.svelte';
+  import NavBar from '$components/layout/NavBar.svelte';
   import { FEATURED_ARTIST } from '$lib/data/commissions';
-  import '@fontsource/poppins/400.css';
-  import '@fontsource/poppins/500.css';
-  import '@fontsource/poppins/700.css';
   import NProgress from 'nprogress';
-  import 'nprogress/nprogress.css';
   import { fade } from 'svelte/transition';
   import '../app.postcss';
   import type { PageData } from './$types';
@@ -24,41 +20,77 @@
     if ($navigating) NProgress.start();
     if (!$navigating) NProgress.done();
   }
+
+  // Nav links
+  const links = [
+    {
+      name: 'Home',
+      href: '/',
+      match: /^\/$/,
+    },
+    {
+      name: 'Blog',
+      href: '/blog',
+      match: /^\/blog/,
+    },
+    {
+      name: 'Clients',
+      href: '/clients',
+      match: /^\/clients/,
+    },
+    {
+      name: 'Art',
+      href: '/art',
+      match: /^\/art/,
+    },
+  ];
+
+  // Social links
+  const socials = [
+    {
+      href: 'https://twitter.com/KodingDev_',
+      icon: 'icon-[mdi--twitter]',
+      color: 'bg-[#1E96E8]/5',
+    },
+    {
+      href: 'mailto:hello@koding.dev',
+      icon: 'icon-[material-symbols--mail-rounded]',
+      color: 'bg-[#8439FF]/5',
+    },
+    {
+      href: 'https://github.com/KodingDev',
+      icon: 'icon-[mdi--github]',
+      color: 'bg-[#000000]/5',
+    },
+  ];
 </script>
 
-<HoverListener />
-
-<div class="min-w-screen min-h-screen bg-primary-800">
+<div class="flex min-h-screen flex-col justify-between bg-primary-800">
   <!-- Navbar -->
   <div class="layout-container flex h-24 border-b border-b-white/10">
     <div class="my-auto flex w-full flex-row items-center">
-      <img class="aspect-square h-11 rounded-xl object-cover object-top" src={FEATURED_ARTIST.commission.images[0]} alt="Logo" />
-      <div class="flex flex-1 flex-row items-center justify-end gap-12 pl-12 md:justify-start md:pl-24">
-        <a class="text-lg font-medium text-white opacity-75" href="/">Home</a>
-        <a class="text-lg font-medium text-white opacity-75" href="/blog">Blog</a>
-        <a class="text-lg font-medium text-white opacity-75" href="/art">Art</a>
-      </div>
-      <div class="hidden flex-row items-center gap-4 md:flex">
-        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#1E96E8]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="icon-[mdi--twitter] opacity-75" />
-        </a>
-
-        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#8439FF]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="icon-[material-symbols--mail-rounded] opacity-75" />
-        </a>
-
-        <a class="h-11 w-11 rounded-xl border border-white/[15%] bg-[#000000]/5 p-3" href="https://twitter.com/KodingDev_">
-          <span class="icon-[mdi--github] opacity-75" />
-        </a>
+      <img class="aspect-square h-11 w-11 rounded-xl object-cover object-top" src={FEATURED_ARTIST.commission.images[0]} alt="Logo" />
+      <div class="flex-grow md:hidden" />
+      <NavBar {links} />
+      <div class="hidden flex-grow flex-row items-center justify-end gap-4 md:flex">
+        {#each socials as social}
+          <a class="flex h-11 w-11 rounded-xl border border-white/[15%] p-3 {social.color} group transition-all hover:border-2" href={social.href}>
+            <div class="m-auto transition-all group-hover:-translate-y-1">
+              <span class="{social.icon} opacity-75" />
+            </div>
+          </a>
+        {/each}
       </div>
     </div>
   </div>
 
-  {#key data.pathname}
-    <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
-      <slot />
-    </div>
-  {/key}
+  <div>
+    {#key data.pathname}
+      <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
+        <slot />
+      </div>
+    {/key}
+  </div>
 
   <!-- Footer -->
   <div class="layout-container flex flex-row pb-24">

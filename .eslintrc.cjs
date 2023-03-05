@@ -9,6 +9,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     'svelte/no-at-html-tags': 'off',
     'svelte/html-self-closing': 'off',
+    'no-inner-declarations': 'off',
   },
   parserOptions: {
     sourceType: 'module',

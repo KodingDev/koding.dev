@@ -1,6 +1,7 @@
 import type { SvelteComponent } from 'svelte';
 import { importData } from '$lib/util/data';
 import _ from 'lodash';
+import type { Picture } from 'imagetools-core';
 
 // TODO: Add lodash
 
@@ -70,7 +71,7 @@ export interface PostMetadata {
   tags?: string[];
 
   /* Properties designed for the "meta.ts" */
-  cover?: string;
+  cover?: Picture;
 }
 
 /**

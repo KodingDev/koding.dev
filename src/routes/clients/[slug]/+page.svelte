@@ -1,10 +1,10 @@
 <script lang="ts">
+  import Image from '$components/base/Image.svelte';
+  import MediaEmbed from '$components/base/MediaEmbed.svelte';
+  import ClientCallToAction from '$components/clients/ClientCallToAction.svelte';
+  import IconLink from '$components/interactive/IconLink.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
-  import Image from '$components/base/Image.svelte';
-  import Link from '$components/interactive/Link.svelte';
-  import GradientBackground from '$components/base/GradientBackground.svelte';
-  import MediaEmbed from '$components/base/MediaEmbed.svelte';
 
   export let data: PageData;
 </script>
@@ -14,57 +14,85 @@
 <div class="layout-container flex flex-col gap-8 pt-32 pb-36">
   <!-- TODO: Hover effect -->
   <a href="/clients" class="flex flex-row items-center gap-2 opacity-50"> <span class="icon-[material-symbols--arrow-back] h-6 w-6" />Back to all clients</a>
+  <ClientCallToAction client={data.client} />
 
-  <div class="relative h-[420px] overflow-clip rounded-xl border border-white/25">
-    <!-- Banner -->
-    {#if data.client.banner}
-      <Image picture={data.client.banner} class="w-full object-cover" alt="Cover" />
-      <div class="z-1 absolute top-0 left-0 h-full w-full bg-gradient-to-b from-transparent to-black/50" />
-    {:else}
-      <!-- Cool ass gradient instead -->
-      <GradientBackground class="w-full opacity-50" />
-    {/if}
+  <div class="flex flex-col gap-16 pt-8">
+    <!-- TODO: Handle when there are no projects -->
+    {#each data.client.projects as project}
+      <div class="flex flex-col gap-6">
+        <!-- Name & description -->
+        <h2 class="text-3xl font-bold">{project.name}</h2>
+        <span class="opacity-50">{project.description}</span>
 
-    <!-- Headings -->
-    <div class="absolute left-10 bottom-10 flex flex-col gap-3">
-      <div class="flex flex-row items-center">
-        <!-- Status Dot -->
-        <div class="h-2 w-2 rounded-full {data.client.end ? 'bg-red-500' : 'bg-green-500'}" />
-
-        <!-- Date -->
-        <span class="pl-2 opacity-75">{data.client.start ?? 'Unknown'} - {data.client.end ?? 'Now'}</span>
-      </div>
-
-      <Link picture={data.client.avatar} href={data.client.url}>{data.client.name}</Link>
-
-      <!-- Description -->
-      {#if data.client.description}
-        <span class="opacity-50">{data.client.description}</span>
-      {/if}
-    </div>
-  </div>
-
-  <!-- TODO: Handle when there are no projects -->
-  <span class="text-3xl font-bold">Projects</span>
-  {#each data.client.projects as project}
-    <div class="flex flex-col gap-6 border-b border-white/25 py-8">
-      <!-- Name & description -->
-      <h2 class="text-2xl font-bold">{project.name}</h2>
-      <span class="opacity-50">{project.description}</span>
-
-      <!-- Media carousel -->
-      <div class="w-full columns-2 gap-6">
-        {#each project.media as media}
-          <div class="mb-6">
-            {#if typeof media.media === 'string'}
-              <!-- Website embeds -->
-              <MediaEmbed src={media.media} class="aspect-video w-full rounded-xl" />
-            {:else if typeof media.media === 'object'}
-              <Image picture={media.media} class="w-full rounded-xl object-cover" caption={media.caption} />
-            {/if}
+        <!-- Links -->
+        {#if project.links.length}
+          <div class="flex flex-row gap-4 overflow-x-scroll">
+            {#each project.links as link}
+              <IconLink href={link.url} icon={link.icon ?? 'icon-[mdi--web]'}>{link.name}</IconLink>
+            {/each}
           </div>
-        {/each}
+        {/if}
+
+        <!-- Media carousel -->
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {#each project.media as media}
+            <div class="group relative overflow-clip rounded-lg border border-white/[15%]">
+              {#if typeof media.media === 'string'}
+                <!-- Website embeds -->
+                <MediaEmbed src={media.media} class="aspect-video w-full" />
+              {:else if typeof media.media === 'object'}
+                <Image picture={media.media} class="w-full object-cover" />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end bg-gradient-to-b from-transparent to-black/50 p-6 opacity-0 transition-all group-hover:opacity-100"
+                >
+                  <div class="flex translate-y-2 flex-col transition-all group-hover:translate-y-0">
+                    <span class="text-2xl font-bold">About</span>
+                    <span class="opacity-50">{media.caption}</span>
+                  </div>
+                </div>
+              {/if}
+            </div>
+          {/each}
+        </div>
       </div>
-    </div>
-  {/each}
+    {/each}
+
+    <!-- Testimonials -->
+    {#if data.client.testimonials.length}
+      <div class="flex flex-col gap-6">
+        <h2 class="text-3xl font-bold">Testimonials</h2>
+        <span class="opacity-50">I've worked with some amazing people, here's what they have to say about me.</span>
+
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {#each data.client.testimonials as testimonial}
+            <div class="flex flex-col items-center gap-6 rounded-lg border border-white/[15%] bg-white/[5%] p-6">
+              <div class="flex flex-row items-center gap-4">
+                <Image picture={testimonial.avatar} class="h-12 w-12 rounded-lg" />
+
+                <div class="flex flex-col">
+                  <span class="font-bold">{testimonial.name}</span>
+                  <span class="opacity-50">{testimonial.role}</span>
+                </div>
+              </div>
+
+              <!-- 
+                Testimonials can have certain elements highlighted by surrounding them with *[WORD]*,
+                this is done by replacing the * with a span with the class "opacity-75"
+              -->
+              <div class="text-center text-xl text-white/50">
+                {#each testimonial.testimonial.split('*') as part, index}
+                  {#if index % 2}
+                    <span class="text-white/75">{part}</span>
+                  {:else}
+                    {part}
+                  {/if}
+                {/each}
+              </div>
+              <!-- <span class="text-center text-xl opacity-50">&OpenCurlyDoubleQuote; &CloseCurlyDoubleQuote;</span> -->
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
+  </div>
 </div>

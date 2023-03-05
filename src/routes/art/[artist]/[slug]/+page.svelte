@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IconLink from '$components/interactive/IconLink.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
@@ -44,17 +45,7 @@
     {#if data.commission.links}
       <div class="flex flex-row gap-4">
         {#each data.commission.links as link}
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex flex-row items-center gap-2 rounded-full border-2 border-white/10 py-3 px-5"
-          >
-            <!-- TODO: Icon links -->
-            <span class="icon-[mdi--twitter] h-4 w-4 fill-white" />
-            <span>{link.text}</span>
-            <span class="icon-[material-symbols--arrow-outward] h-4 w-4" />
-          </a>
+          <IconLink href={link.href} icon="icon-[mdi--twitter]">{link.text}</IconLink>
         {/each}
       </div>
     {/if}

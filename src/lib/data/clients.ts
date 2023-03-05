@@ -20,7 +20,7 @@ export interface Client {
   /**
    * An optional link to the clients, such as a GitHub repository or website
    */
-  url?: string;
+  href?: string;
 
   /**
    * An optional banner to display for the clients
@@ -46,6 +46,11 @@ export interface Client {
      * The name of the person who gave the testimonial
      */
     name: string;
+
+    /**
+     * The role of the person who gave the testimonial
+     */
+    role: string;
 
     /**
      * The testimonial itself
@@ -91,6 +96,11 @@ export interface Client {
        * The URL of the link
        */
       url: string;
+
+      /**
+       * An optional icon to display for the link
+       */
+      icon?: string;
     }[];
 
     /**

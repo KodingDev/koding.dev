@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Image from '$components/base/Image.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
@@ -13,12 +14,12 @@
     <h1 class="text-5xl font-bold leading-[1.8] sm:text-5xl sm:leading-[1.8]">My thoughts on software development, web development, and more.</h1>
   </div>
 
-  <div class="flex flex-col pt-32">
+  <div class="flex flex-col gap-8 pt-32">
     <!-- TODO: Cleanup, tags -->
     {#each data.posts as post}
-      <a href="/blog/{post.slug}" class="flex flex-row items-center border-b border-b-white/[15%]">
+      <a href="/blog/{post.slug}" class="flex flex-col items-center border-b border-b-white/[15%] pb-9 md:flex-row">
         <!-- TODO: Make the below a component -->
-        <div class="flex grow flex-col gap-3 py-9">
+        <div class="flex grow flex-col gap-3 py-9 md:py-0">
           <!-- Date -->
           <span
             >{new Date(post.metadata.date).toLocaleDateString('en-US', {
@@ -35,7 +36,9 @@
           <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
         </div>
 
-        <img src={post.metadata.cover} alt="" class="aspect-video h-32 rounded-xl border border-white/25 object-cover" />
+        {#if post.metadata.cover}
+          <Image picture={post.metadata.cover} alt="" class="aspect-video h-full rounded-xl border border-white/25 object-cover md:h-32" />
+        {/if}
       </a>
     {/each}
   </div>
