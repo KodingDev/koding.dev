@@ -14,7 +14,7 @@
     <h1 class="text-5xl font-bold leading-[1.8] sm:text-5xl sm:leading-[1.8]">Some of the amazing people I've had the pleasure of working with.</h1>
   </div>
 
-  <div class="flex flex-col gap-12 pt-32">
+  <div class="grid grid-cols-1 gap-8 pt-32 lg:grid-cols-2">
     {#each Object.entries(data.clients) as [slug, client]}
       <ClientCallToAction {client} href="/clients/{slug}" />
     {/each}

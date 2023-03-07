@@ -10,8 +10,8 @@
   const srcSet = (sources: Source[]) => sources.map((source) => `${source.src} ${source.w}w`).join(', ');
 
   export let alt: string;
-  export let width: number;
-  export let height: number;
+  export let width: number | string = '100%';
+  export let height: number | string = '100%';
   export let maxWidth = '1280px';
   export let sizes = `(max-width: ${maxWidth}) 100vw, ${maxWidth}`;
   let className: string;

@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import { importData } from '$lib/util/data';
 import type { Picture } from 'imagetools-core';
+import _ from 'lodash';
 
 type Month = 'Jan' | 'Feb' | 'Mar' | 'Apr' | 'May' | 'Jun' | 'Jul' | 'Aug' | 'Sep' | 'Oct' | 'Nov' | 'Dec';
 type Year = '2019' | '2020' | '2021' | '2022' | '2023' | '2024' | '2025';
@@ -68,7 +68,6 @@ export interface Client {
     avatar?: Picture;
   }[];
 
-  // TODO: Projects
   /**
    * An array of projects that were worked on for this clients
    */
@@ -84,6 +83,11 @@ export interface Client {
     description: string;
 
     /**
+     * Optional avatar to display for the project
+     */
+    avatar?: Picture;
+
+    /**
      * A list of links to the project & associated resources
      */
     links?: {
@@ -95,7 +99,7 @@ export interface Client {
       /**
        * The URL of the link
        */
-      url: string;
+      href: string;
 
       /**
        * An optional icon to display for the link
@@ -137,9 +141,15 @@ export const getClients = async (): Promise<Record<string, Client>> => {
   });
 
   // Convert the map of paths to data to a single array of clients.
-  return _.chain(data)
-    .mapValues(([, { default: client }]) => client) // Convert the map to an array of [name, clients] pairs.
-    .value();
+  return (
+    _.chain(data)
+      .mapValues(([, { default: client }]) => client) // Remove 'default' from the import
+      .toPairs()
+      // Sort the clients by their end date descending (if any), and leave "current" clients at the top.
+      .sortBy(([, client]) => (client.end ? -parseDate(client.end).getTime() : -Infinity))
+      .fromPairs()
+      .value()
+  );
 };
 
 /**
@@ -149,3 +159,14 @@ export const getClients = async (): Promise<Record<string, Client>> => {
  * @returns The clients, or undefined if not found
  */
 export const getClient = async (slug: string): Promise<Client | undefined> => (await getClients())[slug];
+
+/**
+ * Convert a date string to a date object
+ *
+ * @param date The date string
+ * @returns The date object
+ */
+export const parseDate = (date: ClientDate): Date => {
+  const [month, year] = date.split(' ');
+  return new Date(`${year}-${month}-01`);
+};

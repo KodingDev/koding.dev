@@ -4,7 +4,7 @@
   import type { Client } from '$lib/data/clients';
 
   export let client: Client;
-  export let href: string = client.url;
+  export let href: string = client.href;
 </script>
 
 <CallToAction {href} picture={client.banner}>
@@ -24,6 +24,9 @@
       {/if}
 
       <span class="text-2xl font-bold">{client.name}</span>
+
+      <!-- Outward arrow -->
+      <span class="icon-[material-symbols--arrow-outward] h-7 w-7" />
     </div>
 
     <!-- Description -->

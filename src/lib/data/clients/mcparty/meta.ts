@@ -1,9 +1,13 @@
 import type { Client } from '$lib/data/clients';
-import MasayoshiGamesBanner1 from './assets/masayoshi-games-banner.jpg?w=512;1280;1920&picture';
-import McPartyBlizzard from './assets/mcparty-blizzard.png?w=512;1280;1920&picture';
-import McPartyLobby from './assets/mcparty-lobby.png?w=512;1280;1920&picture';
+
 import avatar from './avatar.png?w=100;200;300&picture';
 import banner from './banner.png?w=512;1280;1920&picture';
+
+import MasayoshiAvatar from './assets/masayoshi-avatar.png?w=100;200;300&picture';
+import MasayoshiGamesBanner1 from './assets/masayoshi-games-banner.jpg?w=512;1280;1920&picture';
+
+import McPartyBlizzard from './assets/mcparty-blizzard.png?w=512;1280;1920&picture';
+import McPartyLobby from './assets/mcparty-lobby.png?w=512;1280;1920&picture';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -35,15 +39,17 @@ export default {
       description:
         'A 64-player Hunger Games event, where players compete to be the last team standing. They are cast into an unfamiliar world, filled with "The Roots", and must defeat the infested monsters, and uncover rare loot to become the true "Root Champions"',
 
+      avatar: MasayoshiAvatar,
+
       links: [
         {
           name: 'Broadcast',
-          url: 'https://www.twitch.tv/videos/1706498880',
+          href: 'https://www.twitch.tv/videos/1706498880',
           icon: 'icon-[mdi--twitch]',
         },
         {
           name: 'Schedule',
-          url: 'https://schedule.twitchrivals.com/events/masayoshi-games-ft-minecraft-B04r1',
+          href: 'https://schedule.twitchrivals.com/events/masayoshi-games-ft-minecraft-B04r1',
         },
       ],
 
@@ -63,10 +69,12 @@ export default {
       name: 'MC Party',
       description: 'A minigame network, built with a "Mario Party"-esc twist. Focused on fast-paced, fun, and competitive gameplay.',
 
+      avatar,
+
       links: [
         {
           name: 'Website',
-          url: 'https://mcparty.live',
+          href: 'https://mcparty.live',
         },
       ],
 
@@ -82,4 +90,4 @@ export default {
       ],
     },
   ],
-} as Client;
+} satisfies Client;

@@ -18,7 +18,7 @@
     navTween = {
       left: el.offsetLeft,
       right: el.parentElement.offsetWidth - el.offsetLeft - el.clientWidth,
-      top: el.offsetTop + el.offsetHeight + 1,
+      top: el.offsetTop + el.offsetHeight,
     };
   }
 

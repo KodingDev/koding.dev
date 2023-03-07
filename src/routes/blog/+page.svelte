@@ -17,9 +17,9 @@
   <div class="flex flex-col gap-8 pt-32">
     <!-- TODO: Cleanup, tags -->
     {#each data.posts as post}
-      <a href="/blog/{post.slug}" class="flex flex-col items-center border-b border-b-white/[15%] pb-9 md:flex-row">
+      <a href="/blog/{post.slug}" class="flex flex-col items-center justify-between border-b border-b-white/[15%] pb-9 md:flex-row">
         <!-- TODO: Make the below a component -->
-        <div class="flex grow flex-col gap-3 py-9 md:py-0">
+        <div class="flex flex-col gap-3 py-9 md:py-0">
           <!-- Date -->
           <span
             >{new Date(post.metadata.date).toLocaleDateString('en-US', {
@@ -37,7 +37,7 @@
         </div>
 
         {#if post.metadata.cover}
-          <Image picture={post.metadata.cover} alt="" class="aspect-video h-full rounded-xl border border-white/25 object-cover md:h-32" />
+          <Image picture={post.metadata.cover} alt="" class="aspect-video w-full rounded-xl border border-white/25 object-cover md:w-48" />
         {/if}
       </a>
     {/each}

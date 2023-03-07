@@ -51,7 +51,7 @@
     {/if}
 
     <!-- Images -->
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
       {#each data.commission.images as image}
         <img src={image} class="rounded-md object-cover object-center" alt={data.commission.title} />
       {/each}
