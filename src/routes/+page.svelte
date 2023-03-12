@@ -5,7 +5,7 @@
   import TwinklingStar from '$components/home/TwinklingStar.svelte';
   import CallToAction from '$components/interactive/CallToAction.svelte';
   import Link from '$components/interactive/Link.svelte';
-  import MotionCanvas from '$components/interactive/MotionCanvas.svelte';
+  import MotionCanvas from '$components/motion-canvas/MotionCanvas.svelte';
   import { PROJECTS } from '$lib/data/projects';
   import type { PageData } from './$types';
 

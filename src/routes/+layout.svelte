@@ -1,5 +1,6 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
+  import HoverListener from '$components/interactive/HoverListener.svelte';
   import NavBar from '$components/layout/NavBar.svelte';
   import { FEATURED_ARTIST } from '$lib/data/commissions';
   import NProgress from 'nprogress';
@@ -64,6 +65,8 @@
     },
   ];
 </script>
+
+<HoverListener />
 
 <div class="flex min-h-screen flex-col justify-between bg-primary-800">
   <!-- Navbar -->

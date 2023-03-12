@@ -1,5 +1,5 @@
 <script lang="ts">
-  const onHover = (event: MouseEvent) => {
+  const onMouseMove = (event: MouseEvent) => {
     // Get all relevant elements
     document.querySelectorAll<HTMLElement>('.hoverable').forEach((element) => {
       // Get the bounding rectangle of the element
@@ -12,4 +12,4 @@
   };
 </script>
 
-<svelte:body on:mousemove={onHover} />
+<svelte:body on:mousemove={onMouseMove} />
