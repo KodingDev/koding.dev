@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ fetch, params: { artist: artistName, slug
   const artists: Awaited<ReturnType<typeof getArtists>> = await fetch('/api/art').then((res) => res.json());
 
   // Find the artist
-  const artist = Object.entries(artists).find(([artist]) => artist === artistName)?.[1];
+  const artist = Object.entries(artists).find(([artist]) => artist.toLowerCase() === artistName.toLowerCase())?.[1];
   if (!artist) throw error(404, 'Artist not found');
 
   // Find the commission
