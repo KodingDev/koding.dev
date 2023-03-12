@@ -48,7 +48,8 @@
   page.subscribe(recompute);
 </script>
 
-<div class="relative hidden w-fit flex-row items-center justify-end gap-4 pl-12 md:flex md:gap-12 md:pl-24">
+<!-- TODO: Remove flex when mobile nav is fixed -->
+<div class="relative flex w-fit flex-row items-center justify-end gap-4 pl-12 md:flex md:gap-12 md:pl-24">
   {#each NAV_LINKS as link, index}
     <a class="group relative text-lg font-medium text-white opacity-75" href={link.href} bind:this={indicators[index]}>
       {link.name}

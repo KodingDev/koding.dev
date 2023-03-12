@@ -15,6 +15,6 @@
 
     <!-- Navigation -->
     <DesktopNavBar />
-    <MobileNavBar />
+    <!-- <MobileNavBar /> -->
   </div>
 </div>
