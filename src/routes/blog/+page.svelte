@@ -20,7 +20,7 @@
         <!-- TODO: Make the below a component -->
         <div class="flex flex-col gap-3 py-9 md:py-0">
           <!-- Date -->
-          <span>{formatDate(new Date(data.metadata.date))}</span>
+          <span>{formatDate(new Date(post.metadata.date))}</span>
 
           <!-- Title -->
           <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
