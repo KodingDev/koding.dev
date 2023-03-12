@@ -3,6 +3,7 @@
   import Header from '$components/base/Header.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
+  import { formatDate } from '$lib/util/html';
 
   export let data: PageData;
 </script>
@@ -19,13 +20,7 @@
         <!-- TODO: Make the below a component -->
         <div class="flex flex-col gap-3 py-9 md:py-0">
           <!-- Date -->
-          <span
-            >{new Date(post.metadata.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}</span
-          >
+          <span>{formatDate(new Date(data.metadata.date))}</span>
 
           <!-- Title -->
           <h2 class="text-2xl font-bold">{post.metadata.title}</h2>

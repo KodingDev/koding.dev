@@ -19,7 +19,7 @@
 
   <div class="flex grow flex-col gap-3 border-b border-b-white/[15%] py-9">
     <!-- Date -->
-    <span>{formatDate(data.metadata.date)}</span>
+    <span>{formatDate(new Date(data.metadata.date))}</span>
 
     <!-- Title -->
     <h2 class="text-2xl font-bold">{data.metadata.title}</h2>
