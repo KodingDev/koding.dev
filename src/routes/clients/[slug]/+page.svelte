@@ -32,7 +32,7 @@
 
         <!-- Links -->
         {#if project.links?.length}
-          <div class="flex flex-row gap-4 overflow-x-scroll">
+          <div class="flex flex-row gap-4">
             {#each project.links as link}
               <IconLink href={link.href} icon={link.icon ?? 'icon-[mdi--web]'}>{link.name}</IconLink>
             {/each}
