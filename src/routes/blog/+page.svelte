@@ -1,18 +1,16 @@
 <script lang="ts">
   import Image from '$components/base/Image.svelte';
+  import Header from '$components/layout/Header.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
-<Seo title="Blog" slug="/blog" />
+<Seo title="Blog" />
 
 <div class="layout-container pt-40 pb-36">
-  <div class="flex flex-col gap-3">
-    <p class="text-2xl font-medium"><span class="pr-4">📖</span> Blog</p>
-    <h1 class="text-5xl font-bold leading-[1.8] sm:text-5xl sm:leading-[1.8]">My thoughts on software development, web development, and more.</h1>
-  </div>
+  <Header emoji="📖" title="Blog">My thoughts on software development, web development, and more.</Header>
 
   <div class="flex flex-col gap-8 pt-32">
     <!-- TODO: Cleanup, tags -->

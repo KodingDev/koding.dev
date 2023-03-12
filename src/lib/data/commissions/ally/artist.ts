@@ -1,5 +1,5 @@
 import type { ArtistData } from '$lib/data/commissions';
-import commission2 from './images/2.png';
+import Commission2 from './images/2.png?w=256;512;1280;1920&picture';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -10,7 +10,7 @@ export default {
       slug: 'commission-2',
       title: 'Commission 2',
       description: 'A small little goober.',
-      images: [commission2],
+      images: [Commission2],
     },
   ],
-} as ArtistData;
+} satisfies ArtistData;

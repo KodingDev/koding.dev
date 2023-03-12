@@ -1,7 +1,7 @@
 import type { ArtistData } from '$lib/data/commissions';
-import avatar from './avatar.jpg';
-import commission3 from './images/3.png';
-import commission3_banner from './images/3-banner.png';
+import avatar from './avatar.jpg?w=50;100;200;300&picture';
+import Commission3 from './images/3.png?w=256;512;1280;1920&picture';
+import Commission3Banner from './images/3-banner.png?w=256;512;1280;1920&picture';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -14,7 +14,7 @@ export default {
       slug: 'commission-3',
       title: 'Commission 3',
 
-      images: [commission3, commission3_banner],
+      images: [Commission3, Commission3Banner],
     },
   ],
-} as ArtistData;
+} satisfies ArtistData;

@@ -11,6 +11,7 @@
   https://github.com/rodneylab/sveltekit-seo/blob/main/LICENSE
 -->
 <script lang="ts">
+  import { page } from '$app/stores';
   import OpenGraph from './OpenGraph.svelte';
   import Twitter from './Twitter.svelte';
 
@@ -19,7 +20,7 @@
   import website from '$lib/config/website';
 
   export let title: string;
-  export let slug: string;
+  export let slug: string = $page.url.pathname;
   export let description = '';
 
   export let ogImage: { url: string; alt: string } | undefined = undefined;
@@ -29,7 +30,7 @@
     alt: 'Compact Banner Purple',
   };
 
-  const url = `${website.siteUrl}/${slug || ''}`;
+  const url = `${website.siteUrl}${slug || ''}`;
   const pageTitle = `${title || 'Commission'} | ${website.siteTitle}`;
 
   const openGraphProps = {

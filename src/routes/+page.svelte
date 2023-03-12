@@ -7,26 +7,24 @@
   import Link from '$components/interactive/Link.svelte';
   import { PROJECTS } from '$lib/data/projects';
   import type { PageData } from './$types';
+  import Header from '$components/layout/Header.svelte';
 
   export let data: PageData;
 </script>
 
-<Seo title="Home" slug="/" />
+<Seo title="Home" />
 
 <div class="flex flex-col gap-16 pb-36">
-  <!-- TODO: Check height calc on mobile -->
   <!-- calc = full height - h-24 (navbar / 6 rem) -->
   <!-- Header -->
-  <div class="layout-container flex h-[calc(100vh-6rem)]">
+  <div class="layout-container flex h-[calc(100svh-6rem)]">
     <div class="relative my-auto 2xl:w-2/3">
       <!-- Titles -->
-      <p class="text-2xl font-medium"><span class="pr-4">👋</span> Hi, I'm Stella</p>
-      <h1 class="pt-6 text-3xl font-bold leading-[1.8] sm:text-5xl sm:leading-[1.8]">
+      <Header emoji="👋" title="Hi, I'm Stella" subtitle="An experienced software engineer with 8 years of experience in the gaming industry.">
         An experienced software engineer with <span class="whitespace-nowrap rounded-xl bg-primary-200 px-2 py-1">8 years</span> of experience in the gaming industry.
-      </h1>
+      </Header>
 
       <!-- Highlights -->
-      <!-- TODO: Make these look good on small screens -->
       <div class="hidden sm:block">
         <!-- Highlight - Yellow Start (Top Right) -->
         <div class="absolute top-10 right-0">

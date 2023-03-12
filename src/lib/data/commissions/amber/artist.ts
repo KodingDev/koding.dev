@@ -1,9 +1,9 @@
 import type { ArtistData } from '$lib/data/commissions';
-import avatar from './avatar.jpg';
+import avatar from './avatar.jpg?w=50;100;200;300&picture';
 
-import commission1 from './images/1.jpg';
-import commission2 from './images/2.png';
-import commission3 from './images/3.png';
+import Commission1 from './images/1.jpg?w=256;512;1280;1920&picture';
+import Commission2 from './images/2.png?w=256;512;1280;1920&picture';
+import Commission3 from './images/3.png?w=256;512;1280;1920&picture';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -16,19 +16,19 @@ export default {
       slug: 'commission-1',
       title: 'Commission 1',
       description: 'The first rendition of my character that Amber drew!',
-      images: [commission1],
+      images: [Commission1],
     },
     {
       slug: 'commission-2',
       title: 'Commission 2',
       description: 'This is my main reference sheet that I use nowadays. They did a great job helping me refine my character & design some of the details.',
-      images: [commission2],
+      images: [Commission2],
     },
     {
       slug: 'commission-3',
       title: 'Commission 3',
       description: 'BLEH!!! Based on the silly little cat that we all know and love. <3',
-      images: [commission3],
+      images: [Commission3],
     },
   ],
-} as ArtistData;
+} satisfies ArtistData;

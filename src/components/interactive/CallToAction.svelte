@@ -12,7 +12,7 @@
   <div class="absolute inset-0">
     <!-- Picture -->
     {#if picture}
-      <Image {picture} class="h-full w-full object-cover" alt="Cover" />
+      <Image {picture} class="h-full w-full object-cover object-top" alt="Cover" />
       <div class="absolute top-0 left-0 z-[1] h-full w-full bg-gradient-to-b from-transparent to-black/60" />
     {:else}
       <!-- Cool ass gradient instead -->

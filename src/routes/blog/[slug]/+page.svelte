@@ -7,7 +7,7 @@
   export let data: PageData;
 </script>
 
-<Seo title={data.metadata.title} slug={data.slug} description={data.metadata.description} />
+<Seo title={data.metadata.title} description={data.metadata.description} />
 
 <div class="layout-container pt-32 pb-36">
   <!-- TODO: Hover effect -->

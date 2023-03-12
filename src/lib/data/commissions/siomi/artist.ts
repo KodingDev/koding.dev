@@ -1,8 +1,8 @@
 import type { ArtistData } from '$lib/data/commissions';
-import avatar from './avatar.jpg';
-import commission1 from './images/1.png';
-import commission1_no_wings from './images/1-no-wings.png';
-import commission2 from './images/2.png';
+import avatar from './avatar.jpg?w=50;100;200;300&picture';
+import Commission1 from './images/1.png?w=256;512;1280;1920&picture';
+import Commission1NoWings from './images/1-no-wings.png?w=256;512;1280;1920&picture';
+import Commission2 from './images/2.png?w=256;512;1280;1920&picture';
 
 export default {
   name: 'Siomi',
@@ -14,7 +14,7 @@ export default {
       slug: 'commission-1',
       title: 'Commission 1',
       description: 'This time, I asked Siomi to draw my character with wings & devil horns.',
-      images: [commission1, commission1_no_wings],
+      images: [Commission1, Commission1NoWings],
       links: [
         {
           text: 'Finished Tweet',
@@ -26,7 +26,7 @@ export default {
       slug: 'commission-2',
       title: 'Commission 2',
       description: 'Goober.',
-      images: [commission2],
+      images: [Commission2],
       links: [
         {
           text: 'Finished Tweet',
@@ -35,4 +35,4 @@ export default {
       ],
     },
   ],
-} as ArtistData;
+} satisfies ArtistData;

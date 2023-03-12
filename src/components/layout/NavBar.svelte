@@ -55,7 +55,11 @@
   {#each links as link, index}
     <a class="group relative text-lg font-medium text-white opacity-75" href={link.href} bind:this={indicators[index]}>
       {link.name}
-      <div class="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-transparent transition-all {isCurrent(link) ? 'group-hover:bg-primary-200/50' : ''}" />
+      <div
+        class="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-transparent transition-all {!link.match.test($page.url.pathname)
+          ? 'group-hover:bg-primary-200/50'
+          : ''}"
+      />
     </a>
   {/each}
 

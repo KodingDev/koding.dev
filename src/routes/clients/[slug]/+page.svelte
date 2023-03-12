@@ -11,14 +11,13 @@
   export let data: PageData;
 </script>
 
-<Seo title={data.client.name} slug={data.slug} description={data.client.description} />
+<Seo title={data.client.name} description={data.client.description} />
 
 <div class="layout-container flex flex-col gap-8 pt-32 pb-36">
   <Link href="/clients" style="back" class="opacity-50">Back to all clients</Link>
   <ClientCallToAction client={data.client} />
 
   <div class="flex flex-col gap-16 pt-8">
-    <!-- TODO: Handle when there are no projects -->
     {#each data.client.projects as project}
       <div class="flex flex-col gap-6">
         <!-- Name & description -->

@@ -1,37 +1,21 @@
 <script lang="ts">
+  import Image from '$components/base/Image.svelte';
   import IconLink from '$components/interactive/IconLink.svelte';
+  import Link from '$components/interactive/Link.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
-<!-- TODO: Fix slug -->
-<Seo
-  title={data.commission.title}
-  slug={`/art/${data.artist.name}`}
-  description={data.commission.description || ''}
-  twitterImage={{ url: data.commission.images[0], alt: 'Illustration' }}
-/>
+<Seo title={data.commission.title} description={data.commission.description || ''} twitterImage={{ url: data.commission.images[0], alt: 'Illustration' }} />
 
 <div class="layout-container pt-40 pb-36">
   <div class="flex flex-col gap-6">
-    <!-- TODO: Hover effect -->
-    <a href="/art" class="flex flex-row items-center gap-2 opacity-50"> <span class="icon-[material-symbols--arrow-back] h-5 w-5" />Back to all commissions</a>
-
-    <!-- TODO: Hover effect -->
-    <a class="flex flex-row items-center gap-2" href={data.artist.link} target="_blank" rel="noopener noreferrer">
-      <!-- Artist icon -->
-      {#if data.artist.avatar}
-        <img src={data.artist.avatar} class="h-5 w-5 rounded-md" alt={data.artist.name} />
-      {/if}
-
-      <span class="opacity-50">By {data.artist.name}</span>
-
-      {#if data.artist.link}
-        <span class="icon-[material-symbols--arrow-outward] h-5 w-5 opacity-50" />
-      {/if}
-    </a>
+    <Link style="back" href="/art" class="opacity-50">Back to all commissions</Link>
+    <Link href={data.artist.link} picture={data.artist.avatar} class="text-white/50" picClass="h-6 w-6 rounded-md">
+      By {data.artist.name}
+    </Link>
 
     <!-- Title -->
     <h1 class="text-5xl font-bold">{data.commission.title}</h1>
@@ -53,38 +37,8 @@
     <!-- Images -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
       {#each data.commission.images as image}
-        <img src={image} class="rounded-md object-cover object-center" alt={data.commission.title} />
+        <Image picture={image} class="rounded-md object-cover object-center" alt={data.commission.title} />
       {/each}
     </div>
   </div>
 </div>
-
-<!-- <div class="flex flex-col gap-6">
-  <a class="link w-fit" href="/art">&larr; Back to Gallery</a>
-
-  <div class="basic-card">
-    <CommissionPage commission={data} />
-  </div>
-
-  <div class="basic-card">
-    <h1 class="text-3xl font-bold">Images</h1>
-    <p class="pb-4 text-neutral-400">Click on an image to view it in full size.</p>
-
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
-      {#each data.images as image}
-        <CommissionImage
-          src={getURL(image)}
-          title={data.title}
-          subtitle={getText(image)}
-          className={typeof image === 'string'
-            ? 'col-span-2 md:col-span-1'
-            : image.mode === 'expanded'
-            ? 'col-span-2 lg:col-span-2 xl:col-span-3'
-            : image.mode === 'full'
-            ? 'col-span-full'
-            : ''}
-        />
-      {/each}
-    </div>
-  </div>
-</div> -->

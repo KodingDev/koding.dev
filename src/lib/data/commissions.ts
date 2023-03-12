@@ -3,17 +3,33 @@ import _ from 'lodash';
  * The featured artist data & commission.
  */
 import FeaturedArtist from '$lib/data/commissions/siomi/artist';
+import RefSheet from '$lib/data/commissions/amber/artist';
 import { importData } from '$lib/util/data';
+import type { Picture } from 'imagetools-core';
 
 /**
  * Designed to have a single file per artist, which is significantly easier to
  * organize imports for.
  */
 export interface ArtistData {
+  /**
+   * The artist's name.
+   */
   name: string;
-  avatar: string;
+
+  /**
+   * The artist's avatar.
+   */
+  avatar?: Picture;
+
+  /**
+   * A link to their website, Twitter, etc.
+   */
   link?: string;
 
+  /**
+   * The artist's commissions.
+   */
   commissions: CommissionData[];
 }
 
@@ -29,7 +45,7 @@ export interface CommissionData {
    * The images for the commission. The first image is the main image, and
    * the rest are additional images.
    */
-  images: string[];
+  images: Picture[];
 
   /**
    * Optional links to other places, such as the artist's progress Tweets
@@ -67,3 +83,4 @@ export const getArtists = async (): Promise<Record<string, ArtistData>> => {
 };
 
 export const FEATURED_ARTIST = { artist: FeaturedArtist, commission: FeaturedArtist.commissions[0] };
+export const REF_SHEET = { artist: RefSheet, commission: RefSheet.commissions[1] };

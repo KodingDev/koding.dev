@@ -1,5 +1,6 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
+  import Image from '$components/base/Image.svelte';
   import HoverListener from '$components/interactive/HoverListener.svelte';
   import NavBar from '$components/layout/NavBar.svelte';
   import { FEATURED_ARTIST } from '$lib/data/commissions';
@@ -72,7 +73,7 @@
   <!-- Navbar -->
   <div class="layout-container flex h-24 border-b border-b-white/10">
     <div class="my-auto flex w-full flex-row items-center">
-      <img class="aspect-square h-11 w-11 rounded-xl object-cover object-top" src={FEATURED_ARTIST.commission.images[0]} alt="Logo" />
+      <Image class="aspect-square h-11 w-11 rounded-xl object-cover object-top" picture={FEATURED_ARTIST.commission.images[0]} alt="Logo" />
       <div class="flex-grow md:hidden" />
       <NavBar {links} />
       <div class="hidden flex-grow flex-row items-center justify-end gap-4 md:flex">

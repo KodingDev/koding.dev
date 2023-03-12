@@ -7,6 +7,9 @@
   export let picture: Picture | undefined = undefined;
   export let style: 'default' | 'back' = 'default';
 
+  export let picAlt = 'Logo';
+  export let picClass = 'h-11 w-11 rounded-xl';
+
   let className = '';
   // noinspection ReservedWordAsName
   export { className as class };
@@ -18,7 +21,7 @@
   {/if}
 
   {#if picture}
-    <Image width="30px" height="30px" class="h-11 w-11 rounded-xl" {picture} alt="Company Logo" />
+    <Image width="30px" height="30px" class={picClass} {picture} alt={picAlt} />
   {/if}
 
   <h1 class:group-hover:animate-pulse={style === 'back'}><slot /></h1>
