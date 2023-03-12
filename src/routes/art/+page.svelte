@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from '$components/base/Image.svelte';
   import CallToAction from '$components/interactive/CallToAction.svelte';
-  import Header from '$components/layout/Header.svelte';
+  import Header from '$components/base/Header.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import { REF_SHEET } from '$lib/data/commissions';
   import type { PageData } from './$types';

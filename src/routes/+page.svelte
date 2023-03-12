@@ -7,7 +7,7 @@
   import Link from '$components/interactive/Link.svelte';
   import { PROJECTS } from '$lib/data/projects';
   import type { PageData } from './$types';
-  import Header from '$components/layout/Header.svelte';
+  import Header from '$components/base/Header.svelte';
 
   export let data: PageData;
 </script>

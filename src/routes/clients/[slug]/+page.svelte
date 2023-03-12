@@ -88,6 +88,7 @@
                 Testimonials can have certain elements highlighted by surrounding them with *[WORD]*,
                 this is done by replacing the * with a span with the class "opacity-75"
               -->
+              <!-- TODO: Marked text component -->
               <div class="text-center text-xl text-white/50">
                 {#each testimonial.testimonial.split('*') as part, index}
                   {#if index % 2}
@@ -97,7 +98,6 @@
                   {/if}
                 {/each}
               </div>
-              <!-- <span class="text-center text-xl opacity-50">&OpenCurlyDoubleQuote; &CloseCurlyDoubleQuote;</span> -->
             </div>
           {/each}
         </div>

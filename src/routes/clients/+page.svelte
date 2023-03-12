@@ -1,6 +1,6 @@
 <script lang="ts">
   import ClientCallToAction from '$components/clients/ClientCallToAction.svelte';
-  import Header from '$components/layout/Header.svelte';
+  import Header from '$components/base/Header.svelte';
   import Seo from '$components/seo/Seo.svelte';
   import type { PageData } from './$types';
 

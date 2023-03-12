@@ -1,6 +1,5 @@
 import { defineMDSveXConfig } from 'mdsvex';
 import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 const config = defineMDSveXConfig({
   extensions: ['.md', '.svx'],
@@ -8,15 +7,7 @@ const config = defineMDSveXConfig({
     dashes: 'oldschool',
   },
 
-  rehypePlugins: [
-    rehypeSlug,
-    [
-      rehypeAutolinkHeadings,
-      {
-        behavior: 'wrap',
-      },
-    ],
-  ],
+  rehypePlugins: [rehypeSlug],
 });
 
 export default config;
