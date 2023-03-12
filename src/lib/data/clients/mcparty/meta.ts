@@ -1,13 +1,13 @@
 import type { Client } from '$lib/data/clients';
 
-import avatar from './avatar.png?w=100;200;300&picture';
-import banner from './banner.png?w=512;1280;1920&picture';
+import avatar from './avatar.png?avatar';
+import banner from './banner.png?image';
 
-import MasayoshiAvatar from './assets/masayoshi-avatar.png?w=100;200;300&picture';
-import MasayoshiGamesBanner1 from './assets/masayoshi-games-banner.jpg?w=512;1280;1920&picture';
+import MasayoshiAvatar from './assets/masayoshi-avatar.png?avatar';
+import MasayoshiGamesBanner1 from './assets/masayoshi-games-banner.jpg?image';
 
-import McPartyBlizzard from './assets/mcparty-blizzard.png?w=512;1280;1920&picture';
-import McPartyLobby from './assets/mcparty-lobby.png?w=512;1280;1920&picture';
+import McPartyBlizzard from './assets/mcparty-blizzard.png?image';
+import McPartyLobby from './assets/mcparty-lobby.png?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {

@@ -1,6 +1,6 @@
 import type { Client } from '$lib/data/clients';
-import StickyMCBanner from './assets/stickymc-banner.png?w=512;1280;1920&picture';
-import avatar from './avatar.png?w=100;200;300&picture';
+import StickyMCBanner from './assets/stickymc-banner.png?image';
+import avatar from './avatar.png?avatar';
 
 export default {
   name: 'OxyWire',

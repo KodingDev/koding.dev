@@ -1,6 +1,6 @@
 import type { Client } from '$lib/data/clients';
-import avatar from './avatar.jpg?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import banner from './banner.jpg?image';
 
 export default {
   name: 'UTILITI',

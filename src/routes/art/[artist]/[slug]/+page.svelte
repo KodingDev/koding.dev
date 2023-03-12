@@ -37,7 +37,7 @@
     <!-- Images -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
       {#each data.commission.images as image}
-        <Image picture={image} class="rounded-md object-cover object-center" alt={data.commission.title} />
+        <Image maxWidth="33vw" picture={image} class="rounded-md object-cover object-center" alt={data.commission.title} />
       {/each}
     </div>
   </div>

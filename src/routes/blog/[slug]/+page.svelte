@@ -2,6 +2,7 @@
   import Image from '$components/base/Image.svelte';
   import Link from '$components/interactive/Link.svelte';
   import Seo from '$components/seo/Seo.svelte';
+  import { formatDate } from '$lib/util/html';
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -10,22 +11,15 @@
 <Seo title={data.metadata.title} description={data.metadata.description} />
 
 <div class="layout-container pt-32 pb-36">
-  <!-- TODO: Hover effect -->
   <Link href="/blog" style="back" class="opacity-50">Back to all posts</Link>
 
   {#if data.metadata.cover}
-    <Image picture={data.metadata.cover} class="mt-8 aspect-video max-h-96 w-full rounded-xl border border-white/25 object-cover" alt="Cover" />
+    <Image maxWidth="20vw" picture={data.metadata.cover} class="mt-8 aspect-video max-h-96 w-full rounded-xl border border-white/25 object-cover" alt="Cover" />
   {/if}
 
   <div class="flex grow flex-col gap-3 border-b border-b-white/[15%] py-9">
     <!-- Date -->
-    <span
-      >{new Date(data.metadata.date).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}</span
-    >
+    <span>{formatDate(data.metadata.date)}</span>
 
     <!-- Title -->
     <h2 class="text-2xl font-bold">{data.metadata.title}</h2>
@@ -35,7 +29,6 @@
   </div>
 
   <div class="prose w-full max-w-full py-6 dark:prose-invert">
-    <!-- TODO: Style prose -->
     <svelte:component this={data.component} />
   </div>
 </div>

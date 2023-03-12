@@ -1,8 +1,8 @@
 import type { Client } from '$lib/data/clients';
-import avatar from './avatar.jpg?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
-import CivilizationIgn from './assets/civilization-ign.png?w=512;1280;1920&picture';
-import CivilizationUpcomingTest from './assets/civilization-upcoming-test.png?w=512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import banner from './banner.jpg?image';
+import CivilizationIgn from './assets/civilization-ign.png?image';
+import CivilizationUpcomingTest from './assets/civilization-upcoming-test.png?image';
 
 export default {
   name: 'SpeedSilver',

@@ -1,8 +1,8 @@
 import type { Client } from '$lib/data/clients';
-import CubeGeneratorIsland from './assets/cube-generator-island.png?w=512;1280;1920&picture';
+import CubeGeneratorIsland from './assets/cube-generator-island.png?image';
 import CubeGeneratorPlace from './assets/cube-generator-place.mp4';
-import avatar from './avatar.png?w=100;200;300&picture';
-import banner from './banner.png?w=512;1280;1920&picture';
+import avatar from './avatar.png?avatar';
+import banner from './banner.png?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {

@@ -1,7 +1,7 @@
 import type { ArtistData } from '$lib/data/commissions';
-import avatar from './avatar.jpg?w=50;100;200;300&picture';
-import Commission1Set1 from './images/1-set1.png?w=256;512;1280;1920&picture';
-import Commission1Set2 from './images/1-set2.png?w=256;512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import Commission1Set1 from './images/1-set1.png?image';
+import Commission1Set2 from './images/1-set2.png?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {

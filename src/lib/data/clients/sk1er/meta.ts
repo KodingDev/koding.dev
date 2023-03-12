@@ -1,11 +1,11 @@
 import type { Client } from '$lib/data/clients';
 
-import avatar from './avatar.jpg?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import banner from './banner.jpg?image';
 
-import HyperiumAvatar from './assets/hyperium-avatar.png?w=100;200;300&picture';
-import HyperiumMenu from './assets/hyperium-menu.jpg?w=512;1280;1920&picture';
-import HyperiumSettings from './assets/hyperium-settings.jpeg?w=512;1280;1920&picture';
+import HyperiumAvatar from './assets/hyperium-avatar.png?avatar';
+import HyperiumMenu from './assets/hyperium-menu.jpg?image';
+import HyperiumSettings from './assets/hyperium-settings.jpeg?image';
 
 export default {
   name: 'Sk1er LLC',

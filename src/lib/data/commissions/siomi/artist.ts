@@ -1,8 +1,8 @@
 import type { ArtistData } from '$lib/data/commissions';
-import avatar from './avatar.jpg?w=50;100;200;300&picture';
-import Commission1 from './images/1.png?w=256;512;1280;1920&picture';
-import Commission1NoWings from './images/1-no-wings.png?w=256;512;1280;1920&picture';
-import Commission2 from './images/2.png?w=256;512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import Commission1 from './images/1.png?image';
+import Commission1NoWings from './images/1-no-wings.png?image';
+import Commission2 from './images/2.png?image';
 
 export default {
   name: 'Siomi',

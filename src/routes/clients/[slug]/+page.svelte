@@ -23,7 +23,7 @@
         <!-- Name & description -->
         <div class="flex flex-row items-center gap-4">
           {#if project.avatar}
-            <Image picture={project.avatar} class="h-12 w-12 rounded-lg" />
+            <Image maxWidth="5vw" picture={project.avatar} alt="{project.name} Avatar" class="h-12 w-12 rounded-lg" />
           {/if}
 
           <h2 class="text-3xl font-bold">{project.name}</h2>
@@ -51,7 +51,12 @@
                       <!-- Website embeds -->
                       <MediaEmbed src={media.media} class="h-full w-full object-cover" />
                     {:else if typeof media.media === 'object'}
-                      <Image picture={media.media} class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105" />
+                      <Image
+                        alt="Project Image"
+                        maxWidth="40vw"
+                        picture={media.media}
+                        class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                      />
                     {/if}
                   </svelte:fragment>
 
@@ -76,7 +81,7 @@
           {#each data.client.testimonials as testimonial}
             <div class="flex flex-col items-center gap-6 rounded-lg border border-white/[15%] bg-white/[5%] p-6">
               <div class="flex flex-row items-center gap-4">
-                <Image picture={testimonial.avatar} class="h-12 w-12 rounded-lg" />
+                <Image alt="{testimonial.name} Avatar" maxWidth="10vw" picture={testimonial.avatar} class="h-12 w-12 rounded-lg" />
 
                 <div class="flex flex-col">
                   <span class="font-bold">{testimonial.name}</span>

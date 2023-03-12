@@ -1,11 +1,11 @@
 import type { Client } from '$lib/data/clients';
 
-import avatar from './avatar.png?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
+import avatar from './avatar.png?avatar';
+import banner from './banner.jpg?image';
 
-import OEAvatar from './assets/oe-avatar.png?w=100;200;300&picture';
+import OEAvatar from './assets/oe-avatar.png?avatar';
 import OEInterpolation from './assets/oe-interpolation.mp4';
-import OESettings from './assets/oe-settings.png?w=512;1280;1920&picture';
+import OESettings from './assets/oe-settings.png?image';
 
 export default {
   name: 'Origin Realms',

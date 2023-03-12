@@ -1,11 +1,11 @@
 import type { Client } from '$lib/data/clients';
-import avatar from './avatar.jpg?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
+import avatar from './avatar.jpg?avatar';
+import banner from './banner.jpg?image';
 
-import CraftadiaAvatar from './assets/craftadia-avatar.png?w=100;200;300&picture';
-import CraftadiaBank from './assets/craftadia-bank.png?w=512;1280;1920&picture';
-import CraftadiaTreasureMerchant from './assets/craftadia-treasure-merchant.png?w=512;1280;1920&picture';
-import CraftadiaWheel from './assets/craftadia-wheel.png?w=512;1280;1920&picture';
+import CraftadiaAvatar from './assets/craftadia-avatar.png?avatar';
+import CraftadiaBank from './assets/craftadia-bank.png?image';
+import CraftadiaTreasureMerchant from './assets/craftadia-treasure-merchant.png?image';
+import CraftadiaWheel from './assets/craftadia-wheel.png?image';
 
 export default {
   name: 'Katalyst Media',

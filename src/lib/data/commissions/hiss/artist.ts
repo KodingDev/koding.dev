@@ -1,5 +1,5 @@
 import type { ArtistData } from '$lib/data/commissions';
-import Commission1 from './images/1.jpg?w=256;512;1280;1920&picture';
+import Commission1 from './images/1.jpg?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {

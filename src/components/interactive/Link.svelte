@@ -21,7 +21,7 @@
   {/if}
 
   {#if picture}
-    <Image width="30px" height="30px" class={picClass} {picture} alt={picAlt} />
+    <Image maxWidth="5vw" class={picClass} {picture} alt={picAlt} />
   {/if}
 
   <h1 class:group-hover:animate-pulse={style === 'back'}><slot /></h1>

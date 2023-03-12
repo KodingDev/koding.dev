@@ -14,3 +14,17 @@ export const getLinkProps = (href: string): { target?: string; rel?: string } =>
     }),
   };
 };
+
+/**
+ * Format a Date to a human-readable string.
+ *
+ * @param date The date to format
+ * @returns The formatted date
+ */
+export const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};

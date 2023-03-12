@@ -16,13 +16,13 @@
 
   <!-- Ref sheet card -->
   <!-- TODO: Make this page look better -->
-  <CallToAction picture={REF_SHEET.commission.images[0]} href="/art/{REF_SHEET.artist.name}/{REF_SHEET.commission.slug}">
+  <CallToAction picture={REF_SHEET.commission.images[0]} href="/art/{REF_SHEET.artist.name}/{REF_SHEET.commission.slug}" picMaxWidth="80vw">
     <div class="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
       <!-- Artist name -->
       <div class="flex flex-row items-center gap-2">
         <!-- Profile pic -->
         {#if REF_SHEET.artist.avatar}
-          <Image picture={REF_SHEET.artist.avatar} class="h-6 w-6 rounded-md" alt={REF_SHEET.artist.name} />
+          <Image maxWidth="5vw" picture={REF_SHEET.artist.avatar} class="h-6 w-6 rounded-md" alt={REF_SHEET.artist.name} />
         {/if}
         <span class="opacity-75">By {REF_SHEET.artist.name}</span>
       </div>
@@ -49,7 +49,7 @@
           href="/art/{slug}/{commission.slug}"
         >
           <!-- Image -->
-          <Image class="-z-2 absolute inset-0 h-full w-full object-cover object-top" picture={commission.images[0]} alt={commission.title} />
+          <Image maxWidth="25vw" class="-z-2 absolute inset-0 h-full w-full object-cover object-top" picture={commission.images[0]} alt={commission.title} />
 
           <!-- Gradient overlay -->
           <div class="-z-1 absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
@@ -68,7 +68,7 @@
             <div class="flex flex-row items-center gap-2">
               <!-- Profile pic -->
               {#if artist.avatar}
-                <Image picture={artist.avatar} class="h-6 w-6 rounded-md" alt={artist.name} />
+                <Image maxWidth="5vw" picture={artist.avatar} class="h-6 w-6 rounded-md" alt={artist.name} />
               {/if}
               <span class="opacity-75">By {artist.name}</span>
             </div>

@@ -1,5 +1,5 @@
 import type { PostMetadata } from '$lib/data/blog';
-import cover from './images/ball.png?w=512;1280;1920&picture';
+import cover from './images/ball.png?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {

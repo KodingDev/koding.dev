@@ -7,7 +7,7 @@
   export let href: string = client.href;
 </script>
 
-<CallToAction {href} picture={client.banner}>
+<CallToAction {href} picture={client.banner} picMaxWidth="40vw">
   <div class="flex flex-col gap-3 p-6 md:p-10">
     <div class="flex flex-row items-center">
       <!-- Status Dot -->
@@ -20,7 +20,7 @@
     <!-- Avatar & Name -->
     <div class="flex flex-row items-center gap-4">
       {#if client.avatar}
-        <Image picture={client.avatar} class="h-11 w-11 rounded-lg" />
+        <Image alt="{client.name} Avatar" maxWidth="5vw" picture={client.avatar} class="h-11 w-11 rounded-lg" />
       {/if}
 
       <span class="text-2xl font-bold">{client.name}</span>

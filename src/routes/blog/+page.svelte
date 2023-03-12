@@ -35,7 +35,12 @@
         </div>
 
         {#if post.metadata.cover}
-          <Image picture={post.metadata.cover} alt="" class="aspect-video w-full rounded-xl border border-white/25 object-cover md:w-48" />
+          <Image
+            alt="{post.metadata.title} Cover"
+            maxWidth="80vw"
+            picture={post.metadata.cover}
+            class="aspect-video w-full rounded-xl border border-white/25 object-cover md:w-48"
+          />
         {/if}
       </a>
     {/each}

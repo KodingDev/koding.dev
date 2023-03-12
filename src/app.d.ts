@@ -9,7 +9,12 @@ export declare namespace App {
   // interface Error {}
   // interface Platform {}
 
-  declare module '*&picture' {
+  declare module '*?image' {
+    const out: Picture;
+    export default out;
+  }
+
+  declare module '*?avatar' {
     const out: Picture;
     export default out;
   }

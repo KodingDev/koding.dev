@@ -1,10 +1,10 @@
 import type { Client } from '$lib/data/clients';
-import MapCasino from './assets/map-casino.png?w=512;1280;1920&picture';
-import MapCult from './assets/map-cult.png?w=512;1280;1920&picture';
-import MapLobby from './assets/map-lobby.png?w=512;1280;1920&picture';
-import MapRoyale from './assets/map-royale.png?w=512;1280;1920&picture';
-import avatar from './avatar.jpg?w=100;200;300&picture';
-import banner from './banner.jpg?w=512;1280;1920&picture';
+import MapCasino from './assets/map-casino.png?image';
+import MapCult from './assets/map-cult.png?image';
+import MapLobby from './assets/map-lobby.png?image';
+import MapRoyale from './assets/map-royale.png?image';
+import avatar from './avatar.jpg?avatar';
+import banner from './banner.jpg?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
