@@ -4,9 +4,10 @@
   import Project from '$components/home/Project.svelte';
   import TwinklingStar from '$components/home/TwinklingStar.svelte';
   import CallToAction from '$components/interactive/CallToAction.svelte';
+  import Link from '$components/interactive/Link.svelte';
+  import MotionCanvas from '$components/interactive/MotionCanvas.svelte';
   import { PROJECTS } from '$lib/data/projects';
   import type { PageData } from './$types';
-  import Link from '$components/interactive/Link.svelte';
 
   export let data: PageData;
 </script>
@@ -148,5 +149,9 @@
         <span class="opacity-50">Check out some of my clients.</span>
       </div>
     </CallToAction>
+  </div>
+
+  <div class="layout-container">
+    <MotionCanvas name="project" class="aspect-[3] min-h-[52]" />
   </div>
 </div>

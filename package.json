@@ -5,17 +5,19 @@
   "scripts": {
     "dev": "vite dev --host",
     "dev:open": "vite dev --host --open",
-    "build": "vite build",
+    "build": "pnpm run -r --filter ./projects/* build && vite build",
     "preview": "vite preview",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write . && eslint . --fix",
-    "tunnel": "cloudflared tunnel run --url http://localhost:5173"
+    "tunnel": "cloudflared tunnel run --url http://localhost:5174"
   },
   "devDependencies": {
     "@iconify-json/material-symbols": "^1.1.29",
     "@iconify-json/mdi": "^1.1.47",
     "@iconify-json/vscode-icons": "^1.1.22",
     "@iconify/tailwind": "^0.1.1",
+    "@koding-dev/motion-canvas": "workspace:^0.0.0",
+    "@motion-canvas/player": "^3.2.0",
     "@sveltejs/adapter-vercel": "^2.1.0",
     "@sveltejs/kit": "^1.6.0",
     "@tailwindcss/line-clamp": "^0.4.2",
