@@ -3,7 +3,7 @@
   import Seo from '$components/seo/Seo.svelte';
 </script>
 
-<Seo title="Error" />
+<Seo title="Error" description="Something went wrong" />
 
 <div class="text-center">
   <h1 class="text-[10rem] font-bold dark:text-neutral-300">

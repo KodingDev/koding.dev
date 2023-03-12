@@ -7,7 +7,7 @@
   export let data: PageData;
 </script>
 
-<Seo title="Blog" />
+<Seo title="Blog" description="My thoughts on software development, web development, and more." />
 
 <div class="layout-container pt-40 pb-36">
   <Header emoji="📖" title="Blog">My thoughts on software development, web development, and more.</Header>

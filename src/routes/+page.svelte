@@ -12,7 +12,7 @@
   export let data: PageData;
 </script>
 
-<Seo title="Home" />
+<Seo title="Home" description="Hi, I'm Stella. Crafting rich, engaging gameplay experiences for 8 years." />
 
 <div class="flex flex-col gap-16 pb-36">
   <!-- calc = full height - h-24 (navbar / 6 rem) -->
@@ -20,8 +20,8 @@
   <div class="layout-container flex h-[calc(100svh-6rem)]">
     <div class="relative my-auto 2xl:w-2/3">
       <!-- Titles -->
-      <Header emoji="👋" title="Hi, I'm Stella" subtitle="An experienced software engineer with 8 years of experience in the gaming industry.">
-        An experienced software engineer with <span class="whitespace-nowrap rounded-xl bg-primary-200 px-2 py-1">8 years</span> of experience in the gaming industry.
+      <Header emoji="👋" title="Hi, I'm Stella">
+        Crafting rich, engaging gameplay experiences for <span class="whitespace-nowrap rounded-xl bg-primary-200 px-2 py-1">8 years</span>.
       </Header>
 
       <!-- Highlights -->

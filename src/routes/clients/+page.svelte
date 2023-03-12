@@ -7,7 +7,10 @@
   export let data: PageData;
 </script>
 
-<Seo title="Clients" />
+<Seo
+  title="Clients"
+  description="I've had the pleasure of working with some amazing people, here are some of them, and the cool things we've built together."
+/>
 
 <div class="layout-container pt-40 pb-36">
   <Header emoji="📊" title="Clients">Some of the amazing people I've had the pleasure of working with.</Header>
