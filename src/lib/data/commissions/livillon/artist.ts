@@ -11,8 +11,8 @@ export default {
 
   commissions: [
     {
-      slug: 'commission-1',
-      title: 'Commission 1',
+      slug: 'emotes',
+      title: 'Emotes',
       description: 'My set of emotes that I commissioned Livillon for.',
       images: [Commission1Set1, Commission1Set2],
       links: [

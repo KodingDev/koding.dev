@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write . && eslint . --fix",
-    "tunnel": "cloudflared tunnel run --url http://localhost:5174",
+    "tunnel": "cloudflared tunnel run --url http://localhost:5173",
     "build:projects": "pnpm run -r --filter ./projects/* build"
   },
   "devDependencies": {

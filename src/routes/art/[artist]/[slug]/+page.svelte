@@ -8,7 +8,11 @@
   export let data: PageData;
 </script>
 
-<Seo title={data.commission.title} description={data.commission.description || ''} twitterImage={{ url: data.commission.images[0], alt: 'Illustration' }} />
+<Seo
+  title={data.commission.title}
+  description={data.commission.description || ''}
+  twitterImage={{ url: data.commission.images[0].fallback.src, alt: 'Illustration' }}
+/>
 
 <div class="layout-container pt-40 pb-36">
   <div class="flex flex-col gap-6">

@@ -31,11 +31,12 @@
   };
 
   const url = `${website.siteUrl}${slug || ''}`;
-  const pageTitle = `${title || 'Commission'} | ${website.siteTitle}`;
+  const pageTitle = `${title || 'Site'} | ${website.siteTitle}`;
 
   const openGraphProps = {
     url,
     pageTitle,
+    description,
 
     image: ogImage,
     squareImage: ogSquareImage,

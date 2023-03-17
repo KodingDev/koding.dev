@@ -13,6 +13,7 @@
 <script lang="ts">
   export let siteTitle: string;
   export let pageTitle: string;
+  export let description: string;
   export let url: string;
 
   export let image: { url: string; alt: string } | undefined = undefined;
@@ -26,6 +27,7 @@
   <meta property="og:locale" content={ogLanguage} />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:url" content={url} />
+  <meta property="og:description" content={description} />
 
   <meta property="og:type" content="website" />
 
