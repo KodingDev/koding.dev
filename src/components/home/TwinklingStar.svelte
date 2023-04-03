@@ -1,39 +1,45 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
-  import { cubicOut } from 'svelte/easing';
-  import { tweened } from 'svelte/motion';
+  import { onMount } from 'svelte';
 
   // Randomly move the star around by tweening its x and y coordinates
   // in an offset from its original position, using a sine wave to
   // create a smooth, natural motion
+  let data = { x: 0, y: 0, size: 0, opacity: 0 };
 
-  let xTween = tweened(0, { duration: 1000, easing: cubicOut });
-  let yTween = tweened(0, { duration: 1000, easing: cubicOut });
+  // Create a random offset
+  const offset = Math.random() * 5;
 
-  // Randomly change the star's size and opacity
-  let size = tweened(Math.random() * 20 + 10, { duration: 1000, easing: cubicOut });
-  let opacityTween = tweened(Math.random() * 0.5 + 0.5, { duration: 1000, easing: cubicOut });
+  // Create a random speed
+  // 5 - 10
+  let speed = 0;
 
-  // Perform the movement and size/opacity changes on mount
-  let lastTimeout;
+  // Signed directions
+  let directions = [-1, 1];
 
-  onMount(() => {
-    function update() {
-      xTween.set(Math.random() * 20 - 10);
-      yTween.set(Math.random() * 20 - 10);
-      opacityTween.set(Math.random() * 0.5 + 0.5);
-      size.set(Math.random() * 20 + 10);
-
-      lastTimeout = setTimeout(update, Math.random() * 1000 + 1000);
+  const render = () => {
+    // Update the completion status
+    if (speed === 0 || data.opacity < 0.001) {
+      speed = Math.random() * 15 + 5;
+      directions = [Math.random() * 2 - 1, Math.random() * 2 - 1];
     }
 
-    update();
-  });
-  onDestroy(() => clearTimeout(lastTimeout));
+    // Update the data
+    data = {
+      x: directions[0] * Math.sin(Date.now() / 1000 + offset) * speed,
+      y: directions[1] * Math.sin(Date.now() / 1000 + offset) * speed,
+      size: Math.sin(Date.now() / 1000 + offset) * speed + 20,
+      opacity: Math.sin(Date.now() / 1000 + offset) * 0.5 + 0.5,
+    };
+
+    // Request the next frame
+    requestAnimationFrame(render);
+  };
+
+  onMount(() => requestAnimationFrame(render));
 </script>
 
 <div class="relative">
-  <div class="absolute" style="left: {$xTween}px; top: {$yTween}px; width: {$size}px; height: {$size}px; opacity: {$opacityTween};">
+  <div class="absolute" style="left: {data.x}px; top: {data.y}px; width: {data.size}px; height: {data.size}px; opacity: {data.opacity};">
     <slot />
   </div>
 </div>

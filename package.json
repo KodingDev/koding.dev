@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm run build:projects\" \"vite dev --host\"",
+    "dev": "vite dev --host",
+    "dev:projects": "concurrently \"pnpm run build:projects\" \"vite dev --host\"",
     "dev:open": "concurrently \"pnpm run build:projects\" \"vite dev --host --open\"",
     "build": "pnpm run build:projects && vite build",
     "preview": "vite preview",

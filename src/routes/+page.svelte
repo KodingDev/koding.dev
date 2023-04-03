@@ -39,7 +39,7 @@
         </div>
 
         <!-- Highlight - Blue Star (Above "with") -->
-        <div class="absolute top-[8.5rem] left-0">
+        <div class="absolute top-[7.5rem] left-0">
           <TwinklingStar>
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
