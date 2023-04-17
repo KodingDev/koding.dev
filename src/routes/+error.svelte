@@ -1,9 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import SEO from '$components/seo/SEO.svelte';
+  import Seo from '$components/seo/Seo.svelte';
 </script>
 
-<SEO title="Error" slug="/" />
+<Seo title="Error" description="Something went wrong" />
 
 <div class="text-center">
   <h1 class="text-[10rem] font-bold dark:text-neutral-300">

@@ -1,8 +1,19 @@
-<script lang="ts">
-  // Stolen from: https://github.com/rodneylab/sveltekit-seo/blob/main/src/lib/components/SEO/OpenGraph.svelte
+<!--
+  This code is based on the work of the work of Rodney Johnson from the
+  sveltekit-seo project. The original code can be found here:
 
+  https://github.com/rodneylab/sveltekit-seo/blob/main/src/lib/components/SEO/OpenGraph.svelte
+
+  Modifications have been made to the code to make it work best with my use case.
+  The original code is licensed under "BSD 3-Clause "New" or "Revised" License",
+  which can be found here:
+
+  https://github.com/rodneylab/sveltekit-seo/blob/main/LICENSE
+-->
+<script lang="ts">
   export let siteTitle: string;
   export let pageTitle: string;
+  export let description: string;
   export let url: string;
 
   export let image: { url: string; alt: string } | undefined = undefined;
@@ -16,6 +27,7 @@
   <meta property="og:locale" content={ogLanguage} />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:url" content={url} />
+  <meta property="og:description" content={description} />
 
   <meta property="og:type" content="website" />
 

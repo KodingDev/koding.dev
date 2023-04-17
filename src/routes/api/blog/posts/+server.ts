@@ -1,27 +1,18 @@
-import type { PostFile } from '$lib/types/blog';
-import { getSlug } from '$lib/util/blog';
+import { getPosts } from '$lib/data/blog';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async () => {
-  // List all posts
-  const posts = import.meta.glob<PostFile>('/src/lib/data/blog/*.md');
+// noinspection JSUnusedGlobalSymbols
+export const GET: RequestHandler = async ({ url }) => {
+  let posts = await getPosts();
 
-  // Map the posts
-  const postList = Object.entries(posts).map(async ([path, resolver]) => {
-    // Get the slug
-    const slug = getSlug(path);
+  // Handle limit
+  const limit = url.searchParams.get('limit');
+  if (limit) {
+    posts = posts.slice(0, Number(limit));
+  }
 
-    // Load the post
-    const post = await resolver();
-
-    // Return the post
-    return {
-      slug,
-      metadata: post.metadata,
-    };
-  });
-
-  // Return the list of posts
-  return json(await Promise.all(postList));
+  // We need to omit the component from the response
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return json(posts.map(({ component, ...post }) => post));
 };

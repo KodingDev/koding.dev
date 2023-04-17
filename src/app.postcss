@@ -1,3 +1,8 @@
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/700.css';
+@import 'nprogress/nprogress.css';
+
 /* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
@@ -29,6 +34,16 @@ body {
   }
 }
 
+/* nprogress - Customise the progress bar */
+#nprogress .bar {
+  background: theme('colors.primary.200');
+  height: 3px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px theme('colors.primary.200'), 0 0 5px theme('colors.primary.200');
+}
+
 /* Icon sizing */
 .icon.sm {
   @apply h-[24px] w-[24px];
@@ -37,4 +52,58 @@ body {
 /* TODO: Add all notion styles here */
 .notion-code-inline {
   @apply rounded-md bg-neutral-800 p-1 font-mono text-sm text-red-400 !important;
+}
+
+/* Layout */
+.layout-container {
+  @apply mx-8 md:mx-32 xl:mx-48;
+}
+
+/* Hoverable */
+.hoverable {
+  --mouse-x: -9999px;
+  --mouse-y: -9999px;
+}
+
+.hoverable.hoverable-card {
+  @apply relative flex grow flex-col opacity-100 overflow-clip;
+}
+
+.hoverable.hoverable-card:hover::before {
+  @apply opacity-100;
+}
+
+.hoverable.hoverable-card::before,
+.hoverable.hoverable-card::after {
+  @apply absolute left-0 top-0 h-full w-full opacity-0 transition-opacity content-[''];
+}
+
+.hoverable.hoverable-card::before {
+  /* Less intense hover effect */
+
+  @apply z-[3];
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+}
+
+.hoverable.hoverable-card::after {
+  /* Outline that shows regardless of hover state */
+
+  @apply z-[1] opacity-100 rounded-[inherit] border;
+  border-image: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%);
+  border-image-slice: 1;
+
+  /* TODO: Fix the rounding */
+  /* Create a mask that is rounded on all corners, to create a rounded outline */
+  /* This is because the border-image property does not support border-radius */
+
+  /* --border-radius: 0.5rem; */
+  /* background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); */
+  /* mask-image:  */
+    /* linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+    linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%), */
+
+    /* Round the inside corners */
+    /* radial-gradient(circle at var(--border-radius) var(--border-radius), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%); */
 }

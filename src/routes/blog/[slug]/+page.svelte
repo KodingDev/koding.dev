@@ -1,33 +1,34 @@
 <script lang="ts">
+  import Image from '$components/base/Image.svelte';
+  import Link from '$components/interactive/Link.svelte';
+  import Seo from '$components/seo/Seo.svelte';
+  import { formatDate } from '$lib/util/html';
   import type { PageData } from './$types';
 
   export let data: PageData;
 </script>
 
-<div class="mb-12 w-full overflow-clip rounded-xl bg-neutral-800">
-  <div class="flex flex-col gap-6">
-    <div class="flex flex-col gap-2 bg-neutral-900 p-6">
-      <h2 class="text-4xl font-bold">{data.metadata.title}</h2>
+<Seo title={data.metadata.title} description={data.metadata.description} />
 
-      <div class="flex flex-row gap-2">
-        <span class="text-neutral-300"
-          >{new Date(data.metadata.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}</span
-        >
+<div class="layout-container pt-32 pb-36">
+  <Link href="/blog" style="back" class="opacity-50">Back to all posts</Link>
 
-        {#if data.metadata.tags}
-          {#each data.metadata.tags as tag}
-            <span class="text-neutral-400">#{tag}</span>
-          {/each}
-        {/if}
-      </div>
-    </div>
+  {#if data.metadata.cover}
+    <Image maxWidth="20vw" picture={data.metadata.cover} class="mt-8 aspect-video max-h-96 w-full rounded-xl border border-white/25 object-cover" alt="Cover" />
+  {/if}
 
-    <div class="prose mx-auto w-full py-6 dark:prose-invert">
-      <svelte:component this={data.post} />
-    </div>
+  <div class="flex grow flex-col gap-3 border-b border-b-white/[15%] py-9">
+    <!-- Date -->
+    <span>{formatDate(new Date(data.metadata.date))}</span>
+
+    <!-- Title -->
+    <h2 class="text-2xl font-bold">{data.metadata.title}</h2>
+
+    <!-- Excerpt -->
+    <span class="opacity-50">{data.metadata.description ?? 'Take a read :)'}</span>
+  </div>
+
+  <div class="prose w-full max-w-full py-6 dark:prose-invert">
+    <svelte:component this={data.component} />
   </div>
 </div>

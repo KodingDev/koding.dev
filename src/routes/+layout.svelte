@@ -1,10 +1,8 @@
 <script lang="ts">
   import { navigating } from '$app/stores';
-  import Footer from '$components/base/Footer.svelte';
-  import GradientCanvas from '$components/base/GradientCanvas.svelte';
-  import NavBar from '$components/base/NavBar.svelte';
+  import HoverListener from '$components/interactive/HoverListener.svelte';
+  import NavBar from '$components/layout/NavBar.svelte';
   import NProgress from 'nprogress';
-  import 'nprogress/nprogress.css';
   import { fade } from 'svelte/transition';
   import '../app.postcss';
   import type { PageData } from './$types';
@@ -24,16 +22,14 @@
   }
 </script>
 
-<div class="mx-auto flex min-h-screen w-full flex-col">
-  <div class="px-8 pt-8">
+<HoverListener />
+
+<div class="flex min-h-screen flex-col justify-between bg-primary-800">
+  <div class="layout-container">
     <NavBar />
   </div>
 
-  <div class="h-full grow pt-12 md:px-8">
-    <div class="fixed left-0 top-0 -z-50 h-screen w-screen opacity-10">
-      <GradientCanvas />
-    </div>
-
+  <div>
     {#key data.pathname}
       <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
         <slot />
@@ -41,7 +37,9 @@
     {/key}
   </div>
 
-  <div class="px-8 pb-8">
-    <Footer />
+  <!-- Footer -->
+  <div class="layout-container flex flex-row pb-24">
+    <span class="flex-1 font-medium opacity-50">Copyright © Koding Development 2023</span>
+    <span class="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
   </div>
 </div>

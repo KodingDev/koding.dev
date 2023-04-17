@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NotionEmoji } from '../notion.types';
+  import type { NotionEmoji } from '$lib/notion';
 
   export let data: NotionEmoji;
 </script>
