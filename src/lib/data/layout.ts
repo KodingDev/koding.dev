@@ -7,11 +7,12 @@ export const NAV_LINKS: NavLink[] = [
     href: '/',
     match: /^\/$/,
   },
-  {
-    name: 'Blog',
-    href: '/blog',
-    match: /^\/blog/,
-  },
+  // TODO: Re-add, someday (TM)
+  // {
+  //   name: 'Blog',
+  //   href: '/blog',
+  //   match: /^\/blog/,
+  // },
   {
     name: 'Clients',
     href: '/clients',

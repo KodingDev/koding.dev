@@ -30,7 +30,6 @@ const config = {
   plugins: [
     // Tailwind
     require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
 
     // Iconify
     addDynamicIconSelectors()
