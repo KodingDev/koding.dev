@@ -10,7 +10,7 @@
 
 <Seo title="Blog" description="My thoughts on software development, web development, and more." />
 
-<div class="layout-container pt-40 pb-36">
+<div class="layout-container pb-36 pt-40">
   <Header emoji="📖" title="Blog">My thoughts on software development, web development, and more.</Header>
 
   <div class="flex flex-col gap-8 pt-32">

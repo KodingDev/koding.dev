@@ -13,7 +13,7 @@
 
 <Seo title={data.client.name} description={data.client.description} />
 
-<div class="layout-container flex flex-col gap-8 pt-32 pb-36">
+<div class="layout-container flex flex-col gap-8 pb-36 pt-32">
   <Link href="/clients" style="back" class="opacity-50">Back to all clients</Link>
   <ClientCallToAction client={data.client} />
 

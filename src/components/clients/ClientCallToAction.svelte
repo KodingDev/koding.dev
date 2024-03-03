@@ -20,6 +20,7 @@
     <!-- Avatar & Name -->
     <div class="flex flex-row items-center gap-4">
       {#if client.avatar}
+        <!-- Darken the image -->
         <Image alt="{client.name} Avatar" maxWidth="5vw" picture={client.avatar} class="h-11 w-11 rounded-lg" />
       {/if}
 

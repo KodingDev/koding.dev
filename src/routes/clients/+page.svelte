@@ -12,7 +12,7 @@
   description="I've had the pleasure of working with some amazing people, here are some of them, and the cool things we've built together."
 />
 
-<div class="layout-container pt-40 pb-36">
+<div class="layout-container pb-36 pt-40">
   <Header emoji="📊" title="Clients">Some of the amazing people I've had the pleasure of working with.</Header>
   <div class="grid grid-cols-1 gap-8 pt-32 lg:grid-cols-2">
     {#each Object.entries(data.clients) as [slug, client]}

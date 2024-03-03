@@ -19,19 +19,20 @@ export default {
   banner,
 
   start: 'Nov 2021',
-  // No end date, still working with them
+  end: 'Jun 2023',
 
-  testimonials: [
-    {
-      name: 'Dj Isaac',
-      role: 'CEO, MC Party',
-      testimonial:
-        'Stella is a *great developer*, and a great person. She is very knowledgeable and has a great understanding of the codebase. She is also very friendly and easy to work with. I would recommend her to anyone looking for a developer.',
-
-      url: 'https://twitter.com/DeJayDev',
-      avatar,
-    },
-  ],
+  // TODO: Like actually add one
+  // testimonials: [
+  //   {
+  //     name: 'Dj Isaac',
+  //     role: 'CEO, MC Party',
+  //     testimonial:
+  //       'Stella is a *great developer*, and a great person. She is very knowledgeable and has a great understanding of the codebase. She is also very friendly and easy to work with. I would recommend her to anyone looking for a developer.',
+  //
+  //     url: 'https://twitter.com/DeJayDev',
+  //     avatar,
+  //   },
+  // ],
 
   projects: [
     {

@@ -10,7 +10,7 @@
 
 <Seo title={data.metadata.title} description={data.metadata.description} />
 
-<div class="layout-container pt-32 pb-36">
+<div class="layout-container pb-36 pt-32">
   <Link href="/blog" style="back" class="opacity-50">Back to all posts</Link>
 
   {#if data.metadata.cover}

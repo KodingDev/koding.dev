@@ -3,8 +3,6 @@ import { importData } from '$lib/util/data';
 import _ from 'lodash';
 import type { Picture } from 'imagetools-core';
 
-// TODO: Add lodash
-
 // Expressions to match the files and extract the slug
 const POST_REGEX = new RegExp(`./blog/(?<slug>[^/]+)/post.svx`);
 const POST_METADATA_REGEX = new RegExp(`./blog/(?<slug>[^/]+)/meta.ts`);

@@ -14,7 +14,7 @@
   twitterImage={{ url: data.commission.images[0].fallback.src, alt: 'Illustration' }}
 />
 
-<div class="layout-container pt-40 pb-36">
+<div class="layout-container pb-36 pt-40">
   <div class="flex flex-col gap-6">
     <Link style="back" href="/art" class="opacity-50">Back to all commissions</Link>
     <Link href={data.artist.link} picture={data.artist.avatar} class="text-white/50" picClass="h-6 w-6 rounded-md">

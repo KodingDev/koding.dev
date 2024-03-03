@@ -2,8 +2,6 @@
   import Image from '$components/base/Image.svelte';
   import { FEATURED_ARTIST } from '$lib/data/commissions';
   import DesktopNavBar from './DesktopNavBar.svelte';
-
-  // Current page checker
 </script>
 
 <div class="flex h-24 border-b border-b-white/10">

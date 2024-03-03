@@ -27,7 +27,7 @@
       <!-- Highlights -->
       <div class="hidden sm:block">
         <!-- Highlight - Yellow Start (Top Right) -->
-        <div class="absolute top-10 right-0">
+        <div class="absolute right-0 top-10">
           <TwinklingStar>
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Highlight - Blue Star (Above "with") -->
-        <div class="absolute top-[7.5rem] left-0">
+        <div class="absolute left-0 top-[7.5rem]">
           <TwinklingStar>
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -103,40 +103,42 @@
   </div>
 
   <!-- Blog -->
-  <div class="layout-container">
-    <div class="flex flex-col gap-4 pb-12 align-middle md:flex-row md:items-center">
-      <div class="flex flex-row items-center gap-4">
-        <h1 class="text-2xl font-medium opacity-75"><span class="pr-4">📖</span> Blog</h1>
-        <Link href="/blog" class="opacity-50">View all</Link>
+  {#if data.posts.length > 0}
+    <div class="layout-container">
+      <div class="flex flex-col gap-4 pb-12 align-middle md:flex-row md:items-center">
+        <div class="flex flex-row items-center gap-4">
+          <h1 class="text-2xl font-medium opacity-75"><span class="pr-4">📖</span> Blog</h1>
+          <Link href="/blog" class="opacity-50">View all</Link>
+        </div>
+        <span class="flex-1 font-medium opacity-50 md:text-right">A collection of some of my thoughts and ramblings.</span>
       </div>
-      <span class="flex-1 font-medium opacity-50 md:text-right">A collection of some of my thoughts and ramblings.</span>
-    </div>
 
-    <!-- Posts -->
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {#each data.posts as post}
-        <a
-          href={`/blog/${post.slug}`}
-          class="hoverable hoverable-card flex flex-col gap-3 border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6 transition-all hover:scale-[101%] hover:shadow-xl"
-        >
-          <!-- Date -->
-          <span
-            >{new Date(post.metadata.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}</span
+      <!-- Posts -->
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {#each data.posts as post}
+          <a
+            href={`/blog/${post.slug}`}
+            class="hoverable hoverable-card flex flex-col gap-3 border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6 transition-all hover:scale-[101%] hover:shadow-xl"
           >
+            <!-- Date -->
+            <span
+              >{new Date(post.metadata.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}</span
+            >
 
-          <!-- Title -->
-          <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
+            <!-- Title -->
+            <h2 class="text-2xl font-bold">{post.metadata.title}</h2>
 
-          <!-- Excerpt -->
-          <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
-        </a>
-      {/each}
+            <!-- Excerpt -->
+            <span class="opacity-50">{post.metadata.description ?? 'Take a read :)'}</span>
+          </a>
+        {/each}
+      </div>
     </div>
-  </div>
+  {/if}
 
   <!-- Clients -->
   <div class="layout-container">

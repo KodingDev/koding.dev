@@ -12,7 +12,7 @@
 <Seo title="Art" description="Over the years, I've commissioned a lot of art. Here's a collection of some of my favorites." />
 
 <div class="layout-container flex flex-col gap-4 pb-36">
-  <Header emoji="🎨" title="Art" class="pt-40 pb-32">I've commissioned a lot of art over the years, please support these talented artists!</Header>
+  <Header emoji="🎨" title="Art" class="pb-32 pt-40">I've commissioned a lot of art over the years, please support these talented artists!</Header>
 
   <!-- Ref sheet card -->
   <!-- TODO: Make this page look better -->

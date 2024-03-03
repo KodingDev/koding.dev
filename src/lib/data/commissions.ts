@@ -1,4 +1,5 @@
 import _ from 'lodash';
+
 /**
  * The featured artist data & commission.
  */
@@ -69,7 +70,9 @@ const ARTIST_NAME_REGEX = /.\/commissions\/(?<name>[^/]+)\/artist\.ts/;
  */
 export const getArtists = async (): Promise<Record<string, ArtistData>> => {
   // Load the data
-  const data = await importData<{ default: ArtistData }>(() => import.meta.glob('./commissions/*/artist.ts', { eager: true }), {
+  const data = await importData<{
+    default: ArtistData;
+  }>(() => import.meta.glob('./commissions/*/artist.ts', { eager: true }), {
     regex: ARTIST_NAME_REGEX,
     group: 'name',
   });

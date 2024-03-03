@@ -14,7 +14,7 @@ export default {
   banner,
 
   start: 'Jan 2023',
-  // No end date, still working with them
+  end: 'Mar 2023',
 
   projects: [
     {
