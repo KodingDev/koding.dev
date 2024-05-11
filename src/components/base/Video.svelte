@@ -28,7 +28,7 @@
     <div class="flex flex-col items-center justify-center">
       <!-- Pause indicator -->
       {#if paused}
-        <div class="flex flex-col items-center justify-center rounded-full bg-black/50 p-4" transition:fade={{ duration: 100 }}>
+        <div class="flex flex-col items-center justify-center rounded-full bg-black/50 p-4" transition:fade|global={{ duration: 100 }}>
           <span class="icon-[mdi--play] h-8 w-8" />
         </div>
       {/if}

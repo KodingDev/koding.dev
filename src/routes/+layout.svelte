@@ -31,7 +31,7 @@
 
   <div>
     {#key data.pathname}
-      <div in:fade={{ duration: 250, delay: 250 }} out:fade={{ duration: 250 }}>
+      <div in:fade|global={{ duration: 250, delay: 250 }} out:fade|global={{ duration: 250 }}>
         <slot />
       </div>
     {/key}

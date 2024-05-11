@@ -16,7 +16,7 @@ import NotionCode from './blocks/NotionCode.svelte';
  *
  * @see https://developers.notion.com/reference/block#block-type-object
  */
-export const NOTION_BLOCK_RENDERERS: Partial<Record<BlockType, () => typeof SvelteComponent>> = {
+export const NOTION_BLOCK_RENDERERS: Partial<Record<BlockType, () => typeof SvelteComponent<any>>> = {
   heading_1: () => NotionHeading,
   heading_2: () => NotionHeading,
   heading_3: () => NotionHeading,
