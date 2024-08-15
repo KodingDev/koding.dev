@@ -11,7 +11,7 @@ import McPartyLobby from './assets/mcparty-lobby.png?image';
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-  name: 'PartyHat Productions',
+  name: 'Partyhat Productions',
   description: 'Lead server developer for the Masayoshi Games Twitch Rivals event, and an accompanying Minecraft network.',
   href: 'https://partyhat.dev',
 
