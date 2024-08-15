@@ -15,20 +15,19 @@
   import OpenGraph from './OpenGraph.svelte';
   import Twitter from './Twitter.svelte';
 
-  import CompactBannerPurple from '$assets/branding/compact-banner-purple.png';
-
   import website from '$lib/config/website';
+  import { BANNER_ARTIST } from '$lib/data/commissions';
 
   export let title: string;
   export let slug: string = $page.url.pathname;
   export let description = '';
 
-  export let ogImage: { url: string; alt: string } | undefined = undefined;
-  export let ogSquareImage: { url: string; alt: string } | undefined = undefined;
-  export let twitterImage: { url: string; alt: string } | undefined = {
-    url: CompactBannerPurple,
-    alt: 'Compact Banner Purple',
+  export let ogImage: { url: string; alt: string } | undefined = {
+    url: BANNER_ARTIST.image.fallback.src,
+    alt: website.siteTitle,
   };
+  export let ogSquareImage: { url: string; alt: string } | undefined = undefined;
+  export let twitterImage: { url: string; alt: string } | undefined = ogImage;
 
   const url = `${website.siteUrl}${slug || ''}`;
   const pageTitle = `${title || 'Site'} | ${website.siteTitle}`;
