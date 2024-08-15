@@ -16,6 +16,8 @@ export default {
   start: 'Jan 2023',
   end: 'Mar 2023',
 
+  hidden: true,
+
   projects: [
     {
       name: 'Cube Generator',

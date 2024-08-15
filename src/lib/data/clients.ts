@@ -39,6 +39,11 @@ export interface Client {
   end?: ClientDate;
 
   /**
+   * Whether the client is hidden from the homepage
+   */
+  hidden?: boolean;
+
+  /**
    * Testimonials from the clients
    */
   testimonials?: {
@@ -145,6 +150,7 @@ export const getClients = async (): Promise<Record<string, Client>> => {
     _.chain(data)
       .mapValues(([, { default: client }]) => client) // Remove 'default' from the import
       .toPairs()
+      .filter(([, client]) => !client.hidden)
       // Sort the clients by their end date descending (if any), and leave "current" clients at the top.
       .sortBy(([, client]) => (client.end ? -parseDate(client.end).getTime() : -Infinity))
       .fromPairs()

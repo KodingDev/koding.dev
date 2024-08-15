@@ -11,6 +11,8 @@ export default {
   start: 'Aug 2023',
   end: 'Sep 2023',
 
+  hidden: true,
+
   projects: [
     {
       name: 'Points',

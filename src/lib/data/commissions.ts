@@ -3,7 +3,7 @@ import _ from 'lodash';
 /**
  * The featured artist data & commission.
  */
-import FeaturedArtist from '$lib/data/commissions/siomi/artist';
+import FeaturedArtist from '$lib/data/commissions/amber/artist';
 import RefSheet from '$lib/data/commissions/amber/artist';
 import { importData } from '$lib/util/data';
 import type { Picture } from 'imagetools-core';
@@ -85,5 +85,5 @@ export const getArtists = async (): Promise<Record<string, ArtistData>> => {
     .value();
 };
 
-export const FEATURED_ARTIST = { artist: FeaturedArtist, commission: FeaturedArtist.commissions[0] };
+export const FEATURED_ARTIST = { artist: FeaturedArtist, commission: FeaturedArtist.commissions[2] };
 export const REF_SHEET = { artist: RefSheet, commission: RefSheet.commissions[1] };

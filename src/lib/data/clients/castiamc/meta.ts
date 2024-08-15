@@ -11,12 +11,13 @@ export default {
   banner,
 
   start: 'Nov 2022',
-  // No end date, still working with them
+  end: 'Jan 2023',
 
   projects: [
     {
       name: 'CastiaMC',
-      description: 'CastiaMC is a Minecraft Java server that focuses on an enhanced, polished survival experience.',
+      description:
+        'CastiaMC is a Minecraft Java server that focuses on an enhanced, polished survival experience. I primarily worked on updating existing features, creating a shared core framework, and improving the overall codebase.',
 
       links: [
         {
@@ -24,6 +25,7 @@ export default {
           href: 'https://castiamc.com',
         },
       ],
+      media: [],
     },
   ],
 } satisfies Client;
