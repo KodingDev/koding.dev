@@ -47,10 +47,10 @@ export interface Project {
  */
 export const PROJECTS: Project[] = [
   {
-    language: 'kotlin',
-    name: 'Catalyst',
-    description: 'A framework to streamline development of plugins for clients, servers and proxies.',
-    url: 'https://github.com/KodingDevelopment/Catalyst',
+    language: 'typescript',
+    name: 'PSYLOCKE.GG',
+    description: 'A helper website for Marvel Rivals, providing character information, achievements, and more.',
+    url: 'https://psylocke.gg',
   },
   {
     language: 'svelte',
