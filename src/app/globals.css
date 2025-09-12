@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-motion";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.9797 0.0026 286.3509);
+  --foreground: oklch(0.1486 0.0195 278.6986);
+  --card: oklch(0.9797 0.0026 286.3509);
+  --card-foreground: oklch(0.1486 0.0195 278.6986);
+  --popover: oklch(0.9797 0.0026 286.3509);
+  --popover-foreground: oklch(0.1486 0.0195 278.6986);
+  --primary: oklch(0.6054 0.2273 287.2626);
+  --primary-foreground: oklch(0.9797 0.0026 286.3509);
+  --secondary: oklch(0.9201 0.0095 279.6801);
+  --secondary-foreground: oklch(0.1996 0.0201 279.9638);
+  --muted: oklch(0.9201 0.0095 279.6801);
+  --muted-foreground: oklch(0.4498 0.0211 282.0241);
+  --accent: oklch(0.9201 0.0095 279.6801);
+  --accent-foreground: oklch(0.1996 0.0201 279.9638);
+  --destructive: oklch(0.6402 0.2453 24.9041);
+  --destructive-foreground: oklch(0.9797 0.0026 286.3509);
+  --border: oklch(0.8804 0.0096 279.6709);
+  --input: oklch(0.8804 0.0096 279.6709);
+  --ring: oklch(0.6054 0.2273 287.2626);
+  --chart-1: oklch(0.6201 0.1902 264.8967);
+  --chart-2: oklch(0.5495 0.2095 262.9589);
+  --chart-3: oklch(0.4893 0.2202 264.0405);
+  --chart-4: oklch(0.421 0.1792 266.0094);
+  --chart-5: oklch(0.3804 0.1389 265.9342);
+  --sidebar: oklch(0.1187 0.0208 275.1441);
+  --sidebar-foreground: oklch(0.9491 0 0);
+  --sidebar-primary: oklch(0.6201 0.1902 264.8967);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.5507 0.1492 265.0144);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.25 0.0295 269.9587);
+  --sidebar-ring: oklch(0.6201 0.1902 264.8967);
+  --font-sans: var(--font-poppins);
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: oklch(0.1176 0.0326 280.1491);
+  --foreground: oklch(0.9504 0.0094 279.6866);
+  --card: oklch(0.1615 0.0295 279.4364);
+  --card-foreground: oklch(0.9504 0.0094 279.6866);
+  --popover: oklch(0.1414 0.0286 278.1636);
+  --popover-foreground: oklch(0.9504 0.0094 279.6866);
+  --primary: oklch(0.6412 0.2217 297.4804);
+  --primary-foreground: oklch(0.1176 0.0326 280.1491);
+  --secondary: oklch(0.2489 0.0507 280.4293);
+  --secondary-foreground: oklch(0.8496 0.0097 279.6631);
+  --muted: oklch(0.2196 0.0408 280.3943);
+  --muted-foreground: oklch(0.6997 0.0203 282.6004);
+  --accent: oklch(0.3007 0.0605 284.8185);
+  --accent-foreground: oklch(0.8991 0.0109 280.4593);
+  --destructive: oklch(0.6431 0.2471 14.4974);
+  --destructive-foreground: oklch(0.9504 0.0094 279.6866);
+  --border: oklch(0.2809 0.0387 279.4012);
+  --input: oklch(0.1804 0.0307 279.9244);
+  --ring: oklch(0.6412 0.2217 297.4804);
+  --chart-1: oklch(0.7137 0.1434 254.624);
+  --chart-2: oklch(0.6231 0.188 259.8145);
+  --chart-3: oklch(0.5461 0.2152 262.8809);
+  --chart-4: oklch(0.4882 0.2172 264.3763);
+  --chart-5: oklch(0.4244 0.1809 265.6377);
+  --sidebar: oklch(0.2046 0 0);
+  --sidebar-foreground: oklch(0.9219 0 0);
+  --sidebar-primary: oklch(0.6231 0.188 259.8145);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.3791 0.1378 265.5222);
+  --sidebar-accent-foreground: oklch(0.8823 0.0571 254.1284);
+  --sidebar-border: oklch(0.3715 0 0);
+  --sidebar-ring: oklch(0.6231 0.188 259.8145);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+/* TODO: Revert this */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  * {
+    @apply border-border/40 outline-ring/40;
+  }
+
+  body {
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+/* Old styles */
+@layer utilities {
+  /* Typography */
+  .text-title {
+    @apply text-2xl font-bold dark:text-neutral-300;
+  }
+
+  .text-subtitle {
+    @apply text-lg text-neutral-600 dark:text-neutral-400;
+  }
+
+  /* Basic Cards */
+  .basic-card {
+    @apply rounded-md border-[1px] border-neutral-300 bg-neutral-100/70 p-4 dark:border-neutral-700 dark:bg-neutral-800/70;
+  }
+
+  /* Links */
+  .link {
+    @apply text-neutral-400 transition-all hover:text-neutral-200;
+  }
+}
+
+/* Icon sizing */
+.icon.sm {
+  @apply h-[24px] w-[24px];
+}
+
+/* Layout */
+.layout-container {
+  @apply mx-8 md:mx-32 xl:mx-48;
+}
+
+/* Hoverable */
+.hoverable {
+  --mouse-x: -9999px;
+  --mouse-y: -9999px;
+}
+
+.hoverable.hoverable-card {
+  @apply relative flex grow flex-col overflow-clip opacity-100;
+}
+
+.hoverable.hoverable-card:hover::before {
+  @apply opacity-100;
+}
+
+.hoverable.hoverable-card::before,
+.hoverable.hoverable-card::after {
+  @apply absolute left-0 top-0 h-full w-full opacity-0 transition-opacity content-[''];
+}
+
+.hoverable.hoverable-card::before {
+  /* Less intense hover effect */
+
+  @apply z-[3];
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+}
+
+.hoverable.hoverable-card::after {
+  /* Outline that shows regardless of hover state */
+
+  @apply z-[1] rounded-[inherit] border opacity-100;
+  border-image: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  border-image-slice: 1;
+
+  /* TODO: Fix the rounding */
+  /* Create a mask that is rounded on all corners, to create a rounded outline */
+  /* This is because the border-image property does not support border-radius */
+
+  /* --border-radius: 0.5rem; */
+  /* background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); */
+  /* mask-image:  */
+  /* linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+      linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
+      linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%), */
+
+  /* Round the inside corners */
+  /* radial-gradient(circle at var(--border-radius) var(--border-radius), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%); */
+}

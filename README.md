@@ -1,7 +1,4 @@
 # koding.dev
 
-The improved version:tm:
+Hello, world!
 
-## TODO
-
-- [ ] Make commissions use the optimized images & adjust their layout
