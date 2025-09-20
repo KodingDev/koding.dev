@@ -1,0 +1,19 @@
+{
+  "name": "Andredan",
+  "link": "https://twitter.com/andredan_art",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "I initially had this drawn on paper, but I decided to get it digitally colored instead. I love how it turned out!",
+      "images": ["./images/1.png", "./images/1-paper.jpg"],
+      "links": [
+        {
+          "text": "Finished Tweet",
+          "href": "https://twitter.com/andredan_art/status/1497230139029086208"
+        }
+      ]
+    }
+  ]
+}

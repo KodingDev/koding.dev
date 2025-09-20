@@ -2,7 +2,6 @@ import "@/app/globals.css";
 
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import type React from "react";
 import { cn } from "@/lib/utils";
 
@@ -50,12 +49,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="google" content="notranslate" />
       </head>
 
-      <body className={cn("min-h-screen bg-background font-sans text-foreground", poppins.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="flex min-h-screen flex-col" id="page">
-            {children}
-          </div>
-        </ThemeProvider>
+      <body className={cn("min-h-screen bg-primary-800 font-sans text-white", poppins.variable)}>
+        <div className="flex min-h-screen flex-col justify-between bg-primary-800">{children}</div>
       </body>
     </html>
   );

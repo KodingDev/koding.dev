@@ -1,11 +1,12 @@
 import type { InstrumentationOnRequestError } from "next/dist/server/instrumentation/types";
+import { env } from "@/env.config";
 
 export function register() {
   // No-op for initialization
 }
 
 export const onRequestError: InstrumentationOnRequestError = async (err, request) => {
-  if (process.env.NEXT_RUNTIME === "nodejs") {
+  if (process.env.NEXT_RUNTIME === "nodejs" && env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
     const { getPostHogServer } = require("./lib/posthog-server");
     const posthog = await getPostHogServer();
     let distinctId = null;

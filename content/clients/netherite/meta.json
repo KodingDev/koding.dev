@@ -1,0 +1,42 @@
+{
+  "name": "Netherite",
+  "description": "Highly-scalable, high-throughput Minecraft development, built with Kubernetes & a microservice architecture.",
+  "href": "https://netherite.gg",
+  "avatar": "./avatar.png",
+  "banner": "./banner.png",
+  "start": "Dec 2023",
+  "projects": [
+    {
+      "name": "Netherite",
+      "description": "The new Netherite network is built on a microservice architecture, with a focus on high-throughput, low-latency, and high-scalability. It's built with Kubernetes and Agones, using GRPC as a communication transport between microservices. Each service is scaled dynamically based on demand, ensuring optimal performance and resource utilization across our machines."
+    },
+    {
+      "name": "Netherite: Prison",
+      "description": "The Minecraft Prison experience, refined. Built with a scalable world loading system - stored in Amazon S3 - and seamlessly sharded across multiple servers.",
+      "media": [
+        {
+          "media": "./assets/prison-spawn.png",
+          "caption": "Spawn"
+        },
+        {
+          "media": "./assets/prison-dungeon.png",
+          "caption": "Dungeons"
+        }
+      ]
+    },
+    {
+      "name": "Netherite: Panel",
+      "description": "The Netherite Panel is a web-based control panel which manages config, deployments, audit logs, and other features of the Netherite network. It's built with NextJS, TypeScript, Tailwind CSS, GRPC, and various other technologies.",
+      "media": [
+        {
+          "media": "./assets/netherite-panel-config.png",
+          "caption": "Admin Panel - Config Editor"
+        },
+        {
+          "media": "./assets/netherite-panel-deployment.png",
+          "caption": "Admin Panel - Deployment"
+        }
+      ]
+    }
+  ]
+}

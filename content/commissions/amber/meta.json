@@ -1,0 +1,25 @@
+{
+  "name": "Amber",
+  "link": "https://twitter.com/FCLmao",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "The first rendition of my character that Amber drew!",
+      "images": ["images/1.jpg"]
+    },
+    {
+      "slug": "commission-2",
+      "title": "Commission 2",
+      "description": "This is my main reference sheet that I use nowadays. They did a great job helping me refine my character & design some of the details.",
+      "images": ["images/2.png"]
+    },
+    {
+      "slug": "commission-3",
+      "title": "Commission 3",
+      "description": "BLEH!!! Based on the silly little cat that we all know and love. <3",
+      "images": ["images/3.png"]
+    }
+  ]
+}

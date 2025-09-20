@@ -1,0 +1,13 @@
+{
+  "name": "Midge",
+  "link": "https://twitter.com/midgitea",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "I commissioned Midge to design my new OC, and they did a fantastic job! I'm super happy with her design!",
+      "images": ["./images/1.png"]
+    }
+  ]
+}

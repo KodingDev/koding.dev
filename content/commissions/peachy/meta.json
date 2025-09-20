@@ -1,0 +1,13 @@
+{
+  "name": "Peachy",
+  "link": "https://twitter.com/peachy3334",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "A more atmospheric piece focusing less on the character and more on the environment.",
+      "images": ["./images/1.png", "./images/1-banner.png"]
+    }
+  ]
+}

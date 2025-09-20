@@ -1,0 +1,58 @@
+{
+  "name": "Partyhat Productions",
+  "description": "Lead server developer for the Masayoshi Games Twitch Rivals event, and an accompanying Minecraft network.",
+  "href": "https://partyhat.dev",
+  "avatar": "./avatar.png",
+  "banner": "./banner.png",
+  "start": "Nov 2021",
+  "end": "Jun 2023",
+  "projects": [
+    {
+      "name": "Masayoshi Games",
+      "description": "A 64-player Hunger Games event, where players compete to be the last team standing. They are cast into an unfamiliar world, filled with \"The Roots\", and must defeat the infested monsters, and uncover rare loot to become the true \"Root Champions\"",
+      "avatar": "./assets/masayoshi-avatar.png",
+      "links": [
+        {
+          "name": "Broadcast",
+          "href": "https://www.twitch.tv/videos/1706498880",
+          "icon": "icon-[mdi--twitch]"
+        },
+        {
+          "name": "Schedule",
+          "href": "https://schedule.twitchrivals.com/events/masayoshi-games-ft-minecraft-B04r1"
+        }
+      ],
+      "media": [
+        {
+          "media": "https://www.youtube.com/watch?v=a7k6WsF1nBE",
+          "caption": "Masayoshi Games Trailer"
+        },
+        {
+          "media": "./assets/masayoshi-games-banner.jpg",
+          "caption": "Masayoshi Games Banner"
+        }
+      ]
+    },
+    {
+      "name": "MC Party",
+      "description": "A minigame network, built with a \"Mario Party\"-esc twist. Focused on fast-paced, fun, and competitive gameplay.",
+      "avatar": "./avatar.png",
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://mcparty.live"
+        }
+      ],
+      "media": [
+        {
+          "media": "./assets/mcparty-lobby.png",
+          "caption": "MC Party - Lobby"
+        },
+        {
+          "media": "./assets/mcparty-blizzard.png",
+          "caption": "MC Party - Blizzard Minigame"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Lilypad.gg",
+  "description": "Development of the Lilypad.gg website, billing panel & dashboard. Built with NextJS, Prisma, NextAuth, and TailwindCSS.",
+  "href": "https://lilypad.gg",
+  "avatar": "./avatar.png",
+  "banner": "./banner.png",
+  "start": "Jul 2024",
+  "projects": [
+    {
+      "name": "Lilypad.gg",
+      "description": "Development of the Lilypad.gg website, billing panel & dashboard. Built with NextJS, Prisma, NextAuth, and TailwindCSS.",
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://lilypad.gg"
+        }
+      ],
+      "media": [
+        {
+          "media": "./assets/website.png",
+          "caption": "The Lilypad.gg website"
+        }
+      ]
+    }
+  ]
+}

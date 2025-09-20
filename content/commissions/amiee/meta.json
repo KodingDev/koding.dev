@@ -1,0 +1,13 @@
+{
+  "name": "Amiee",
+  "link": "https://twitter.com/solarcello",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Reference Sheet",
+      "description": "The first reference sheet I ever got!",
+      "images": ["./images/2.png"]
+    }
+  ]
+}

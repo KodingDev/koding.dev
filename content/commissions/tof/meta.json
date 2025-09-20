@@ -1,0 +1,12 @@
+{
+  "name": "Tof",
+  "link": "https://twitter.com/tofffxx_",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-3",
+      "title": "Commission 3",
+      "images": ["./images/3.png", "./images/3-banner.png"]
+    }
+  ]
+}

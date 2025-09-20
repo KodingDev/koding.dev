@@ -1,0 +1,13 @@
+{
+  "name": "Charwiewie",
+  "link": "https://twitter.com/charwiewie",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "A BEAUTIFUL rendition of my character, Stella! Charwiewie has such a fantastic style, and I love how she captured the personality in this piece.",
+      "images": ["./images/1.png"]
+    }
+  ]
+}

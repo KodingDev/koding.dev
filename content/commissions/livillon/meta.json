@@ -1,0 +1,23 @@
+{
+  "name": "Livillon",
+  "link": "https://twitter.com/Livillon",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "emotes",
+      "title": "Emotes",
+      "description": "My set of emotes that I commissioned Livillon for.",
+      "images": ["./images/1-set1.png", "./images/1-set2.png"],
+      "links": [
+        {
+          "text": "Set 1",
+          "href": "https://twitter.com/Livillon/status/1534973612695900174"
+        },
+        {
+          "text": "Set 2",
+          "href": "https://twitter.com/Livillon/status/1550148606790868992"
+        }
+      ]
+    }
+  ]
+}

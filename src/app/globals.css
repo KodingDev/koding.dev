@@ -132,6 +132,17 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Primary color palette */
+  --color-primary-100: #9145FF;
+  --color-primary-200: #8439FF;
+  --color-primary-300: #6F3FCF;
+  --color-primary-400: #573299;
+  --color-primary-500: #502E7B;
+  --color-primary-600: #422660;
+  --color-primary-700: #25143A;
+  --color-primary-800: #0F071D;
+  --color-primary-900: #0D0A13;
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);

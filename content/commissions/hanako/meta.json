@@ -1,0 +1,13 @@
+{
+  "name": "Hanako",
+  "link": "https://twitter.com/hanakosart",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "Hanako did such a BEAUTIFUL job with this piece! Stunning shading, composition, everything! Thank you so much!",
+      "images": ["./images/1.png", "./images/1-bg.png"]
+    }
+  ]
+}

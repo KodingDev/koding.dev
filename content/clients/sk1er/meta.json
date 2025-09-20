@@ -1,0 +1,37 @@
+{
+  "name": "Sk1er LLC",
+  "description": "Contributions to the Hyperium Minecraft Client.",
+  "href": "https://sk1er.club",
+  "avatar": "./avatar.jpg",
+  "banner": "./banner.jpg",
+  "start": "Apr 2019",
+  "end": "Dec 2019",
+  "projects": [
+    {
+      "name": "Hyperium",
+      "description": "A free, open-source Minecraft client that aims to improve the vanilla experience. I contributed to the client by adding a few features, fixing bugs, and improving the codebase. Honestly, I attribute the start of my programming career to this client, it was a fun start to the journey!",
+      "avatar": "./assets/hyperium-avatar.png",
+      "links": [
+        {
+          "name": "Homepage",
+          "href": "https://hyperium.cc"
+        },
+        {
+          "name": "GitHub",
+          "href": "https://github.com/HyperiumClient/Hyperium",
+          "icon": "icon-[mdi--github]"
+        }
+      ],
+      "media": [
+        {
+          "media": "./assets/hyperium-menu.jpg",
+          "caption": "The main menu (about the 300th iteration of it)"
+        },
+        {
+          "media": "./assets/hyperium-settings.jpeg",
+          "caption": "The settings menu (also about the 300th iteration of it)"
+        }
+      ]
+    }
+  ]
+}

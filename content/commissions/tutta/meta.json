@@ -1,0 +1,13 @@
+{
+  "name": "Tutta",
+  "link": "https://twitter.com/MrsTDraw",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "A pixel-art of my character, Stella!",
+      "images": ["./images/1.png"]
+    }
+  ]
+}

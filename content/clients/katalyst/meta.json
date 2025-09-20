@@ -1,0 +1,36 @@
+{
+  "name": "Katalyst Media",
+  "description": "Development for Craftadia and other Katalyst-owned Minecraft servers, updating legacy code and building new features.",
+  "href": "https://katalyst.media",
+  "avatar": "./avatar.jpg",
+  "banner": "./banner.jpg",
+  "start": "Sep 2019",
+  "end": "Nov 2021",
+  "projects": [
+    {
+      "name": "Craftadia",
+      "description": "Minecraft survival, built for the community. Incorporating a town system to encourage player interaction, a rich set of events to keep players engaged, and a custom plugin suite to enhance the gameplay experience. I've worked on a lot with Craftadia, many of it isn't listed here, due to the lack of screenshots.",
+      "avatar": "./assets/craftadia-avatar.png",
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://craftadia.com"
+        }
+      ],
+      "media": [
+        {
+          "media": "./assets/craftadia-bank.png",
+          "caption": "Custom bank system, with interest rates, withdraw logs, and more."
+        },
+        {
+          "media": "./assets/craftadia-treasure-merchant.png",
+          "caption": "Buy and sell loot"
+        },
+        {
+          "media": "./assets/craftadia-wheel.png",
+          "caption": "Spins every x votes, granting the server a random reward"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Sophie",
+  "link": "https://twitter.com/groggiie",
+  "avatar": "./avatar.jpg",
+  "commissions": [
+    {
+      "slug": "commission-1",
+      "title": "Commission 1",
+      "description": "My OC with a lil' cat friend :3",
+      "images": ["./images/1.png"]
+    }
+  ]
+}
