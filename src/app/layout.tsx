@@ -53,8 +53,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="google" content="notranslate" />
       </head>
 
-      <body className={cn("min-h-screen bg-primary-800 font-sans text-white", poppins.variable)}>
-        <div className="flex min-h-screen flex-col justify-between bg-primary-800">
+      <body className={cn("dark min-h-screen bg-background font-sans", poppins.variable)}>
+        <div className="flex min-h-screen flex-col justify-between">
           <NextTopLoader color="var(--primary)" showSpinner={false} />
           <HoverListener />
 

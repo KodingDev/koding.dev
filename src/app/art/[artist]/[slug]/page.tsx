@@ -76,15 +76,10 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
         {/* Images */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {commission.images.map((image, idx) => (
-            <Image
-              // biome-ignore lint/suspicious/noArrayIndexKey: Needed
-              key={idx}
-              src={image}
-              alt={commission.title}
-              width={800}
-              height={800}
-              className="rounded-md object-cover object-center"
-            />
+            // biome-ignore lint/suspicious/noArrayIndexKey: Needed
+            <div key={idx} className="flex size-full flex-col items-center justify-center bg-primary-700">
+              <Image src={image} alt={commission.title} className="rounded-md object-cover object-center" />
+            </div>
           ))}
         </div>
       </div>
