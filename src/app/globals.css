@@ -7,6 +7,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Font Smoothing */
+  /*font-synthesis: none;*/
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   --background: oklch(0.9797 0.0026 286.3509);
   --foreground: oklch(0.1486 0.0195 278.6986);
   --card: oklch(0.9797 0.0026 286.3509);
