@@ -1,14 +1,24 @@
-import { type Artist, allArtists, type Client } from "content-collections";
+import { type Artists, artists, clients } from "@content";
 import type { StaticImageData } from "next/image";
+import { filter, pipe, sortBy } from "remeda";
+import { type ClientDate, parseDate } from "@/lib/data/clients";
+
+export const allArtists = sortBy(artists, (client) => client.name);
+export const allClients = pipe(
+  clients,
+  filter((client) => !client.hidden),
+  // Sort the clients by their end date descending (if any), and leave "current" clients at the top.
+  sortBy((client) => (client.end ? -parseDate(client.end as ClientDate).getTime() : -Infinity))
+);
 
 type ArtRef = {
-  artist: Artist;
+  artist: Artists;
   commissionIdx: number;
   imageIdx?: number;
 };
 
-const artistAmber = allArtists.find((v) => v.name === "Amber")!;
-const artistPeachy = allArtists.find((v) => v.name === "Peachy")!;
+const artistAmber = artists.find((v) => v.name === "Amber")!;
+const artistPeachy = artists.find((v) => v.name === "Peachy")!;
 
 // TODO: Change up how we do this
 export const FEATURED_ARTIST: ArtRef = {
@@ -27,25 +37,13 @@ export const REF_SHEET: ArtRef = {
   commissionIdx: 1,
 };
 
-export const getCommissionImage = async (
-  artist: Artist,
-  commissionIdx: number,
-  imageIdx: number
-): Promise<StaticImageData> => {
+export const getCommissionImage = (artist: Artists, commissionIdx: number, imageIdx: number): StaticImageData => {
   const image = artist.commissions?.[commissionIdx]?.images?.[imageIdx];
   if (!image) {
     throw new Error(`Image not found for artist ${artist.name} commission ${commissionIdx} image ${imageIdx}`);
   }
-
-  const data = await import(`../../content/commissions/${artist._meta.directory}/${image}`);
-  return data.default as StaticImageData;
+  return image;
 };
 
-export const getArtRefImage = async (ref: ArtRef): Promise<StaticImageData> =>
+export const getArtRefImage = (ref: ArtRef): StaticImageData =>
   getCommissionImage(ref.artist, ref.commissionIdx, ref.imageIdx ?? 0);
-
-export const getClientBanner = async (client: Client): Promise<StaticImageData | undefined> => {
-  if (!client.banner) return undefined;
-  const data = await import(`../../content/clients/${client.banner}`);
-  return data.default as StaticImageData;
-};

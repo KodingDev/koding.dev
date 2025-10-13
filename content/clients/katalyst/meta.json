@@ -1,4 +1,5 @@
 {
+  "slug": "katalyst",
   "name": "Katalyst Media",
   "description": "Development for Craftadia and other Katalyst-owned Minecraft servers, updating legacy code and building new features.",
   "href": "https://katalyst.media",
@@ -19,15 +20,18 @@
       ],
       "media": [
         {
-          "media": "./assets/craftadia-bank.png",
+          "type": "image",
+          "image": "./assets/craftadia-bank.png",
           "caption": "Custom bank system, with interest rates, withdraw logs, and more."
         },
         {
-          "media": "./assets/craftadia-treasure-merchant.png",
+          "type": "image",
+          "image": "./assets/craftadia-treasure-merchant.png",
           "caption": "Buy and sell loot"
         },
         {
-          "media": "./assets/craftadia-wheel.png",
+          "type": "image",
+          "image": "./assets/craftadia-wheel.png",
           "caption": "Spins every x votes, granting the server a random reward"
         }
       ]

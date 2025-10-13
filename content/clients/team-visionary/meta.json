@@ -1,4 +1,5 @@
 {
+  "slug": "team-visionary",
   "name": "Team Visionary",
   "description": "Developed a modular minigame framework, and networked companion mod, for the House of Nightmares Twitch Rivals event.",
   "href": "https://teamvisionary.net",
@@ -12,11 +13,13 @@
       "description": "A multi-day Twitch Rivals event, where players must escape a haunted house, solving puzzles and avoiding monsters. Each day held two minigames, each of which would eliminate players from the event, with the winner receiving a share of $100,000 USD.",
       "media": [
         {
-          "media": "./assets/twitch-rivals-poster.jpeg",
+          "type": "image",
+          "image": "./assets/twitch-rivals-poster.jpeg",
           "caption": "Twitch Rivals Poster"
         },
         {
-          "media": "./assets/twitch-rivals-trailer.mp4",
+          "type": "video",
+          "video": "./assets/twitch-rivals-trailer.mp4",
           "caption": "Twitch Rivals Trailer"
         }
       ],

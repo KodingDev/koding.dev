@@ -1,4 +1,5 @@
 {
+  "slug": "sk1er",
   "name": "Sk1er LLC",
   "description": "Contributions to the Hyperium Minecraft Client.",
   "href": "https://sk1er.club",
@@ -19,16 +20,18 @@
         {
           "name": "GitHub",
           "href": "https://github.com/HyperiumClient/Hyperium",
-          "icon": "icon-[mdi--github]"
+          "icon": "github"
         }
       ],
       "media": [
         {
-          "media": "./assets/hyperium-menu.jpg",
+          "type": "image",
+          "image": "./assets/hyperium-menu.jpg",
           "caption": "The main menu (about the 300th iteration of it)"
         },
         {
-          "media": "./assets/hyperium-settings.jpeg",
+          "type": "image",
+          "image": "./assets/hyperium-settings.jpeg",
           "caption": "The settings menu (also about the 300th iteration of it)"
         }
       ]

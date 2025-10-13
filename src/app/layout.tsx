@@ -3,6 +3,8 @@ import "@/app/globals.css";
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import type React from "react";
+import { HoverListener } from "@/components/interactive/Hoverable";
+import { NavBar } from "@/components/layout/NavBar";
 import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
@@ -50,7 +52,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
 
       <body className={cn("min-h-screen bg-primary-800 font-sans text-white", poppins.variable)}>
-        <div className="flex min-h-screen flex-col justify-between bg-primary-800">{children}</div>
+        <div className="flex min-h-screen flex-col justify-between bg-primary-800">
+          <HoverListener />
+
+          <div className="layout-container">
+            <NavBar />
+          </div>
+
+          <div>{children}</div>
+
+          {/* Footer */}
+          <div className="layout-container flex flex-row pb-24">
+            <span className="flex-1 font-medium opacity-50">Copyright © Koding Development 2025</span>
+            <span className="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
+          </div>
+        </div>
       </body>
     </html>
   );

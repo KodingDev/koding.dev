@@ -1,4 +1,5 @@
 {
+  "slug": "innitgg",
   "name": "Innit.gg",
   "description": "Developing a scalable, highly-available, and performant Minecraft server network, scaled through a custom Kubernetes deployment system.",
   "href": "https://innit.gg",
@@ -13,19 +14,23 @@
       "avatar": "./avatar.jpg",
       "media": [
         {
-          "media": "./assets/map-lobby.png",
+          "type": "image",
+          "image": "./assets/map-lobby.png",
           "caption": "W.I.P. Maps - Lobby"
         },
         {
-          "media": "./assets/map-royale.png",
+          "type": "image",
+          "image": "./assets/map-royale.png",
           "caption": "W.I.P. Maps - Royale (BR)"
         },
         {
-          "media": "./assets/map-cult.png",
+          "type": "image",
+          "image": "./assets/map-cult.png",
           "caption": "W.I.P. Maps - Cult (SW)"
         },
         {
-          "media": "./assets/map-casino.png",
+          "type": "image",
+          "image": "./assets/map-casino.png",
           "caption": "W.I.P. Maps - Casino (SW)"
         }
       ]

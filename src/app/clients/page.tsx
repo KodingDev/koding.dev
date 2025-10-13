@@ -1,6 +1,6 @@
-import { allClients } from "content-collections";
 import { Header } from "@/components/base/Header";
 import { ClientCallToAction } from "@/components/clients/ClientCallToAction";
+import { allClients } from "@/lib/content";
 
 export default function ClientsPage() {
   return (
@@ -10,7 +10,7 @@ export default function ClientsPage() {
       </Header>
       <div className="grid grid-cols-1 gap-8 pt-32 lg:grid-cols-2">
         {allClients.map((client) => (
-          <ClientCallToAction key={client._meta.path} client={client} />
+          <ClientCallToAction key={client.slug} client={client} />
         ))}
       </div>
     </div>

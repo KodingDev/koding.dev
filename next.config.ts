@@ -1,4 +1,3 @@
-import { withContentCollections } from "@content-collections/next";
 import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withPostHogConfig } from "@posthog/nextjs-config";
 import type { NextConfig } from "next";
@@ -9,6 +8,13 @@ import type { NextConfig } from "next";
  */
 import "./src/env.config";
 import { env } from "@/env.config";
+
+const isDev = process.argv.indexOf("dev") !== -1;
+const isBuild = process.argv.indexOf("build") !== -1;
+if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
+  process.env.VELITE_STARTED = "1";
+  import("velite").then((m) => m.build({ watch: isDev, clean: !isDev }));
+}
 
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -50,7 +56,7 @@ let nextConfig: NextConfig = {
   staticPageGenerationTimeout: 300,
 };
 
-nextConfig = withContentCollections(withBundleAnalyzer(nextConfig));
+nextConfig = withBundleAnalyzer(nextConfig);
 
 if (env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
   nextConfig = withPostHogConfig(nextConfig, {

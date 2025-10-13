@@ -1,54 +1,102 @@
-import { getArtists } from '@/lib/content'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { Metadata, Route } from "next";
+import Image from "next/image";
+import { MdArrowOutward } from "react-icons/md";
+import { Header } from "@/components/base/Header";
+import { CallToAction } from "@/components/interactive/CallToAction";
+import { allArtists, REF_SHEET } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Art",
+  description: "Over the years, I've commissioned a lot of art. Here's a collection of some of my favorites.",
+};
 
 export default function ArtPage() {
-  const artists = getArtists()
+  const refSheetArtist = REF_SHEET.artist;
+  const refSheet = REF_SHEET.artist.commissions[REF_SHEET.commissionIdx]!;
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Art Commissions</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {artists.map((artist) => (
-          <div key={artist._meta.path} className="space-y-4">
-            <div className="flex items-center gap-3 mb-4">
-              {artist.avatar && (
+    <div className="layout-container flex flex-col gap-4 pb-36">
+      <Header emoji="🎨" title="Art" className="pt-40 pb-32">
+        I've commissioned a lot of art over the years, please support these talented artists!
+      </Header>
+
+      {/* Ref sheet card */}
+      <CallToAction
+        picture={refSheet.images[0] ? { src: refSheet.images[0] } : undefined}
+        href={`/art/${refSheetArtist.slug}/${refSheet.slug}` as Route}
+        picMaxWidth="80vw"
+      >
+        <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
+          {/* Artist name */}
+          <div className="flex flex-row items-center gap-2">
+            {refSheetArtist.avatar && (
+              <Image
+                src={refSheetArtist.avatar}
+                alt={refSheetArtist.name}
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-md"
+              />
+            )}
+            <span className="opacity-75">By {refSheetArtist.name}</span>
+          </div>
+
+          {/* Commission Name */}
+          <div className="flex flex-row items-center gap-4">
+            <h1 className="font-bold text-2xl">Reference Sheet</h1>
+            <MdArrowOutward className="size-6" />
+          </div>
+
+          {/* Description */}
+          <span className="opacity-50">{refSheet.description}</span>
+        </div>
+      </CallToAction>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {allArtists.map((artist) =>
+          artist.commissions.map((commission) => (
+            <a
+              key={`${artist.slug}-${commission.slug}`}
+              className="relative aspect-square w-full overflow-clip rounded-md border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl"
+              href={`/art/${artist.slug}/${commission.slug}`}
+            >
+              {/* Image */}
+              {commission.images[0] && (
                 <Image
-                  src={artist.avatar}
-                  alt={`${artist.name} Avatar`}
-                  width={40}
-                  height={40}
-                  className="rounded-full"
+                  src={commission.images[0]}
+                  alt={commission.title}
+                  className="absolute inset-0 z-0 size-full object-cover object-top"
                 />
               )}
-              <div>
-                <h2 className="text-xl font-bold">{artist.name}</h2>
-                {artist.link && (
-                  <a href={artist.link} className="text-blue-400 hover:underline text-sm" target="_blank" rel="noopener noreferrer">
-                    View Profile
-                  </a>
-                )}
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              {artist.commissions.slice(0, 4).map((commission) => (
-                <div key={commission.slug} className="aspect-square relative overflow-hidden rounded-lg">
-                  {commission.images[0] && (
+
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black/50" />
+
+              {/* Descriptions */}
+              <div className="relative z-10 flex h-full flex-col justify-end gap-1 p-6">
+                <div className="flex flex-row items-center gap-4">
+                  <h1 className="font-bold text-2xl">{commission.title}</h1>
+                  <MdArrowOutward className="size-6" />
+                </div>
+
+                {/* Artist name */}
+                <div className="flex flex-row items-center gap-2">
+                  {artist.avatar && (
                     <Image
-                      src={commission.images[0]}
-                      alt={commission.title}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      src={artist.avatar}
+                      alt={artist.name}
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 rounded-md"
                     />
                   )}
+                  <span className="opacity-75">By {artist.name}</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
+              </div>
+            </a>
+          ))
+        )}
       </div>
     </div>
-  )
+  );
 }

@@ -1,20 +1,23 @@
+import Link from "next/link";
 import type React from "react";
+import { cn } from "@/lib/utils";
 
 type SocialButtonProps = {
-  href: string;
-  icon: string;
-  color: string;
-};
+  icon: React.FC<React.ComponentProps<"svg">>;
+} & React.ComponentProps<typeof Link>;
 
-export const SocialButton: React.FC<SocialButtonProps> = ({ href, icon, color }) => (
-  <a
-    className={`flex h-11 w-11 rounded-xl border border-white/[15%] p-3 ${color} group transition-all hover:border-2`}
-    href={href}
+export const SocialButton: React.FC<SocialButtonProps> = ({ icon: Icon, className, ...props }) => (
+  <Link
     target="_blank"
     rel="noopener noreferrer"
+    {...props}
+    className={cn(
+      `group flex size-11 rounded-xl border border-white/[15%] p-3 transition-all hover:border-2`,
+      className
+    )}
   >
     <div className="group-hover:-translate-y-1 m-auto transition-all">
-      <span className={`${icon} opacity-75`} />
+      <Icon className="opacity-75" />
     </div>
-  </a>
+  </Link>
 );

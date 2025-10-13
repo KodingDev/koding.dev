@@ -1,4 +1,5 @@
 {
+  "slug": "fadecloud",
   "name": "FadeCloud",
   "description": "Development of the Cube Generator plugin for Skyblock.",
   "href": "https://fadecloud.net",
@@ -13,11 +14,13 @@
       "description": "A 'Cube Generator' is an item that - when placed generates - a bedrock cube with ores inside of it. The ores inside can be mined by players, and will be automatically added to a virtual storage system.",
       "media": [
         {
-          "media": "./assets/cube-generator-place.mp4",
+          "type": "video",
+          "video": "./assets/cube-generator-place.mp4",
           "caption": "Placement / breaking of a Cube Generator."
         },
         {
-          "media": "./assets/cube-generator-island.png",
+          "type": "image",
+          "image": "./assets/cube-generator-island.png",
           "caption": "An island with a Cube Generator placed on it."
         }
       ]

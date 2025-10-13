@@ -39,8 +39,9 @@ yarn-error.log*
 # idea
 .idea
 
-# Content Collections
-.content-collections
+# Velite
+.velite
+public/static
 
 # Sentry Config File
 .env.sentry-build-plugin

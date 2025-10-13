@@ -1,10 +1,12 @@
 "use client";
 
-import clsx from "clsx";
+import type { Route } from "next";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, NAV_SOCIALS } from "@/lib/data/layout";
+import { cn } from "@/lib/utils";
 import { SocialButton } from "./SocialButton";
 
 export const DesktopNavBar: React.FC = () => {
@@ -55,7 +57,7 @@ export const DesktopNavBar: React.FC = () => {
     <>
       <div className="relative flex w-fit flex-row items-center justify-end gap-4 pl-12 md:flex md:gap-12 md:pl-24">
         {NAV_LINKS.map((link, index) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             ref={(el) => {
@@ -65,18 +67,19 @@ export const DesktopNavBar: React.FC = () => {
           >
             {link.name}
             <div
-              className={clsx(
+              className={cn(
                 "-bottom-1 absolute left-0 h-1 w-full rounded-full bg-transparent transition-all",
-                !link.match.test(pathname) ? "group-hover:bg-primary-200/50" : ""
+                !link.match.test(pathname) && "group-hover:bg-primary-200/50"
               )}
             />
-          </a>
+          </Link>
         ))}
 
         <div
-          className={`pointer-events-none absolute h-1 rounded-full bg-primary-200/50 transition-all duration-500 ${
-            visible ? "" : "opacity-0"
-          }`}
+          className={cn(
+            `pointer-events-none absolute h-1 rounded-full bg-primary-200/50 transition-all duration-500`,
+            !visible && "opacity-0"
+          )}
           style={{
             left: navTween.left,
             right: navTween.right,
@@ -87,7 +90,7 @@ export const DesktopNavBar: React.FC = () => {
 
       <div className="hidden flex-grow flex-row items-center justify-end gap-4 md:flex">
         {NAV_SOCIALS.map((social) => (
-          <SocialButton key={social.href} {...social} />
+          <SocialButton key={social.href} icon={social.icon} href={social.href as Route} className={social.className} />
         ))}
       </div>
     </>

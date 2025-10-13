@@ -1,4 +1,5 @@
 {
+  "slug": "netherite",
   "name": "Netherite",
   "description": "Highly-scalable, high-throughput Minecraft development, built with Kubernetes & a microservice architecture.",
   "href": "https://netherite.gg",
@@ -15,11 +16,13 @@
       "description": "The Minecraft Prison experience, refined. Built with a scalable world loading system - stored in Amazon S3 - and seamlessly sharded across multiple servers.",
       "media": [
         {
-          "media": "./assets/prison-spawn.png",
+          "type": "image",
+          "image": "./assets/prison-spawn.png",
           "caption": "Spawn"
         },
         {
-          "media": "./assets/prison-dungeon.png",
+          "type": "image",
+          "image": "./assets/prison-dungeon.png",
           "caption": "Dungeons"
         }
       ]
@@ -29,11 +32,13 @@
       "description": "The Netherite Panel is a web-based control panel which manages config, deployments, audit logs, and other features of the Netherite network. It's built with NextJS, TypeScript, Tailwind CSS, GRPC, and various other technologies.",
       "media": [
         {
-          "media": "./assets/netherite-panel-config.png",
+          "type": "image",
+          "image": "./assets/netherite-panel-config.png",
           "caption": "Admin Panel - Config Editor"
         },
         {
-          "media": "./assets/netherite-panel-deployment.png",
+          "type": "image",
+          "image": "./assets/netherite-panel-deployment.png",
           "caption": "Admin Panel - Deployment"
         }
       ]

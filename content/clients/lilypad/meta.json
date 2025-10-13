@@ -1,4 +1,5 @@
 {
+  "slug": "lilypad",
   "name": "Lilypad.gg",
   "description": "Development of the Lilypad.gg website, billing panel & dashboard. Built with NextJS, Prisma, NextAuth, and TailwindCSS.",
   "href": "https://lilypad.gg",
@@ -17,7 +18,8 @@
       ],
       "media": [
         {
-          "media": "./assets/website.png",
+          "type": "image",
+          "image": "./assets/website.png",
           "caption": "The Lilypad.gg website"
         }
       ]

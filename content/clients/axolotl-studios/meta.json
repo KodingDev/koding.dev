@@ -1,4 +1,5 @@
 {
+  "slug": "axolotl-studios",
   "name": "Axolotl Studios",
   "description": "Implementation of a points and generator system for Skyblock.",
   "avatar": "./avatar.png",

@@ -1,4 +1,5 @@
 {
+  "slug": "speedsilver",
   "name": "SpeedSilver",
   "description": "Development of several Discord Bots to ease video production & event management.",
   "href": "https://mcparty.live",
@@ -14,16 +15,18 @@
         {
           "name": "Discord",
           "href": "https://discord.gg/2Z8Y4Y4",
-          "icon": "icon-[mdi--discord]"
+          "icon": "discord"
         }
       ],
       "media": [
         {
-          "media": "./assets/civilization-upcoming-test.png",
+          "type": "image",
+          "image": "./assets/civilization-upcoming-test.png",
           "caption": "Upcoming Test"
         },
         {
-          "media": "./assets/civilization-ign.png",
+          "type": "image",
+          "image": "./assets/civilization-ign.png",
           "caption": "IGN Collection"
         }
       ]

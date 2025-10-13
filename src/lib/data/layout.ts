@@ -1,47 +1,51 @@
+import type { Route } from "next";
+import type React from "react";
+import { FaEnvelope, FaGithub, FaTwitter } from "react-icons/fa";
+
 export type NavLink = {
-  name: string
-  href: string
-  match: RegExp
-}
+  name: string;
+  href: Route;
+  match: RegExp;
+};
 
 export type SocialLink = {
-  href: string
-  icon: string
-  color: string
-}
+  href: string;
+  icon: React.FC<React.ComponentProps<"svg">>;
+  className: string;
+};
 
 export const NAV_LINKS: NavLink[] = [
   {
-    name: 'Home',
-    href: '/',
+    name: "Home",
+    href: "/",
     match: /^\/$/,
   },
   {
-    name: 'Clients',
-    href: '/clients',
+    name: "Clients",
+    href: "/clients",
     match: /^\/clients/,
   },
   {
-    name: 'Art',
-    href: '/art',
+    name: "Art",
+    href: "/art",
     match: /^\/art/,
   },
-]
+];
 
 export const NAV_SOCIALS: SocialLink[] = [
   {
-    href: 'https://twitter.com/KodingDev_',
-    icon: 'icon-[mdi--twitter]',
-    color: 'bg-[#1E96E8]/5',
+    href: "https://twitter.com/KodingDev_",
+    icon: FaTwitter,
+    className: "bg-[#1E96E8]/5",
   },
   {
-    href: 'mailto:hello@koding.dev',
-    icon: 'icon-[material-symbols--mail-rounded]',
-    color: 'bg-[#8439FF]/5',
+    href: "mailto:hello@koding.dev",
+    icon: FaEnvelope,
+    className: "bg-[#8439FF]/5",
   },
   {
-    href: 'https://github.com/KodingDev',
-    icon: 'icon-[mdi--github]',
-    color: 'bg-[#000000]/5',
+    href: "https://github.com/KodingDev",
+    icon: FaGithub,
+    className: "bg-[#000000]/5",
   },
-]
+];

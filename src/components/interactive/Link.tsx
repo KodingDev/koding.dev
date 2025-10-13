@@ -1,39 +1,37 @@
-import Image from "next/image";
+import type { Route } from "next";
+import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import type React from "react";
-import { getLinkProps } from "@/lib/util/html";
+import { MdArrowBack, MdArrowOutward } from "react-icons/md";
+import { cn } from "@/lib/utils";
 
-type LinkProps = {
-  href?: string;
+type SiteLinkProps = {
+  href?: Route;
   picture?: {
-    src: string;
+    src: StaticImageData;
     alt?: string;
   };
-  style?: "default" | "back";
-  picAlt?: string;
+  type?: "default" | "back";
   picClass?: string;
-  className?: string;
-} & React.PropsWithChildren;
+} & React.PropsWithChildren &
+  Omit<React.ComponentProps<typeof Link>, "href">;
 
-export const Link: React.FC<LinkProps> = ({
+export const SiteLink: React.FC<SiteLinkProps> = ({
   href,
   picture,
-  style = "default",
-  picAlt = "Logo",
-  picClass = "h-11 w-11 rounded-xl",
-  className = "",
+  type = "default",
+  picClass = "size-11 rounded-xl",
+  className,
   children,
+  ...props
 }) => {
-  const linkProps = href ? getLinkProps(href) : {};
-
+  const Comp = href ? Link : "span";
   return (
-    <a href={href} {...linkProps} className={`group flex flex-row items-center gap-2 ${className}`}>
-      {style === "back" && <span className="icon-[material-symbols--arrow-back] h-5 w-5 group-hover:animate-pulse" />}
-
-      {picture && <Image src={picture.src} alt={picture.alt || picAlt} width={44} height={44} className={picClass} />}
-
-      <h1 className={style === "back" ? "group-hover:animate-pulse" : ""}>{children}</h1>
-
-      {href && style === "default" && <span className="icon-[material-symbols--arrow-outward] h-5 w-5" />}
-    </a>
+    <Comp {...props} href={href ?? "#"} className={cn(`group flex flex-row items-center gap-2`, className)}>
+      {type === "back" && <MdArrowBack className="size-5 group-hover:animate-pulse" />}
+      {picture && <Image src={picture.src} alt={picture.alt ?? "Logo"} width={44} height={44} className={picClass} />}
+      <h1 className={type === "back" ? "group-hover:animate-pulse" : ""}>{children}</h1>
+      {type === "default" && <MdArrowOutward className="size-5" />}
+    </Comp>
   );
 };

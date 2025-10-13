@@ -1,4 +1,5 @@
 {
+  "slug": "partyhat",
   "name": "Partyhat Productions",
   "description": "Lead server developer for the Masayoshi Games Twitch Rivals event, and an accompanying Minecraft network.",
   "href": "https://partyhat.dev",
@@ -15,7 +16,7 @@
         {
           "name": "Broadcast",
           "href": "https://www.twitch.tv/videos/1706498880",
-          "icon": "icon-[mdi--twitch]"
+          "icon": "twitch"
         },
         {
           "name": "Schedule",
@@ -24,11 +25,13 @@
       ],
       "media": [
         {
-          "media": "https://www.youtube.com/watch?v=a7k6WsF1nBE",
+          "type": "embed",
+          "url": "https://www.youtube.com/watch?v=a7k6WsF1nBE",
           "caption": "Masayoshi Games Trailer"
         },
         {
-          "media": "./assets/masayoshi-games-banner.jpg",
+          "type": "image",
+          "image": "./assets/masayoshi-games-banner.jpg",
           "caption": "Masayoshi Games Banner"
         }
       ]
@@ -45,11 +48,13 @@
       ],
       "media": [
         {
-          "media": "./assets/mcparty-lobby.png",
+          "type": "image",
+          "image": "./assets/mcparty-lobby.png",
           "caption": "MC Party - Lobby"
         },
         {
-          "media": "./assets/mcparty-blizzard.png",
+          "type": "image",
+          "image": "./assets/mcparty-blizzard.png",
           "caption": "MC Party - Blizzard Minigame"
         }
       ]

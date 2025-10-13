@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import { FaPlay } from "react-icons/fa";
 
 type VideoProps = {
   src: string;
@@ -30,7 +31,7 @@ export const Video: React.FC<VideoProps> = ({ src, ...props }) => {
         <div className="flex flex-col items-center justify-center">
           {paused && (
             <div className="flex flex-col items-center justify-center rounded-full bg-black/50 p-4 transition-opacity duration-100">
-              <span className="icon-[mdi--play] h-8 w-8" />
+              <FaPlay className="size-8" />
             </div>
           )}
         </div>

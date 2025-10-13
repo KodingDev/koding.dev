@@ -1,4 +1,5 @@
 {
+  "slug": "origin-realms",
   "name": "Origin Realms",
   "description": "Working alongside an EXTREMELY talented team on seamless mod integration, enhancing the gameplay experience, while keeping the server magic alive.",
   "href": "https://originrealms.com",
@@ -23,11 +24,13 @@
       ],
       "media": [
         {
-          "media": "./assets/oe-interpolation.mp4",
+          "type": "video",
+          "video": "./assets/oe-interpolation.mp4",
           "caption": "Armor stand interpolation"
         },
         {
-          "media": "./assets/oe-settings.png",
+          "type": "image",
+          "image": "./assets/oe-settings.png",
           "caption": "Settings menu"
         }
       ]
