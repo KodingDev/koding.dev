@@ -1,20 +1,13 @@
 import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withPostHogConfig } from "@posthog/nextjs-config";
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
 
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-import "./src/env.config";
 import { env } from "@/env.config";
-
-const isDev = process.argv.indexOf("dev") !== -1;
-const isBuild = process.argv.indexOf("build") !== -1;
-if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
-  process.env.VELITE_STARTED = "1";
-  import("velite").then((m) => m.build({ watch: isDev, clean: !isDev }));
-}
 
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -74,4 +67,13 @@ if (env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
   });
 }
 
-export default nextConfig;
+export default (phase: string) => {
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER;
+  const isBuild = phase === PHASE_PRODUCTION_BUILD;
+  if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
+    process.env.VELITE_STARTED = "1";
+    import("velite").then((m) => m.build({ watch: isDev, clean: !isDev }));
+  }
+
+  return nextConfig;
+};

@@ -1,5 +1,6 @@
 import type { Metadata, Route } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
 import { Header } from "@/components/base/Header";
 import { CallToAction } from "@/components/interactive/CallToAction";
@@ -55,7 +56,7 @@ export default function ArtPage() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {allArtists.map((artist) =>
           artist.commissions.map((commission) => (
-            <a
+            <Link
               key={`${artist.slug}-${commission.slug}`}
               className="relative aspect-square w-full overflow-clip rounded-md border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl"
               href={`/art/${artist.slug}/${commission.slug}`}
@@ -93,7 +94,7 @@ export default function ArtPage() {
                   <span className="opacity-75">By {artist.name}</span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))
         )}
       </div>
