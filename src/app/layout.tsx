@@ -2,7 +2,9 @@ import "@/app/globals.css";
 
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import type React from "react";
+import { ViewTransition } from "react";
 import { HoverListener } from "@/components/interactive/Hoverable";
 import { NavBar } from "@/components/layout/NavBar";
 import { cn } from "@/lib/utils";
@@ -53,13 +55,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
       <body className={cn("min-h-screen bg-primary-800 font-sans text-white", poppins.variable)}>
         <div className="flex min-h-screen flex-col justify-between bg-primary-800">
+          <NextTopLoader color="var(--primary)" showSpinner={false} />
           <HoverListener />
 
           <div className="layout-container">
             <NavBar />
           </div>
 
-          <div>{children}</div>
+          <ViewTransition>
+            <div>{children}</div>
+          </ViewTransition>
 
           {/* Footer */}
           <div className="layout-container flex flex-row pb-24">

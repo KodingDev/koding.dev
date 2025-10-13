@@ -22,6 +22,10 @@ const withBundleAnalyzer = createBundleAnalyzer({
 
 let nextConfig: NextConfig = {
   typedRoutes: true,
+  reactCompiler: true,
+  experimental: {
+    turbopackFileSystemCacheForDev: true,
+  },
   images: {
     deviceSizes: [384, 640, 768, 1024, 1280, 1536, 1920],
     formats: ["image/webp"],

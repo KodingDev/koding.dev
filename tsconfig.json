@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     /* Bundled projects */
     "lib": ["dom", "dom.iterable", "ES2022"],
     "module": "ESNext",
@@ -34,5 +34,14 @@
     "target": "es2022"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js", ".next/types/**/*.ts"]
+  "include": [
+    "next-env.d.ts",
+    "global.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.js",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ]
 }
