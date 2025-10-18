@@ -1,6 +1,7 @@
 import type { Metadata, Route } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { IconLink } from "@/components/interactive/IconLink";
 import { SiteLink } from "@/components/interactive/Link";
@@ -47,6 +48,7 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
         <SiteLink type="back" href="/art" className="opacity-50">
           Back to all commissions
         </SiteLink>
+
         <SiteLink
           href={artist.link as Route}
           picture={artist.avatar ? { src: artist.avatar } : undefined}
@@ -76,13 +78,15 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
         {/* Images */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {commission.images.map((image, idx) => (
-            <div
+            <ViewTransition
               // biome-ignore lint/suspicious/noArrayIndexKey: Needed
               key={idx}
-              className="flex size-full flex-col items-center justify-center overflow-clip rounded-md bg-primary-700"
+              name={`${artist.slug}-${commission.slug}-img-${idx}`}
             >
-              <Image src={image} alt={commission.title} className="object-cover object-center" />
-            </div>
+              <div className="flex size-full flex-col items-center justify-center overflow-clip rounded-md bg-primary-700">
+                <Image src={image} alt={commission.title} className="object-cover object-center" />
+              </div>
+            </ViewTransition>
           ))}
         </div>
       </div>

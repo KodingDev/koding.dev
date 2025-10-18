@@ -1,6 +1,7 @@
 import type { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Header } from "@/components/base/Header";
 import { CallToAction } from "@/components/interactive/CallToAction";
@@ -22,36 +23,38 @@ export default function ArtPage() {
       </Header>
 
       {/* Ref sheet card */}
-      <CallToAction
-        picture={refSheet.images[0] ? { src: refSheet.images[0] } : undefined}
-        href={`/art/${refSheetArtist.slug}/${refSheet.slug}` as Route}
-        picMaxWidth="80vw"
-      >
-        <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
-          {/* Artist name */}
-          <div className="flex flex-row items-center gap-2">
-            {refSheetArtist.avatar && (
-              <Image
-                src={refSheetArtist.avatar}
-                alt={refSheetArtist.name}
-                width={24}
-                height={24}
-                className="h-6 w-6 rounded-md"
-              />
-            )}
-            <span className="opacity-75">By {refSheetArtist.name}</span>
-          </div>
+      <ViewTransition name={`${refSheetArtist.slug}-${refSheet.slug}-img-0`}>
+        <CallToAction
+          picture={refSheet.images[0] ? { src: refSheet.images[0] } : undefined}
+          href={`/art/${refSheetArtist.slug}/${refSheet.slug}` as Route}
+          picMaxWidth="80vw"
+        >
+          <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
+            {/* Artist name */}
+            <div className="flex flex-row items-center gap-2">
+              {refSheetArtist.avatar && (
+                <Image
+                  src={refSheetArtist.avatar}
+                  alt={refSheetArtist.name}
+                  width={24}
+                  height={24}
+                  className="size-6 rounded-md"
+                />
+              )}
+              <span className="opacity-75">By {refSheetArtist.name}</span>
+            </div>
 
-          {/* Commission Name */}
-          <div className="flex flex-row items-center gap-4">
-            <h1 className="font-bold text-2xl">Reference Sheet</h1>
-            <MdArrowOutward className="size-6" />
-          </div>
+            {/* Commission Name */}
+            <div className="flex flex-row items-center gap-4">
+              <h1 className="font-bold text-2xl">Reference Sheet</h1>
+              <MdArrowOutward className="size-6" />
+            </div>
 
-          {/* Description */}
-          <span className="opacity-50">{refSheet.description}</span>
-        </div>
-      </CallToAction>
+            {/* Description */}
+            <span className="opacity-50">{refSheet.description}</span>
+          </div>
+        </CallToAction>
+      </ViewTransition>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {allArtists.map((artist) =>
@@ -63,11 +66,13 @@ export default function ArtPage() {
             >
               {/* Image */}
               {commission.images[0] && (
-                <Image
-                  src={commission.images[0]}
-                  alt={commission.title}
-                  className="absolute inset-0 z-0 size-full object-cover object-top"
-                />
+                <ViewTransition name={`${artist.slug}-${commission.slug}-img-0`}>
+                  <Image
+                    src={commission.images[0]}
+                    alt={commission.title}
+                    className="absolute inset-0 z-0 size-full object-cover object-top"
+                  />
+                </ViewTransition>
               )}
 
               {/* Gradient overlay */}
