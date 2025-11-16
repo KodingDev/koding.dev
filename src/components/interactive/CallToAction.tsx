@@ -9,17 +9,10 @@ type CallToActionProps = {
     src: StaticImageData;
     alt?: string;
   };
-  picMaxWidth?: string;
 } & React.PropsWithChildren &
   React.ComponentProps<typeof Link>;
 
-export const CallToAction: React.FC<CallToActionProps> = ({
-  picture,
-  picMaxWidth = "100%",
-  className,
-  children,
-  ...props
-}) => (
+export const CallToAction: React.FC<CallToActionProps> = ({ picture, className, children, ...props }) => (
   <Link
     {...props}
     className={cn(
@@ -30,13 +23,7 @@ export const CallToAction: React.FC<CallToActionProps> = ({
     <div className="absolute inset-0">
       {picture ? (
         <>
-          <Image
-            src={picture.src}
-            alt={picture.alt || "Cover"}
-            fill
-            className="h-full w-full object-cover object-top"
-            style={{ maxWidth: picMaxWidth }}
-          />
+          <Image src={picture.src} alt={picture.alt || "Cover"} fill className="h-full w-full object-cover" />
           <div className="absolute top-0 left-0 z-[1] h-full w-full bg-gradient-to-b from-transparent to-black/80" />
         </>
       ) : (

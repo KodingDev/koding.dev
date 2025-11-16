@@ -27,7 +27,6 @@ export default function ArtPage() {
         <CallToAction
           picture={refSheet.images[0] ? { src: refSheet.images[0] } : undefined}
           href={`/art/${refSheetArtist.slug}/${refSheet.slug}` as Route}
-          picMaxWidth="80vw"
         >
           <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
             {/* Artist name */}

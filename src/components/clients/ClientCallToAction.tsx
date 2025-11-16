@@ -10,11 +10,7 @@ type ClientCallToActionProps = {
 };
 
 export const ClientCallToAction: React.FC<ClientCallToActionProps> = ({ client }) => (
-  <CallToAction
-    href={`/clients/${client.slug}` as Route}
-    picture={client.banner ? { src: client.banner } : undefined}
-    picMaxWidth="40vw"
-  >
+  <CallToAction href={`/clients/${client.slug}` as Route} picture={client.banner ? { src: client.banner } : undefined}>
     <div className="flex flex-col gap-3 p-6 md:p-10">
       <div className="flex flex-row items-center">
         <div className={`h-2 w-2 rounded-full ${client.end ? "bg-red-500" : "bg-green-500"}`} />
