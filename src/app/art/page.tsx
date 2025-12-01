@@ -58,49 +58,51 @@ export default function ArtPage() {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {allArtists.map((artist) =>
-          artist.commissions.map((commission) => (
-            <Link
-              key={`${artist.slug}-${commission.slug}`}
-              className="relative aspect-square w-full overflow-clip rounded-md border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl"
-              href={`/art/${artist.slug}/${commission.slug}`}
-            >
-              {/* Image */}
-              {commission.images[0] && (
-                <ViewTransition name={`${artist.slug}-${commission.slug}-img-0`}>
-                  <Image
-                    src={commission.images[0]}
-                    alt={commission.title}
-                    className="absolute inset-0 z-0 size-full object-cover object-top"
-                  />
-                </ViewTransition>
-              )}
-
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black/50" />
-
-              {/* Descriptions */}
-              <div className="relative z-10 flex h-full flex-col justify-end gap-1 p-6">
-                <div className="flex flex-row items-center gap-4">
-                  <h1 className="font-bold text-2xl">{commission.title}</h1>
-                  <MdArrowOutward className="size-6" />
-                </div>
-
-                {/* Artist name */}
-                <div className="flex flex-row items-center gap-2">
-                  {artist.avatar && (
+          artist.commissions
+            .filter((v) => artist.slug !== refSheetArtist.slug && v.slug !== refSheet.slug)
+            .map((commission) => (
+              <Link
+                key={`${artist.slug}-${commission.slug}`}
+                className="relative aspect-square w-full overflow-clip rounded-md border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl"
+                href={`/art/${artist.slug}/${commission.slug}`}
+              >
+                {/* Image */}
+                {commission.images[0] && (
+                  <ViewTransition name={`${artist.slug}-${commission.slug}-img-0`}>
                     <Image
-                      src={artist.avatar}
-                      alt={artist.name}
-                      width={24}
-                      height={24}
-                      className="h-6 w-6 rounded-md"
+                      src={commission.images[0]}
+                      alt={commission.title}
+                      className="absolute inset-0 z-0 size-full object-cover object-top"
                     />
-                  )}
-                  <span className="opacity-75">By {artist.name}</span>
+                  </ViewTransition>
+                )}
+
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black/50" />
+
+                {/* Descriptions */}
+                <div className="relative z-10 flex h-full flex-col justify-end gap-1 p-6">
+                  <div className="flex flex-row items-center gap-4">
+                    <h1 className="font-bold text-2xl">{commission.title}</h1>
+                    <MdArrowOutward className="size-6" />
+                  </div>
+
+                  {/* Artist name */}
+                  <div className="flex flex-row items-center gap-2">
+                    {artist.avatar && (
+                      <Image
+                        src={artist.avatar}
+                        alt={artist.name}
+                        width={24}
+                        height={24}
+                        className="h-6 w-6 rounded-md"
+                      />
+                    )}
+                    <span className="opacity-75">By {artist.name}</span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))
+              </Link>
+            ))
         )}
       </div>
     </div>

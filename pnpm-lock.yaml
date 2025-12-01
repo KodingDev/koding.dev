@@ -97,9 +97,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17
-      tailwindcss-motion:
-        specifier: ^1.1.1
-        version: 1.1.1(tailwindcss@4.1.17)
       tw-animate-css:
         specifier: ^1.4.0
         version: 1.4.0
@@ -1582,11 +1579,6 @@ packages:
 
   tailwind-merge@3.4.0:
     resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
-
-  tailwindcss-motion@1.1.1:
-    resolution: {integrity: sha512-CeeQAc5o31BuEPMyWdq/786X7QWNeifa+8khfu74Fs8lGkgEwjNYv6dGv+lRFS8FWXV5dp7F3AU9JjBXjiaQfw==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
 
   tailwindcss@4.1.17:
     resolution: {integrity: sha512-j9Ee2YjuQqYT9bbRTfTZht9W/ytp5H+jJpZKiYdP/bpnXARAuELt9ofP0lPnmHjbga7SNQIxdTAXCmtKVYjN+Q==}
@@ -3267,10 +3259,6 @@ snapshots:
       react: 19.2.0
 
   tailwind-merge@3.4.0: {}
-
-  tailwindcss-motion@1.1.1(tailwindcss@4.1.17):
-    dependencies:
-      tailwindcss: 4.1.17
 
   tailwindcss@4.1.17: {}
 
