@@ -1,4 +1,3 @@
-import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withPostHogConfig } from "@posthog/nextjs-config";
 import type { NextConfig } from "next";
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
@@ -8,10 +7,6 @@ import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants
  * for Docker builds.
  */
 import { env } from "@/env.config";
-
-const withBundleAnalyzer = createBundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
 
 let nextConfig: NextConfig = {
   typedRoutes: true,
@@ -32,7 +27,7 @@ let nextConfig: NextConfig = {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx"],
   reactStrictMode: true,
-  async rewrites() {
+  rewrites() {
     return [
       {
         destination: "https://us-assets.i.posthog.com/static/:path*",
@@ -53,8 +48,6 @@ let nextConfig: NextConfig = {
   staticPageGenerationTimeout: 300,
 };
 
-nextConfig = withBundleAnalyzer(nextConfig);
-
 if (env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
   nextConfig = withPostHogConfig(nextConfig, {
     personalApiKey: env.POSTHOG_API_KEY, // Personal API Key
@@ -67,6 +60,7 @@ if (env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
   });
 }
 
+// biome-ignore lint/style/noDefaultExport: Config file
 export default (phase: string) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
   const isBuild = phase === PHASE_PRODUCTION_BUILD;

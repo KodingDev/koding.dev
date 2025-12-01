@@ -12,7 +12,7 @@ export const GradientBackground: React.FC<React.ComponentProps<"div">> = ({ clas
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d")!;
-    let t = Math.random() * 1000;
+    let time = Math.random() * 1000;
 
     const setColor = (x: number, y: number, r: number, g: number, b: number) => {
       ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
@@ -27,12 +27,13 @@ export const GradientBackground: React.FC<React.ComponentProps<"div">> = ({ clas
     const draw = () => {
       for (let x = 0; x <= 35; x++) {
         for (let y = 0; y <= 35; y++) {
-          const r = calcR(x, y, t);
-          const b = calcB(x, y, t);
+          const r = calcR(x, y, time);
+          const b = calcB(x, y, time);
           setColor(x, y, r, 1, b);
         }
       }
-      t += 0.02;
+
+      time += 0.02;
       requestAnimationFrame(draw);
     };
 
@@ -41,7 +42,7 @@ export const GradientBackground: React.FC<React.ComponentProps<"div">> = ({ clas
   }, []);
 
   return (
-    <div className={cn(`absolute inset-0`, className)} {...props}>
+    <div className={cn("absolute inset-0", className)} {...props}>
       <canvas ref={canvasRef} width="32" height="32" className="size-full opacity-0 transition-all duration-500" />
     </div>
   );

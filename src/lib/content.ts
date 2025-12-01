@@ -8,7 +8,7 @@ export const allClients = pipe(
   clients,
   filter((client) => !client.hidden),
   // Sort the clients by their end date descending (if any), and leave "current" clients at the top.
-  sortBy((client) => (client.end ? -parseDate(client.end as ClientDate).getTime() : -Infinity))
+  sortBy((client) => (client.end ? -parseDate(client.end as ClientDate).getTime() : Number.NEGATIVE_INFINITY))
 );
 
 type ArtRef = {

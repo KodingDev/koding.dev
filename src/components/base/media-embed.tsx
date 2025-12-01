@@ -1,5 +1,5 @@
 import type React from "react";
-import { Video } from "./Video";
+import { Video } from "./video";
 
 type MediaEmbedProps = {
   src: string;

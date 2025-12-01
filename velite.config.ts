@@ -1,5 +1,6 @@
 import { defineConfig, s } from "velite";
 
+// biome-ignore lint/style/noDefaultExport: Config file
 export default defineConfig({
   collections: {
     clients: {

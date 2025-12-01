@@ -3,11 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { IconLink } from "@/components/interactive/IconLink";
-import { SiteLink } from "@/components/interactive/Link";
+import { IconLink } from "@/components/interactive/icon-link";
+import { SiteLink } from "@/components/interactive/link";
 import { allArtists } from "@/lib/content";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allArtists.flatMap((artist) =>
     artist.commissions.map((commission) => ({ artist: artist.slug, slug: commission.slug }))
   );
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/art/[artist]/[slu
   };
 }
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default async function CommissionPage({ params }: PageProps<"/art/[artist]/[slug]">) {
   const { artist: artistSlug, slug } = await params;
   const artist = allArtists.find((a) => a.slug === artistSlug);

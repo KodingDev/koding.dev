@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import { FEATURED_ARTIST, getArtRefImage } from "@/lib/content";
-import { DesktopNavBar } from "./DesktopNavBar";
+import { DesktopNavBar } from "./desktop-nav-bar";
 
-export const NavBar: React.FC = () => (
+export const Navbar: React.FC = () => (
   <div className="flex h-24 border-b border-b-white/10">
     <div className="my-auto flex w-full flex-row items-center">
       <Link href="/">

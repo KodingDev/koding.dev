@@ -7,7 +7,7 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, NAV_SOCIALS } from "@/lib/data/layout";
 import { cn } from "@/lib/utils";
-import { SocialButton } from "./SocialButton";
+import { SocialButton } from "./social-button";
 
 export const DesktopNavBar: React.FC = () => {
   const pathname = usePathname();
@@ -77,7 +77,7 @@ export const DesktopNavBar: React.FC = () => {
 
         <div
           className={cn(
-            `pointer-events-none absolute h-1 rounded-full bg-primary-200/50 transition-all duration-500`,
+            "pointer-events-none absolute h-1 rounded-full bg-primary-200/50 transition-all duration-500",
             !visible && "opacity-0"
           )}
           style={{

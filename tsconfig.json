@@ -31,7 +31,9 @@
     /* Strictness */
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2022"
+    "target": "es2022",
+    /* Linting */
+    "noImplicitOverride": true
   },
   "exclude": ["node_modules"],
   "include": [

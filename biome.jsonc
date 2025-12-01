@@ -17,6 +17,11 @@
     "indentWidth": 2,
     "lineWidth": 120
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
@@ -35,6 +40,26 @@
       "a11y": {
         "useKeyWithClickEvents": "warn"
       },
+      "complexity": {
+        "noUselessEscapeInRegex": "error",
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "error",
+        "useDateNow": "error",
+        "useSimplifiedLogicExpression": "error",
+        "useWhile": "error"
+      },
+      "correctness": {
+        "noUnusedVariables": {
+          "level": "warn",
+          "fix": "none"
+        },
+        "noConstantMathMinMaxClamp": "error",
+        "noUndeclaredVariables": "error",
+        "noUnusedFunctionParameters": "error",
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "useHookAtTopLevel": "error"
+      },
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
@@ -44,20 +69,89 @@
           }
         },
         "useConsistentArrowReturn": "error",
-        "noUselessCatchBinding": "error"
+        "noUselessCatchBinding": "error",
+        "noShadow": "error" // should help you catch useless code/accidental drift
+      },
+      "performance": {
+        "noDelete": "error", // it's a dangerous operator, use undefined instead
+        "noDynamicNamespaceImportAccess": "error",
+        "noReExportAll": "error",
+        "useTopLevelRegex": "error"
+      },
+      "security": {
+        "noDangerouslySetInnerHtmlWithChildren": "error" // forces you to explain why you have no alternative to using this property, and think about potential sanitization issues
       },
       "style": {
-        "noNonNullAssertion": "off"
-      },
-      "correctness": {
-        "noUnusedVariables": {
-          "level": "warn",
-          "fix": "none"
-        }
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": false,
+            "conventions": [
+              {
+                "selector": {
+                  "kind": "objectLiteralProperty"
+                },
+                "formats": ["CONSTANT_CASE", "camelCase"]
+              }
+            ]
+          }
+        },
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["export", "kebab-case"] // personal preference
+          }
+        },
+        "noDefaultExport": "error",
+        "noEnum": "error",
+        "noInferrableTypes": "error",
+        "noNonNullAssertion": "off",
+        "noParameterAssign": "error",
+        "noShoutyConstants": "error",
+        "noSubstr": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "useArrayLiterals": "error",
+        "useAsConstAssertion": "error",
+        "useAtIndex": "error",
+        "useCollapsedIf": "error",
+        "useConsistentArrayType": "error",
+        "useConsistentBuiltinInstantiation": "error",
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "error",
+        "useDeprecatedReason": "error",
+        "useEnumInitializers": "error",
+        "useExplicitLengthCheck": "error",
+        "useFragmentSyntax": "error",
+        "useNumberNamespace": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSingleVarDeclarator": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error"
       },
       "suspicious": {
         "noExplicitAny": "error",
-        "noUnknownAtRules": "off"
+        "useIterableCallbackReturn": "off",
+        "noAlert": "error",
+        //        "noConsole": {
+        //          "level": "error", // helps you not forget to remove console logs. useful for debug, but dangerous for prod
+        //          "options": {
+        //            "allow": ["assert", "error", "info", "warn"] // alternatively, this forces you to be more intentional about your logging
+        //          }
+        //        },
+        "noDocumentCookie": "error",
+        "noDocumentImportInPage": "error",
+        "noDuplicateCustomProperties": "error",
+        "noDuplicateElseIf": "error",
+        "noDuplicateProperties": "error",
+        "noEvolvingTypes": "error",
+        "noTemplateCurlyInString": "error",
+        "useAwait": "error", // forces you to be intentional about your async code
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error" // forces you to be intentional about your async code
       }
     }
   },

@@ -3,10 +3,9 @@ import "@/app/globals.css";
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-import type React from "react";
 import { ViewTransition } from "react";
-import { HoverListener } from "@/components/interactive/Hoverable";
-import { NavBar } from "@/components/layout/NavBar";
+import { HoverListener } from "@/components/interactive/hoverable";
+import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
@@ -42,7 +41,8 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+// biome-ignore lint/style/noDefaultExport: NextJS
+export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
   // noinspection HtmlRequiredTitleElement
   return (
     <html lang="en" suppressHydrationWarning translate="no" className="notranslate">
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <HoverListener />
 
           <div className="layout-container">
-            <NavBar />
+            <Navbar />
           </div>
 
           <ViewTransition>

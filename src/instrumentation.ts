@@ -1,6 +1,8 @@
 import type { InstrumentationOnRequestError } from "next/dist/server/instrumentation/types";
 import { env } from "@/env.config";
 
+const POSTHOG_COOKIE_REGEX = /ph_phc_.*?_posthog=([^;]+)/;
+
 export function register() {
   // No-op for initialization
 }
@@ -9,11 +11,11 @@ export const onRequestError: InstrumentationOnRequestError = async (err, request
   if (process.env.NEXT_RUNTIME === "nodejs" && env.POSTHOG_API_KEY && env.POSTHOG_ENV_ID) {
     const { getPostHogServer } = require("./lib/posthog-server");
     const posthog = await getPostHogServer();
-    let distinctId = null;
+    let distinctId: string | null = null;
 
     if (request.headers.cookie) {
       const cookieString = request.headers.cookie as string;
-      const postHogCookieMatch = cookieString.match(/ph_phc_.*?_posthog=([^;]+)/);
+      const postHogCookieMatch = cookieString.match(POSTHOG_COOKIE_REGEX);
 
       if (postHogCookieMatch?.[1]) {
         try {

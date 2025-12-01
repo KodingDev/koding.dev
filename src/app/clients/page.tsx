@@ -1,7 +1,8 @@
-import { Header } from "@/components/base/Header";
-import { ClientCallToAction } from "@/components/clients/ClientCallToAction";
+import { Header } from "@/components/base/header";
+import { ClientCallToAction } from "@/components/clients/client-call-to-action";
 import { allClients } from "@/lib/content";
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default function ClientsPage() {
   return (
     <div className="layout-container pt-40 pb-36">

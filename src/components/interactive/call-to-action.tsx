@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import type React from "react";
-import { GradientBackground } from "@/components/base/GradientBackground";
+import { GradientBackground } from "@/components/base/gradient-background";
 import { cn } from "@/lib/utils";
 
 type CallToActionProps = {

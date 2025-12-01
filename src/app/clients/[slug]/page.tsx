@@ -3,10 +3,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type React from "react";
 import { FaDiscord, FaGithub, FaGlobe, FaTwitch } from "react-icons/fa";
-import { MediaEmbed } from "@/components/base/MediaEmbed";
-import { ClientCallToAction } from "@/components/clients/ClientCallToAction";
-import { IconLink } from "@/components/interactive/IconLink";
-import { SiteLink } from "@/components/interactive/Link";
+import { MediaEmbed } from "@/components/base/media-embed";
+import { ClientCallToAction } from "@/components/clients/client-call-to-action";
+import { IconLink } from "@/components/interactive/icon-link";
+import { SiteLink } from "@/components/interactive/link";
 import { allClients } from "@/lib/content";
 
 const LINK_ICONS: Record<string, React.FC<React.ComponentProps<"svg">>> = {
@@ -15,7 +15,7 @@ const LINK_ICONS: Record<string, React.FC<React.ComponentProps<"svg">>> = {
   discord: FaDiscord,
 };
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allClients.map((client) => ({
     slug: client.slug,
   }));
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: PageProps<"/clients/[slug]">)
   };
 }
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default async function ClientPage({ params }: PageProps<"/clients/[slug]">) {
   const { slug } = await params;
   const client = allClients.find((c) => c.slug === slug);

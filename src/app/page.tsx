@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/base/Header";
-import { Project } from "@/components/home/Project";
-import { TwinklingStar } from "@/components/home/TwinklingStar";
-import { CallToAction } from "@/components/interactive/CallToAction";
+import { Header } from "@/components/base/header";
+import { Project } from "@/components/home/project";
+import { TwinklingStar } from "@/components/home/twinkling-star";
+import { CallToAction } from "@/components/interactive/call-to-action";
 import { PROJECTS } from "@/lib/data/projects";
 
 export const metadata: Metadata = {
   description: "Hi, I'm Stella. Crafting rich, engaging gameplay experiences for 8 years.",
 };
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-16 pb-36">

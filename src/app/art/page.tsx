@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
 import { MdArrowOutward } from "react-icons/md";
-import { Header } from "@/components/base/Header";
-import { CallToAction } from "@/components/interactive/CallToAction";
+import { Header } from "@/components/base/header";
+import { CallToAction } from "@/components/interactive/call-to-action";
 import { allArtists, REF_SHEET } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description: "Over the years, I've commissioned a lot of art. Here's a collection of some of my favorites.",
 };
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default function ArtPage() {
   const refSheetArtist = REF_SHEET.artist;
   const refSheet = REF_SHEET.artist.commissions[REF_SHEET.commissionIdx]!;

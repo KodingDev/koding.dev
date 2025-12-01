@@ -3,7 +3,7 @@ import type { Route } from "next";
 import Image from "next/image";
 import type React from "react";
 import { MdArrowOutward } from "react-icons/md";
-import { CallToAction } from "@/components/interactive/CallToAction";
+import { CallToAction } from "@/components/interactive/call-to-action";
 
 type ClientCallToActionProps = {
   client: Clients;

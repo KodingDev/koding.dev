@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
+// biome-ignore lint/style/noDefaultExport: NextJS
 export default function NotFound() {
   return (
     <div className="layout-container flex min-h-screen flex-col items-center justify-center gap-8 px-4 py-16 text-center">

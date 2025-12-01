@@ -7,7 +7,7 @@ type HeaderProps = {
 } & React.PropsWithChildren<React.ComponentProps<"div">>;
 
 export const Header: React.FC<HeaderProps> = ({ emoji, title, children, className, ...props }) => (
-  <div className={cn(`flex flex-col gap-3`, className)} {...props}>
+  <div className={cn("flex flex-col gap-3", className)} {...props}>
     <p className="font-medium text-2xl">
       <span className="pr-4">{emoji}</span> {title}
     </p>

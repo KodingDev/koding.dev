@@ -27,7 +27,7 @@ export const SiteLink: React.FC<SiteLinkProps> = ({
 }) => {
   const Comp = href ? Link : "span";
   return (
-    <Comp {...props} href={href ?? "#"} className={cn(`group flex flex-row items-center gap-2`, className)}>
+    <Comp {...props} href={href ?? "#"} className={cn("group flex flex-row items-center gap-2", className)}>
       {type === "back" && <MdArrowBack className="size-5 group-hover:animate-pulse" />}
       {picture && <Image src={picture.src} alt={picture.alt ?? "Logo"} width={44} height={44} className={picClass} />}
       <h1 className={type === "back" ? "group-hover:animate-pulse" : ""}>{children}</h1>
