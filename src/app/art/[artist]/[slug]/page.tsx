@@ -53,7 +53,7 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
         <SiteLink
           href={artist.link as Route}
           picture={artist.avatar ? { src: artist.avatar } : undefined}
-          className="text-white/50"
+          className="text-foreground/50"
           picClass="size-6 rounded-md"
         >
           By {artist.name}

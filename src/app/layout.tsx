@@ -1,17 +1,22 @@
 import "@/app/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import { ViewTransition } from "react";
 import { HoverListener } from "@/components/interactive/hoverable";
 import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-poppins",
+const boskaFont = localFont({
+  weight: "400",
+  variable: "--font-boska",
+  src: "../assets/fonts/Gambarino-Regular.woff2",
+});
+
+const switzerFont = localFont({
+  variable: "--font-switzer",
+  src: "../assets/fonts/Switzer-Variable.woff2",
 });
 
 export const metadata: Metadata = {
@@ -53,7 +58,13 @@ export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
         <meta name="google" content="notranslate" />
       </head>
 
-      <body className={cn("dark min-h-screen bg-background font-sans", poppins.variable)}>
+      <body
+        className={cn(
+          "dark min-h-screen bg-background font-sans text-foreground",
+          boskaFont.variable,
+          switzerFont.variable
+        )}
+      >
         <div className="flex min-h-screen flex-col justify-between">
           <NextTopLoader color="var(--primary)" showSpinner={false} />
           <HoverListener />

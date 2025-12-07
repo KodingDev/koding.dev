@@ -142,11 +142,11 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                   </div>
 
                   {/* Testimonial text with highlighting */}
-                  <div className="text-center text-white/50 text-xl">
+                  <div className="text-center text-foreground/50 text-xl">
                     {testimonial.testimonial.split("*").map((part, partIdx) =>
                       partIdx % 2 ? (
                         // biome-ignore lint/suspicious/noArrayIndexKey: Needed
-                        <span key={partIdx} className="text-white/75">
+                        <span key={partIdx} className="text-foreground/75">
                           {part}
                         </span>
                       ) : (

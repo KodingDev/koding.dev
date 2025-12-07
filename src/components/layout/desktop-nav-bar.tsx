@@ -63,7 +63,7 @@ export const DesktopNavBar: React.FC = () => {
             ref={(el) => {
               indicatorRefs.current[index] = el;
             }}
-            className="group relative font-medium text-lg text-white opacity-75"
+            className="group relative font-medium text-foreground text-lg opacity-75"
           >
             {link.name}
             <div

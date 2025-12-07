@@ -25,7 +25,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
       </div>
 
       <div className="flex flex-row items-center">
-        <h1 className="font-bold text-2xl">{project.name}</h1>
+        <h1 className="font-medium font-serif text-2xl">{project.name}</h1>
         <MdArrowOutward className="ml-4 size-6" />
       </div>
 
