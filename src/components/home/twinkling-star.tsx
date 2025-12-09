@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export const TwinklingStar: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [data, setData] = useState({ x: 0, y: 0, size: 0, opacity: 0 });
   const animationRef = useRef<number | undefined>(undefined);
-  const offsetRef = useRef<number>(Math.random() * 5);
+  const offsetRef = useRef<number>(0);
   const speedRef = useRef<number>(0);
   const directionsRef = useRef<number[]>([-1, 1]);
 

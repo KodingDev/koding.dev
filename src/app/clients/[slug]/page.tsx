@@ -78,16 +78,16 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
             {project.media && project.media.length > 0 && (
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 {project.media.map((media, mediaIdx) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: No other option
                   <div
+                    // biome-ignore lint/suspicious/noArrayIndexKey: No other option
                     key={mediaIdx}
-                    className="group relative overflow-clip rounded-lg border border-foreground/[15%]"
+                    className="group relative overflow-clip rounded-lg border border-foreground/15"
                   >
                     {media.type === "video" || media.type === "embed" ? (
                       // Website embeds
                       <MediaEmbed
                         src={media.type === "video" ? media.video : media.url}
-                        className="h-full w-full object-cover"
+                        className="size-full object-cover"
                         title={`Media ${mediaIdx + 1}`}
                       />
                     ) : (
@@ -96,7 +96,7 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                         alt="Project Image"
                         width={800}
                         height={600}
-                        className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                        className="size-full object-cover transition-all duration-500 group-hover:scale-105"
                       />
                     )}
 
@@ -118,14 +118,14 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
           <div className="flex flex-col gap-6">
             <h2 className="font-bold text-3xl">Testimonials</h2>
             <span className="opacity-50">
-              I've worked with some amazing people, here's what they have to say about me.
+              I&apos;ve worked with some amazing people, here&apos;s what they have to say about me.
             </span>
 
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               {client.testimonials.map((testimonial) => (
                 <div
                   key={testimonial.name}
-                  className="flex flex-col items-center gap-6 rounded-lg border border-foreground/[15%] bg-white/[5%] p-6"
+                  className="flex flex-col items-center gap-6 rounded-lg border border-foreground/15 bg-white/5 p-6"
                 >
                   <div className="flex flex-row items-center gap-4">
                     {testimonial.avatar && (
@@ -134,7 +134,7 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                         alt={`${testimonial.name} Avatar`}
                         width={48}
                         height={48}
-                        className="h-12 w-12 rounded-lg"
+                        className="size-12 rounded-lg"
                       />
                     )}
 

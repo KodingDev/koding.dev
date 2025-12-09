@@ -7,7 +7,7 @@ export default function ClientsPage() {
   return (
     <div className="pt-40 pb-36">
       <Header emoji="📊" title="Clients">
-        Some of the amazing people I've had the pleasure of working with.
+        Some of the amazing people I&apos;ve had the pleasure of working with.
       </Header>
       <div className="grid grid-cols-1 gap-8 pt-32 lg:grid-cols-2">
         {allClients.map((client) => (

@@ -23,8 +23,8 @@ export const CallToAction: React.FC<CallToActionProps> = ({ picture, className, 
     <div className="absolute inset-0">
       {picture ? (
         <>
-          <Image src={picture.src} alt={picture.alt || "Cover"} fill className="h-full w-full object-cover" />
-          <div className="absolute top-0 left-0 z-[1] h-full w-full bg-gradient-to-b from-transparent to-black/80" />
+          <Image src={picture.src} alt={picture.alt || "Cover"} fill className="size-full object-cover" />
+          <div className="absolute top-0 left-0 z-[1] size-full bg-gradient-to-b from-transparent to-black/80" />
         </>
       ) : (
         <GradientBackground className="opacity-50" />

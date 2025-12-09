@@ -100,30 +100,26 @@ export default function HomePage() {
       </div>
 
       {/* Projects */}
-      <div className="layout-container">
-        <div className="flex flex-col justify-between gap-4 pb-12 align-middle md:flex-row md:items-center">
-          <h1 className="font-medium text-2xl">
-            <span className="pr-4">💻</span> Projects
-          </h1>
-          <span className="font-medium opacity-50">Some of the cool things I've worked on.</span>
-        </div>
+      <div className="flex flex-col justify-between gap-4 pb-12 align-middle md:flex-row md:items-center">
+        <h1 className="font-medium text-2xl">
+          <span className="pr-4">💻</span> Projects
+        </h1>
+        <span className="font-medium opacity-50">Some of the cool things I&apos;ve worked on.</span>
+      </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project) => (
-            <Project key={project.name} project={project} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {PROJECTS.map((project) => (
+          <Project key={project.name} project={project} />
+        ))}
       </div>
 
       {/* Clients */}
-      <div className="layout-container">
-        <CallToAction href="/clients">
-          <div className="flex flex-col gap-3 px-6 py-8 md:px-10 md:py-14">
-            <span className="font-bold text-2xl">Want to see more of my work?</span>
-            <span className="opacity-50">Check out some of my clients.</span>
-          </div>
-        </CallToAction>
-      </div>
+      <CallToAction href="/clients">
+        <div className="flex flex-col gap-3 px-6 py-8 md:px-10 md:py-14">
+          <span className="font-bold text-2xl">Want to see more of my work?</span>
+          <span className="opacity-50">Check out some of my clients.</span>
+        </div>
+      </CallToAction>
     </div>
   );
 }

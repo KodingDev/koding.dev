@@ -20,7 +20,7 @@ export default function ArtPage() {
   return (
     <div className="flex flex-col gap-4 pb-36">
       <Header emoji="🎨" title="Art" className="pt-40 pb-32">
-        I've commissioned a lot of art over the years, please support these talented artists!
+        I&apos;ve commissioned a lot of art over the years, please support these talented artists!
       </Header>
 
       {/* Ref sheet card */}
@@ -95,7 +95,7 @@ export default function ArtPage() {
                         alt={artist.name}
                         width={24}
                         height={24}
-                        className="h-6 w-6 rounded-md"
+                        className="size-6 rounded-md"
                       />
                     )}
                     <span className="opacity-75">By {artist.name}</span>

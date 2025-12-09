@@ -49,6 +49,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
   // noinspection HtmlRequiredTitleElement
   return (
+    // eslint-disable-next-line better-tailwindcss/no-unregistered-classes -- Fixes Google Translate
     <html lang="en" suppressHydrationWarning translate="no" className="notranslate">
       <head>
         {/* TODO: Fix Google translate breaking the DOM properly, see fixes below */}

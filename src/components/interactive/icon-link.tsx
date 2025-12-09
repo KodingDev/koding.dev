@@ -18,7 +18,7 @@ export const IconLink: React.FC<IconLinkProps> = ({ icon: Icon, className, child
       className
     )}
   >
-    {Icon && <Icon className="size-4 fill-white" />}
+    {Icon && <Icon className="size-4" />}
     <span>{children}</span>
     <MdArrowOutward className="group-hover:-translate-y-1 size-4 transition-all" />
   </Link>

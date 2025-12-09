@@ -4,7 +4,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 import { NAV_LINKS, NAV_SOCIALS } from "@/lib/data/layout";
 import { cn } from "@/lib/utils";
 import { SocialButton } from "./social-button";
@@ -29,7 +29,7 @@ export const DesktopNavBar: React.FC = () => {
     });
   };
 
-  const recompute = () => {
+  const recompute = useEffectEvent(() => {
     const currentLink = NAV_LINKS.find((link) => link.match.test(pathname));
     if (!currentLink) {
       setVisible(false);
@@ -41,17 +41,11 @@ export const DesktopNavBar: React.FC = () => {
     if (!indicator) return;
 
     updateLink(indicator);
-  };
+  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: TODO: Fix
-  useEffect(() => {
-    recompute();
-  }, [pathname]);
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: TODO: Fix
-  useEffect(() => {
-    recompute();
-  }, []);
+  useEffect(() => recompute(), [pathname]);
+  useEffect(() => recompute(), []);
 
   return (
     <>
@@ -88,7 +82,7 @@ export const DesktopNavBar: React.FC = () => {
         />
       </div>
 
-      <div className="hidden flex-grow flex-row items-center justify-end gap-4 md:flex">
+      <div className="hidden grow flex-row items-center justify-end gap-4 md:flex">
         {NAV_SOCIALS.map((social) => (
           <SocialButton key={social.href} icon={social.icon} href={social.href as Route} className={social.className} />
         ))}

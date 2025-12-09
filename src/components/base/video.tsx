@@ -27,7 +27,7 @@ export const Video: React.FC<VideoProps> = ({ src, ...props }) => {
         <track kind="captions" />
       </video>
 
-      <div className="group pointer-events-none absolute inset-0 flex h-full w-full items-center justify-center">
+      <div className="group pointer-events-none absolute inset-0 flex size-full items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           {paused && (
             <div className="flex flex-col items-center justify-center rounded-full bg-black/50 p-4 transition-opacity duration-100">
