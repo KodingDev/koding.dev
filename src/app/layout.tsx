@@ -7,10 +7,10 @@ import { ViewTransition } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
 
-const boskaFont = localFont({
+const instrumentSerifFont = localFont({
   weight: "400",
-  variable: "--font-boska",
-  src: "../assets/fonts/Gambarino-Regular.woff2",
+  variable: "--font-instrument-serif",
+  src: "../assets/fonts/InstrumentSerif-Regular.ttf",
 });
 
 const switzerFont = localFont({
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
       <body
         className={cn(
           "container min-h-screen bg-background font-sans text-foreground",
-          boskaFont.variable,
+          instrumentSerifFont.variable,
           switzerFont.variable
         )}
       >

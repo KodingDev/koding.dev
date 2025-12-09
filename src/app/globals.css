@@ -145,7 +145,7 @@
   --color-primary-800: #0f071d;
   --color-primary-900: #0d0a13;
 
-  --font-serif: var(--font-boska); /* Headings */
+  --font-serif: var(--font-instrument-serif); /* Headings */
   --font-sans: var(--font-switzer); /* Body */
   /*--font-mono: var(--font-mono);*/
 

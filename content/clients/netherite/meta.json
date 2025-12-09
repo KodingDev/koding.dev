@@ -2,6 +2,7 @@
   "slug": "netherite",
   "name": "Netherite",
   "description": "Highly-scalable, high-throughput Minecraft development, built with Kubernetes & a microservice architecture.",
+  "role": "Full Stack Developer",
   "href": "https://netherite.gg",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
