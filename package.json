@@ -18,7 +18,7 @@
     "client-only": "^0.0.1",
     "clsx": "^2.1.1",
     "envin": "^1.1.10",
-    "next": "16.1.0-canary.9",
+    "next": "16.1.0-canary.12",
     "next-themes": "^0.4.6",
     "nextjs-toploader": "^3.9.17",
     "posthog-js": "^1.298.1",
