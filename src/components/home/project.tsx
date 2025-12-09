@@ -16,7 +16,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
       href={project.url as Route}
       target="_blank"
       rel="noopener noreferrer"
-      className="hoverable hoverable-card flex flex-col gap-3 border border-white/10 bg-gradient-to-b from-white/[2.5%] p-6 transition-all duration-300 hover:scale-[101%] hover:to-white/[5%] hover:shadow-md"
+      className="flex flex-col gap-3 rounded-md border border-foreground/10 bg-gradient-to-b from-white/[2.5%] p-6 transition-all duration-300 hover:scale-[101%] hover:to-white/[5%] hover:shadow-md"
     >
       <div className="flex flex-row items-center">
         <language.icon className="size-5" />

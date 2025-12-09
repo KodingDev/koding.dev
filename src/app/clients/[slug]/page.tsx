@@ -39,7 +39,7 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
   if (!client) notFound();
 
   return (
-    <div className="layout-container flex flex-col gap-8 pt-32 pb-36">
+    <div className="flex flex-col gap-8 pt-32 pb-36">
       <SiteLink href="/clients" type="back" className="opacity-50">
         Back to all clients
       </SiteLink>
@@ -79,7 +79,10 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 {project.media.map((media, mediaIdx) => (
                   // biome-ignore lint/suspicious/noArrayIndexKey: No other option
-                  <div key={mediaIdx} className="group relative overflow-clip rounded-lg border border-white/[15%]">
+                  <div
+                    key={mediaIdx}
+                    className="group relative overflow-clip rounded-lg border border-foreground/[15%]"
+                  >
                     {media.type === "video" || media.type === "embed" ? (
                       // Website embeds
                       <MediaEmbed
@@ -122,7 +125,7 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
               {client.testimonials.map((testimonial) => (
                 <div
                   key={testimonial.name}
-                  className="flex flex-col items-center gap-6 rounded-lg border border-white/[15%] bg-white/[5%] p-6"
+                  className="flex flex-col items-center gap-6 rounded-lg border border-foreground/[15%] bg-white/[5%] p-6"
                 >
                   <div className="flex flex-row items-center gap-4">
                     {testimonial.avatar && (

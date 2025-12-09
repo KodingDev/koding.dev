@@ -14,7 +14,7 @@ export const IconLink: React.FC<IconLinkProps> = ({ icon: Icon, className, child
     rel="noopener noreferrer"
     {...props}
     className={cn(
-      "group flex flex-row items-center gap-2 rounded-full border-2 border-white/10 px-5 py-3 transition-all hover:border-white/25",
+      "group flex flex-row items-center gap-2 rounded-full border-2 border-foreground/10 px-5 py-3 transition-all hover:border-foreground/25",
       className
     )}
   >

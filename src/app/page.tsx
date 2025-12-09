@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-16 pb-36">
       {/* calc = full height - h-24 (navbar / 6 rem) */}
       {/* Header */}
-      <div className="layout-container flex h-[calc(100svh-6rem)]">
+      <div className="flex h-[calc(100svh-6rem)]">
         <div className="relative my-auto 2xl:w-2/3">
           {/* Titles */}
           <Header emoji="👋" title="Hi, I'm Stella">

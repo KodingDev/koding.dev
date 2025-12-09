@@ -44,7 +44,7 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
   if (!commission) notFound();
 
   return (
-    <div className="layout-container pt-40 pb-36">
+    <div className="pt-40 pb-36">
       <div className="flex flex-col gap-6">
         <SiteLink type="back" href="/art" className="opacity-50">
           Back to all commissions

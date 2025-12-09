@@ -18,7 +18,7 @@ export default function ArtPage() {
   const refSheet = REF_SHEET.artist.commissions[REF_SHEET.commissionIdx]!;
 
   return (
-    <div className="layout-container flex flex-col gap-4 pb-36">
+    <div className="flex flex-col gap-4 pb-36">
       <Header emoji="🎨" title="Art" className="pt-40 pb-32">
         I've commissioned a lot of art over the years, please support these talented artists!
       </Header>
@@ -29,7 +29,7 @@ export default function ArtPage() {
           picture={refSheet.images[0] ? { src: refSheet.images[0] } : undefined}
           href={`/art/${refSheetArtist.slug}/${refSheet.slug}` as Route}
         >
-          <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 md:p-10">
+          <div className="flex min-h-[400px] flex-col justify-end gap-3 p-6 text-secondary md:p-10">
             {/* Artist name */}
             <div className="flex flex-row items-center gap-2">
               {refSheetArtist.avatar && (
@@ -63,7 +63,7 @@ export default function ArtPage() {
             .map((commission) => (
               <Link
                 key={`${artist.slug}-${commission.slug}`}
-                className="relative aspect-square w-full overflow-clip rounded-md border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl"
+                className="relative aspect-square w-full overflow-clip rounded-md border border-foreground/25 text-secondary transition-all hover:scale-[101%] hover:shadow-xl"
                 href={`/art/${artist.slug}/${commission.slug}`}
               >
                 {/* Image */}

@@ -5,7 +5,7 @@ import { allClients } from "@/lib/content";
 // biome-ignore lint/style/noDefaultExport: NextJS
 export default function ClientsPage() {
   return (
-    <div className="layout-container pt-40 pb-36">
+    <div className="pt-40 pb-36">
       <Header emoji="📊" title="Clients">
         Some of the amazing people I've had the pleasure of working with.
       </Header>

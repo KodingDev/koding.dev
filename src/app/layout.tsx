@@ -4,7 +4,6 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import { ViewTransition } from "react";
-import { HoverListener } from "@/components/interactive/hoverable";
 import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
 
@@ -60,25 +59,22 @@ export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
 
       <body
         className={cn(
-          "dark min-h-screen bg-background font-sans text-foreground",
+          "container min-h-screen bg-background font-sans text-foreground",
           boskaFont.variable,
           switzerFont.variable
         )}
       >
-        <div className="flex min-h-screen flex-col justify-between">
+        <div className="flex flex-col justify-between">
           <NextTopLoader color="var(--primary)" showSpinner={false} />
-          <HoverListener />
 
-          <div className="layout-container">
-            <Navbar />
-          </div>
+          <Navbar />
 
           <ViewTransition>
             <div>{children}</div>
           </ViewTransition>
 
           {/* Footer */}
-          <div className="layout-container flex flex-row pb-24">
+          <div className="flex flex-row pb-24">
             <span className="flex-1 font-medium opacity-50">Copyright © Koding Development 2025</span>
             <span className="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
           </div>

@@ -16,7 +16,7 @@ export const CallToAction: React.FC<CallToActionProps> = ({ picture, className, 
   <Link
     {...props}
     className={cn(
-      "relative flex overflow-clip rounded-xl border border-white/25 transition-all hover:scale-[101%] hover:shadow-xl",
+      "relative flex overflow-clip rounded-xl border border-foreground/25 transition-all hover:scale-[101%] hover:shadow-xl",
       className
     )}
   >

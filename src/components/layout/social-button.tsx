@@ -12,7 +12,7 @@ export const SocialButton: React.FC<SocialButtonProps> = ({ icon: Icon, classNam
     rel="noopener noreferrer"
     {...props}
     className={cn(
-      "group flex size-11 rounded-xl border border-white/[15%] p-3 transition-all hover:border-2",
+      "group flex size-11 rounded-xl border border-foreground/[15%] p-3 transition-all hover:border-2",
       className
     )}
   >
