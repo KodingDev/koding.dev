@@ -1,25 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
-import { FEATURED_ARTIST, getArtRefImage } from "@/lib/content";
+import Avatar from "@/assets/brand/avatar.png";
 import { DesktopNavBar } from "./desktop-nav-bar";
+import { MobileNavBar } from "./mobile-nav-bar";
 
 export const Navbar: React.FC = () => (
-  <div className="flex h-24 border-b border-b-white/10">
+  <nav aria-label="Main navigation" className="flex h-24 border-b border-b-foreground/10">
     <div className="my-auto flex w-full flex-row items-center">
-      <Link href="/">
-        <Image
-          src={getArtRefImage(FEATURED_ARTIST)}
-          alt="Logo"
-          width={44}
-          height={44}
-          className="aspect-square size-11 rounded-xl object-cover object-top"
-        />
+      <Link href="/" aria-label="Home">
+        <Image src={Avatar} alt="Stella Inwood" className="aspect-square size-11 rounded-xl object-cover object-top" />
       </Link>
 
-      <div className="flex-grow md:hidden" />
-
       <DesktopNavBar />
+      <MobileNavBar />
     </div>
-  </div>
+  </nav>
 );

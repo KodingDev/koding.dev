@@ -11,7 +11,8 @@ export type NavLink = {
 export type SocialLink = {
   href: string;
   icon: React.FC<React.ComponentProps<"svg">>;
-  className: string;
+  label: string;
+  className?: string;
 };
 
 export const NAV_LINKS: NavLink[] = [
@@ -36,16 +37,19 @@ export const NAV_SOCIALS: SocialLink[] = [
   {
     href: "https://twitter.com/KodingDev_",
     icon: FaTwitter,
+    label: "Twitter",
     className: "bg-[#1E96E8]/5",
   },
   {
     href: "mailto:hello@koding.dev",
     icon: FaEnvelope,
+    label: "Email",
     className: "bg-[#8439FF]/5",
   },
   {
     href: "https://github.com/KodingDev",
     icon: FaGithub,
+    label: "GitHub",
     className: "bg-[#000000]/5",
   },
 ];

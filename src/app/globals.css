@@ -6,8 +6,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Font Smoothing */
-  /*font-synthesis: none;*/
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,9 +42,6 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.25 0.0295 269.9587);
   --sidebar-ring: oklch(0.6201 0.1902 264.8967);
-  --font-sans: var(--font-poppins);
-  --font-serif: ui-serif, Georgia, serif;
-  --font-mono: ui-monospace, "SF Mono", monospace;
   --radius: 0.5rem;
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
@@ -148,9 +143,8 @@
   --color-primary-800: #0f071d;
   --color-primary-900: #0d0a13;
 
-  --font-sans: var(--font-poppins);
-  /*--font-mono: var(--font-mono);*/
-  /*--font-serif: var(--font-serif);*/
+  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-switzer);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -174,7 +168,6 @@
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
-/* TODO: Revert this */
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
@@ -196,96 +189,22 @@
     @apply border-border/40 outline-ring/40;
   }
 
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
   body {
     letter-spacing: var(--tracking-normal);
   }
-}
 
-/* Old styles */
-@layer utilities {
-  /* Typography */
-  .text-title {
-    @apply text-2xl font-bold dark:text-neutral-300;
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
-
-  .text-subtitle {
-    @apply text-lg text-neutral-600 dark:text-neutral-400;
-  }
-
-  /* Basic Cards */
-  .basic-card {
-    @apply rounded-md border-[1px] border-neutral-300 bg-neutral-100/70 p-4 dark:border-neutral-700 dark:bg-neutral-800/70;
-  }
-
-  /* Links */
-  .link {
-    @apply text-neutral-400 transition-all hover:text-neutral-200;
-  }
-}
-
-/* Icon sizing */
-.icon.sm {
-  @apply h-[24px] w-[24px];
-}
-
-/* Layout */
-.layout-container {
-  @apply mx-8 md:mx-32 xl:mx-48;
-}
-
-/* Hoverable */
-.hoverable {
-  --mouse-x: -9999px;
-  --mouse-y: -9999px;
-}
-
-.hoverable.hoverable-card {
-  @apply relative flex grow flex-col overflow-clip opacity-100;
-}
-
-.hoverable.hoverable-card:hover::before {
-  @apply opacity-100;
-}
-
-.hoverable.hoverable-card::before,
-.hoverable.hoverable-card::after {
-  @apply absolute left-0 top-0 h-full w-full opacity-0 transition-opacity content-[''];
-}
-
-.hoverable.hoverable-card::before {
-  /* Less intense hover effect */
-
-  @apply z-[3];
-  background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.06),
-    transparent 40%
-  );
-}
-
-.hoverable.hoverable-card::after {
-  /* Outline that shows regardless of hover state */
-
-  @apply z-[1] rounded-[inherit] border opacity-100;
-  border-image: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.4),
-    transparent 40%
-  );
-  border-image-slice: 1;
-
-  /* TODO: Fix the rounding */
-  /* Create a mask that is rounded on all corners, to create a rounded outline */
-  /* This is because the border-image property does not support border-radius */
-
-  /* --border-radius: 0.5rem; */
-  /* background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%); */
-  /* mask-image:  */
-  /* linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
-      linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
-      linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%),
-      linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%), */
-
-  /* Round the inside corners */
-  /* radial-gradient(circle at var(--border-radius) var(--border-radius), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) calc(var(--border-radius) - 1px), rgba(0, 0, 0, 0) calc(var(--border-radius)), rgba(0, 0, 0, 0) 100%); */
 }

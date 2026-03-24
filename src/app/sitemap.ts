@@ -3,7 +3,6 @@ import { allArtists, allClients } from "@/lib/content";
 
 const BASE_URL = "https://koding.dev";
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Home

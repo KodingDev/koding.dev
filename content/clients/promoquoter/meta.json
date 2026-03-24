@@ -1,0 +1,9 @@
+{
+  "slug": "promoquoter",
+  "name": "Promo Quoter",
+  "description": "Quoting software for promotional products, built using Symfony",
+  "role": "Web Developer",
+  "href": "https://promoquoter.com",
+  "avatar": "./avatar.svg",
+  "start": "Dec 2022"
+}

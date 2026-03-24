@@ -1,41 +1,45 @@
 "use client";
 
+import {
+  MediaControlBar,
+  MediaController,
+  MediaMuteButton,
+  MediaPlayButton,
+  MediaTimeDisplay,
+  MediaTimeRange,
+} from "media-chrome/react";
 import type React from "react";
-import { useEffect, useRef, useState } from "react";
-import { FaPlay } from "react-icons/fa";
+import type { CSSProperties } from "react";
+import { cn } from "@/lib/utils";
 
-type VideoProps = {
+type VideoPlayerProps = {
   src: string;
-} & Omit<React.ComponentProps<"video">, "src">;
-
-export const Video: React.FC<VideoProps> = ({ src, ...props }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) {
-      videoRef.current?.pause();
-    } else {
-      videoRef.current?.play();
-    }
-  }, [paused]);
-
-  return (
-    <div className="relative h-full">
-      <video ref={videoRef} muted loop onClick={() => setPaused(!paused)} {...props}>
-        <source src={src} type="video/mp4" />
-        <track kind="captions" />
-      </video>
-
-      <div className="group pointer-events-none absolute inset-0 flex h-full w-full items-center justify-center">
-        <div className="flex flex-col items-center justify-center">
-          {paused && (
-            <div className="flex flex-col items-center justify-center rounded-full bg-black/50 p-4 transition-opacity duration-100">
-              <FaPlay className="size-8" />
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+  className?: string;
 };
+
+const chromeVars = {
+  "--media-primary-color": "var(--primary)",
+  "--media-secondary-color": "transparent",
+  "--media-text-color": "white",
+  "--media-control-hover-background": "rgba(255,255,255,0.1)",
+  "--media-font-family": "var(--font-sans)",
+  "--media-range-track-background": "rgba(255,255,255,0.2)",
+  "--media-control-background": "transparent",
+  "--media-range-thumb-background": "white",
+} as CSSProperties;
+
+export const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, className }) => (
+  <MediaController style={chromeVars} className={cn("overflow-clip rounded-md", className)}>
+    <video slot="media" muted loop playsInline preload="metadata" className="w-full">
+      <source src={src} type="video/mp4" />
+      <track kind="captions" />
+    </video>
+
+    <MediaControlBar className="m-1.5 rounded-md bg-black/60 backdrop-blur-sm">
+      <MediaPlayButton className="p-2" />
+      <MediaTimeRange className="flex-1 px-1" />
+      <MediaTimeDisplay showDuration className="px-2 text-xs" />
+      <MediaMuteButton className="p-2" />
+    </MediaControlBar>
+  </MediaController>
+);

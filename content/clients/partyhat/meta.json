@@ -2,6 +2,7 @@
   "slug": "partyhat",
   "name": "Partyhat Productions",
   "description": "Lead server developer for the Masayoshi Games Twitch Rivals event, and an accompanying Minecraft network.",
+  "role": "Game Server Developer",
   "href": "https://partyhat.dev",
   "avatar": "./avatar.png",
   "banner": "./banner.png",

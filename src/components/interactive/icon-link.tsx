@@ -14,12 +14,12 @@ export const IconLink: React.FC<IconLinkProps> = ({ icon: Icon, className, child
     rel="noopener noreferrer"
     {...props}
     className={cn(
-      "group flex flex-row items-center gap-2 rounded-full border-2 border-white/10 px-5 py-3 transition-all hover:border-white/25",
+      "group inline-flex items-center gap-2 rounded-full border border-foreground/15 px-4 py-2 text-sm transition-colors hover:border-foreground/30 hover:bg-foreground/5",
       className
     )}
   >
-    {Icon && <Icon className="size-4 fill-white" />}
+    {Icon && <Icon className="size-4 text-muted-foreground" />}
     <span>{children}</span>
-    <MdArrowOutward className="group-hover:-translate-y-1 size-4 transition-all" />
+    <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
   </Link>
 );

@@ -1,10 +1,11 @@
 import type { Metadata, Route } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import { FaTwitter } from "react-icons/fa";
+import { MdArrowBack } from "react-icons/md";
 import { IconLink } from "@/components/interactive/icon-link";
-import { SiteLink } from "@/components/interactive/link";
 import { allArtists } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -34,7 +35,6 @@ export async function generateMetadata({ params }: PageProps<"/art/[artist]/[slu
   };
 }
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default async function CommissionPage({ params }: PageProps<"/art/[artist]/[slug]">) {
   const { artist: artistSlug, slug } = await params;
   const artist = allArtists.find((a) => a.slug === artistSlug);
@@ -44,30 +44,36 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
   if (!commission) notFound();
 
   return (
-    <div className="layout-container pt-40 pb-36">
-      <div className="flex flex-col gap-6">
-        <SiteLink type="back" href="/art" className="opacity-50">
-          Back to all commissions
-        </SiteLink>
+    <div className="pt-12 pb-36">
+      <Link
+        href="/art"
+        className="group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+      >
+        <MdArrowBack className="size-4 transition-transform group-hover:-translate-x-1" />
+        <span className="text-sm">Art</span>
+      </Link>
 
-        <SiteLink
-          href={artist.link as Route}
-          picture={artist.avatar ? { src: artist.avatar } : undefined}
-          className="text-white/50"
-          picClass="size-6 rounded-md"
-        >
-          By {artist.name}
-        </SiteLink>
+      <div className="mt-8 flex flex-col gap-4">
+        {artist.avatar && (
+          <Link
+            href={artist.link as Route}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Image src={artist.avatar} alt="" width={20} height={20} className="size-5 rounded" />
+            <span>By {artist.name}</span>
+          </Link>
+        )}
 
-        {/* Title */}
-        <h1 className="font-bold text-5xl">{commission.title}</h1>
+        <h1 className="font-serif text-4xl tracking-tight italic sm:text-5xl">{commission.title}</h1>
 
-        {/* Description */}
-        {commission.description && <p className="opacity-50">{commission.description}</p>}
+        {commission.description && (
+          <p className="max-w-xl leading-relaxed text-muted-foreground">{commission.description}</p>
+        )}
 
-        {/* Links */}
         {commission.links && commission.links.length > 0 && (
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-wrap gap-3">
             {commission.links.map((link) => (
               <IconLink key={link.href} href={link.href as Route} icon={FaTwitter}>
                 {link.text}
@@ -75,21 +81,20 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
             ))}
           </div>
         )}
+      </div>
 
-        {/* Images */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {commission.images.map((image, idx) => (
-            <ViewTransition
-              // biome-ignore lint/suspicious/noArrayIndexKey: Needed
-              key={idx}
-              name={`${artist.slug}-${commission.slug}-img-${idx}`}
-            >
-              <div className="flex size-full flex-col items-center justify-center overflow-clip rounded-md bg-primary-700">
-                <Image src={image} alt={commission.title} className="object-cover object-center" />
-              </div>
-            </ViewTransition>
-          ))}
-        </div>
+      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {commission.images.map((image, idx) => (
+          <ViewTransition
+            // oxlint-disable-next-line react/no-array-index-key
+            key={idx}
+            name={`${artist.slug}-${commission.slug}-img-${idx}`}
+          >
+            <div className="overflow-hidden rounded-lg">
+              <Image src={image} alt={`${commission.title} ${idx + 1}`} className="w-full object-cover" />
+            </div>
+          </ViewTransition>
+        ))}
       </div>
     </div>
   );

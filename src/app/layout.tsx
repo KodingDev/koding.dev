@@ -1,17 +1,21 @@
 import "@/app/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import { ViewTransition } from "react";
-import { HoverListener } from "@/components/interactive/hoverable";
 import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-poppins",
+const instrumentSerifFont = localFont({
+  weight: "400",
+  variable: "--font-instrument-serif",
+  src: "../assets/fonts/InstrumentSerif-Regular.ttf",
+});
+
+const switzerFont = localFont({
+  variable: "--font-switzer",
+  src: "../assets/fonts/Switzer-Variable.woff2",
 });
 
 export const metadata: Metadata = {
@@ -34,43 +38,48 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
+  colorScheme: "light",
   initialScale: 1,
   themeColor: "#9145FF",
   viewportFit: "cover",
   width: "device-width",
 };
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
-  // noinspection HtmlRequiredTitleElement
   return (
     <html lang="en" suppressHydrationWarning translate="no" className="notranslate">
       <head>
-        {/* TODO: Fix Google translate breaking the DOM properly, see fixes below */}
-        {/* https://www.npmjs.com/package/eslint-plugin-react-google-translate */}
         <meta name="googlebot" content="notranslate" />
         <meta name="google" content="notranslate" />
       </head>
 
-      <body className={cn("dark min-h-screen bg-background font-sans", poppins.variable)}>
-        <div className="flex min-h-screen flex-col justify-between">
-          <NextTopLoader color="var(--primary)" showSpinner={false} />
-          <HoverListener />
+      <body
+        className={cn(
+          "container min-h-screen bg-background font-sans text-foreground",
+          instrumentSerifFont.variable,
+          switzerFont.variable
+        )}
+      >
+        <div className="flex flex-col justify-between">
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+          >
+            Skip to content
+          </a>
 
-          <div className="layout-container">
-            <Navbar />
-          </div>
+          <NextTopLoader color="var(--primary)" showSpinner={false} />
+
+          <Navbar />
 
           <ViewTransition>
-            <div>{children}</div>
+            <main id="main">{children}</main>
           </ViewTransition>
 
-          {/* Footer */}
-          <div className="layout-container flex flex-row pb-24">
-            <span className="flex-1 font-medium opacity-50">Copyright © Koding Development 2025</span>
-            <span className="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
-          </div>
+          <footer className="flex flex-col gap-1 border-t border-foreground/10 pt-8 pb-16 text-sm text-muted-foreground sm:flex-row">
+            <span className="flex-1">© Koding Development {new Date().getFullYear()}</span>
+            <span className="flex-1 sm:text-right">Stella Inwood</span>
+          </footer>
         </div>
       </body>
     </html>
