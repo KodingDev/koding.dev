@@ -1,7 +1,7 @@
 import type React from "react";
-import { SiKotlin, SiSvelte, SiTypescript } from "react-icons/si";
+import { SiKotlin, SiTypescript } from "react-icons/si";
 
-const SUPPORTED_LANGUAGES = ["typescript", "kotlin", "svelte"] as const;
+const SUPPORTED_LANGUAGES = ["typescript", "kotlin"] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 export interface LanguageData {
@@ -18,10 +18,6 @@ export const LANGUAGES: Record<Language, LanguageData> = {
     name: "Kotlin",
     icon: SiKotlin,
   },
-  svelte: {
-    name: "Svelte",
-    icon: SiSvelte,
-  },
 };
 
 export interface Project {
@@ -30,6 +26,7 @@ export interface Project {
   description: string;
   url: string;
   year?: number;
+  featured?: boolean;
 }
 
 export const PROJECTS: Project[] = [
@@ -38,11 +35,12 @@ export const PROJECTS: Project[] = [
     name: "PSYLOCKE.GG",
     description: "A helper website for Marvel Rivals, providing character information, achievements, and more.",
     url: "https://psylocke.gg",
+    featured: true,
   },
   {
-    language: "svelte",
+    language: "typescript",
     name: "koding.dev",
-    description: "This website, built with SvelteKit and TailwindCSS.",
+    description: "This website, built with Next.js and Tailwind CSS.",
     url: "https://github.com/KodingDev/koding.dev",
   },
   {

@@ -6,8 +6,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Font Smoothing */
-  /*font-synthesis: none;*/
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -145,9 +143,8 @@
   --color-primary-800: #0f071d;
   --color-primary-900: #0d0a13;
 
-  --font-serif: var(--font-instrument-serif); /* Headings */
-  --font-sans: var(--font-switzer); /* Body */
-  /*--font-mono: var(--font-mono);*/
+  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-switzer);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -171,7 +168,6 @@
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
-/* TODO: Revert this */
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
@@ -193,34 +189,23 @@
     @apply border-border/40 outline-ring/40;
   }
 
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
   body {
     letter-spacing: var(--tracking-normal);
   }
-}
 
-/* Old styles */
-@layer utilities {
-  /* Typography */
-  .text-title {
-    @apply text-2xl font-bold dark:text-neutral-300;
-  }
-
-  .text-subtitle {
-    @apply text-lg text-neutral-600 dark:text-neutral-400;
-  }
-
-  /* Basic Cards */
-  .basic-card {
-    @apply rounded-md border-[1px] border-neutral-300 bg-neutral-100/70 p-4 dark:border-neutral-700 dark:bg-neutral-800/70;
-  }
-
-  /* Links */
-  .link {
-    @apply text-neutral-400 transition-all hover:text-neutral-200;
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-/* Icon sizing */
-.icon.sm {
-  @apply h-[24px] w-[24px];
-}

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
+  colorScheme: "light",
   initialScale: 1,
   themeColor: "#9145FF",
   viewportFit: "cover",
@@ -47,13 +47,10 @@ export const viewport: Viewport = {
 
 // biome-ignore lint/style/noDefaultExport: NextJS
 export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
-  // noinspection HtmlRequiredTitleElement
   return (
     // eslint-disable-next-line better-tailwindcss/no-unregistered-classes -- Fixes Google Translate
     <html lang="en" suppressHydrationWarning translate="no" className="notranslate">
       <head>
-        {/* TODO: Fix Google translate breaking the DOM properly, see fixes below */}
-        {/* https://www.npmjs.com/package/eslint-plugin-react-google-translate */}
         <meta name="googlebot" content="notranslate" />
         <meta name="google" content="notranslate" />
       </head>
@@ -66,19 +63,22 @@ export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
         )}
       >
         <div className="flex flex-col justify-between">
+          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground">
+            Skip to content
+          </a>
+
           <NextTopLoader color="var(--primary)" showSpinner={false} />
 
           <Navbar />
 
           <ViewTransition>
-            <div>{children}</div>
+            <main id="main">{children}</main>
           </ViewTransition>
 
-          {/* Footer */}
-          <div className="flex flex-row pb-24">
-            <span className="flex-1 font-medium opacity-50">Copyright © Koding Development 2025</span>
-            <span className="flex-1 text-right font-medium opacity-50">Stella, Software Engineer</span>
-          </div>
+          <footer className="flex flex-col gap-1 border-t border-foreground/10 pt-8 pb-16 text-sm text-muted-foreground sm:flex-row">
+            <span className="flex-1">© Koding Development {new Date().getFullYear()}</span>
+            <span className="flex-1 sm:text-right">Stella Inwood</span>
+          </footer>
         </div>
       </body>
     </html>
