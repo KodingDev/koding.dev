@@ -26,7 +26,6 @@ export async function generateMetadata({ params }: PageProps<"/clients/[slug]">)
   return { title: client.name, description: client.description };
 }
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default async function ClientPage({ params }: PageProps<"/clients/[slug]">) {
   const { slug } = await params;
   const client = allClients.find((c) => c.slug === slug);
@@ -34,7 +33,10 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
 
   return (
     <article className="pt-12 pb-36">
-      <Link href="/clients" className="group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
+      <Link
+        href="/clients"
+        className="group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+      >
         <MdArrowBack className="size-4 transition-transform group-hover:-translate-x-1" />
         <span className="text-sm">Clients</span>
       </Link>
@@ -47,22 +49,22 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
 
       <header className={`flex flex-col gap-4 ${client.banner ? "mt-8" : "mt-10"}`}>
         <div className="flex items-center gap-4">
-          {client.avatar && (
-            <Image src={client.avatar} alt="" width={56} height={56} className="size-14 rounded-xl" />
-          )}
+          {client.avatar && <Image src={client.avatar} alt="" width={56} height={56} className="size-14 rounded-xl" />}
           <div>
-            <h1 className="font-serif text-4xl italic tracking-tight sm:text-5xl">{client.name}</h1>
-            <div className="mt-1.5 flex items-center gap-2 text-muted-foreground text-sm">
+            <h1 className="font-serif text-4xl tracking-tight italic sm:text-5xl">{client.name}</h1>
+            <div className="mt-1.5 flex items-center gap-2 text-sm text-muted-foreground">
               <div className={`size-1.5 rounded-full ${client.end ? "bg-red-400" : "bg-green-400"}`} />
               <span>{client.role}</span>
               <span className="text-muted-foreground/50">/</span>
-              <span>{client.start} - {client.end ?? "Present"}</span>
+              <span>
+                {client.start} - {client.end ?? "Present"}
+              </span>
             </div>
           </div>
         </div>
 
         {client.description && (
-          <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">{client.description}</p>
+          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{client.description}</p>
         )}
       </header>
 
@@ -91,13 +93,13 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                 )}
               </div>
 
-              <p className="max-w-2xl text-muted-foreground leading-relaxed">{project.description}</p>
+              <p className="max-w-2xl leading-relaxed text-muted-foreground">{project.description}</p>
 
               {project.media && project.media.length > 0 && (
                 <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
                   {project.media.map((media, mediaIdx) => (
                     <div
-                      // biome-ignore lint/suspicious/noArrayIndexKey: No other option
+                      // oxlint-disable-next-line react/no-array-index-key
                       key={mediaIdx}
                     >
                       {media.type === "video" || media.type === "embed" ? (
@@ -115,9 +117,7 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                           className="aspect-video w-full rounded-md object-cover"
                         />
                       )}
-                      {media.caption && (
-                        <p className="mt-2 text-muted-foreground text-xs">{media.caption}</p>
-                      )}
+                      {media.caption && <p className="mt-2 text-xs text-muted-foreground">{media.caption}</p>}
                     </div>
                   ))}
                 </div>
@@ -135,15 +135,19 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
           <div className="mt-8 flex flex-col gap-10">
             {client.testimonials.map((testimonial) => (
               <blockquote key={testimonial.name} className="flex flex-col gap-5 border-l-2 border-primary/30 pl-6">
-                <p className="max-w-2xl font-serif text-lg italic text-foreground/75 leading-relaxed">
-                  &ldquo;{testimonial.testimonial.split("*").map((part, partIdx) =>
+                <p className="max-w-2xl font-serif text-lg leading-relaxed text-foreground/75 italic">
+                  &ldquo;
+                  {testimonial.testimonial.split("*").map((part, partIdx) =>
                     partIdx % 2 ? (
-                      // biome-ignore lint/suspicious/noArrayIndexKey: Needed
-                      <span key={partIdx} className="text-foreground/80">{part}</span>
+                      // oxlint-disable-next-line react/no-array-index-key
+                      <span key={partIdx} className="text-foreground/80">
+                        {part}
+                      </span>
                     ) : (
                       part
                     )
-                  )}&rdquo;
+                  )}
+                  &rdquo;
                 </p>
 
                 <div className="flex items-center gap-3">
@@ -151,8 +155,8 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
                     <Image src={testimonial.avatar} alt="" width={36} height={36} className="size-9 rounded-lg" />
                   )}
                   <div>
-                    <span className="font-medium text-sm">{testimonial.name}</span>
-                    <span className="block text-muted-foreground text-xs">{testimonial.role}</span>
+                    <span className="text-sm font-medium">{testimonial.name}</span>
+                    <span className="block text-xs text-muted-foreground">{testimonial.role}</span>
                   </div>
                 </div>
               </blockquote>

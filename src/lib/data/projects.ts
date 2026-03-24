@@ -4,10 +4,10 @@ import { SiKotlin, SiTypescript } from "react-icons/si";
 const SUPPORTED_LANGUAGES = ["typescript", "kotlin"] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
-export interface LanguageData {
+export type LanguageData = {
   name: string;
   icon: React.FC<React.ComponentProps<"svg">>;
-}
+};
 
 export const LANGUAGES: Record<Language, LanguageData> = {
   typescript: {
@@ -20,14 +20,14 @@ export const LANGUAGES: Record<Language, LanguageData> = {
   },
 };
 
-export interface Project {
+export type Project = {
   language: Language;
   name: string;
   description: string;
   url: string;
   year?: number;
   featured?: boolean;
-}
+};
 
 export const PROJECTS: Project[] = [
   {

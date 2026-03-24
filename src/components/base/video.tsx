@@ -29,10 +29,7 @@ const chromeVars = {
 } as CSSProperties;
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, className }) => (
-  <MediaController
-    style={chromeVars}
-    className={cn("overflow-clip rounded-md", className)}
-  >
+  <MediaController style={chromeVars} className={cn("overflow-clip rounded-md", className)}>
     <video slot="media" muted loop playsInline preload="metadata" className="w-full">
       <source src={src} type="video/mp4" />
       <track kind="captions" />

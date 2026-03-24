@@ -1,4 +1,3 @@
-/** biome-ignore-all assist/source/useSortedKeys: Prettier this way */
 import { defineEnv } from "envin";
 import { vercel } from "envin/presets/zod";
 // noinspection JSFileReferences -- Needed, don't ask me why

@@ -49,15 +49,18 @@ export const MobileNavBar: React.FC = () => {
       </button>
 
       {open && (
-        // biome-ignore lint/a11y/useKeyWithClickEvents: backdrop dismiss
-        <div className="fixed inset-0 z-40 bg-foreground/5 animate-in fade-in duration-200" onClick={() => setOpen(false)} />
+        // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div
+          className="fixed inset-0 z-40 animate-in bg-foreground/5 duration-200 fade-in"
+          onClick={() => setOpen(false)}
+        />
       )}
 
       {/* Menu panel — always in DOM for height animation */}
       <div
         className={cn(
           "absolute top-24 right-0 left-0 z-50 grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]",
-          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+          open ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
         )}
       >
         <div className="overflow-hidden">
@@ -70,7 +73,7 @@ export const MobileNavBar: React.FC = () => {
                   tabIndex={open ? 0 : -1}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "rounded-lg px-4 py-3 font-medium text-lg transition-colors",
+                    "rounded-lg px-4 py-3 text-lg font-medium transition-colors",
                     link.match.test(pathname) ? "bg-primary/10 text-primary" : "text-foreground/75"
                   )}
                 >

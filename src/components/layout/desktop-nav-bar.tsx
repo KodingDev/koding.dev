@@ -58,12 +58,12 @@ export const DesktopNavBar: React.FC = () => {
             ref={(el) => {
               indicatorRefs.current[index] = el;
             }}
-            className="group relative py-2 font-medium text-foreground/75 text-lg"
+            className="group relative py-2 text-lg font-medium text-foreground/75"
           >
             {link.name}
             <div
               className={cn(
-                "-bottom-1 absolute left-0 h-1 w-full rounded-full bg-transparent transition-colors",
+                "absolute -bottom-1 left-0 h-1 w-full rounded-full bg-transparent transition-colors",
                 !link.match.test(pathname) && "group-hover:bg-primary-200/50"
               )}
             />
@@ -84,7 +84,13 @@ export const DesktopNavBar: React.FC = () => {
 
       <div className="flex grow flex-row items-center justify-end gap-4">
         {NAV_SOCIALS.map((social) => (
-          <SocialButton key={social.href} icon={social.icon} label={social.label} href={social.href as Route} className={social.className} />
+          <SocialButton
+            key={social.href}
+            icon={social.icon}
+            label={social.label}
+            href={social.href as Route}
+            className={social.className}
+          />
         ))}
       </div>
     </div>

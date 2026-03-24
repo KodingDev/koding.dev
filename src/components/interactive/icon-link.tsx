@@ -20,6 +20,6 @@ export const IconLink: React.FC<IconLinkProps> = ({ icon: Icon, className, child
   >
     {Icon && <Icon className="size-4 text-muted-foreground" />}
     <span>{children}</span>
-    <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+    <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
   </Link>
 );

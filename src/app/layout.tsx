@@ -45,10 +45,8 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
   return (
-    // eslint-disable-next-line better-tailwindcss/no-unregistered-classes -- Fixes Google Translate
     <html lang="en" suppressHydrationWarning translate="no" className="notranslate">
       <head>
         <meta name="googlebot" content="notranslate" />
@@ -63,7 +61,10 @@ export default function RootLayout({ children }: Readonly<LayoutProps<"/">>) {
         )}
       >
         <div className="flex flex-col justify-between">
-          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground">
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+          >
             Skip to content
           </a>
 

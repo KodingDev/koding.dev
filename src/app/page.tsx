@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { type Route } from "next";
+import type { Route } from "next";
 import Link from "next/link";
-import type React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import Hazel from "@/assets/photos/hazel.png";
 import StellaIntro from "@/assets/photos/stella-intro.png";
@@ -19,14 +18,13 @@ export const metadata: Metadata = {
 const featured = PROJECTS.filter((p) => p.featured);
 const rest = PROJECTS.filter((p) => !p.featured);
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function HomePage() {
   return (
     <div className="flex flex-col pb-36">
       <section className="relative pt-10 pb-20">
         <div className="flex flex-col gap-4">
           <h1 className="font-serif text-5xl tracking-tight sm:text-7xl">Stella Inwood</h1>
-          <p className="max-w-sm text-muted-foreground leading-relaxed">
+          <p className="max-w-sm leading-relaxed text-muted-foreground">
             Game developer and software engineer with a love for building things that people enjoy.
           </p>
         </div>
@@ -44,7 +42,7 @@ export default function HomePage() {
             </TwinklingStar>
           </div>
 
-          <div className="-left-6 absolute top-10">
+          <div className="absolute top-10 -left-6">
             <TwinklingStar>
               <svg width="12" height="12" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <title>Star</title>
@@ -72,7 +70,7 @@ export default function HomePage() {
           <div className="flex shrink-0 flex-col gap-3 rounded-lg border p-5">
             <div>
               <h2 className="font-serif text-lg italic">Clients</h2>
-              <p className="mt-1 text-muted-foreground text-sm">People I&apos;ve worked with</p>
+              <p className="mt-1 text-sm text-muted-foreground">People I&apos;ve worked with</p>
             </div>
             <div className="flex flex-col">
               {allClients.slice(0, 4).map((client, i) => (
@@ -93,8 +91,12 @@ export default function HomePage() {
           </div>
 
           <div className="flex min-h-0 flex-1 flex-col overflow-clip rounded-lg border">
-            <Image src={Hazel} alt="Hazel the cat" className="h-40 min-h-0 w-full flex-1 object-cover object-center lg:h-auto" />
-            <p className="shrink-0 px-4 py-2.5 text-muted-foreground text-sm">My cat Hazel (mraow!)</p>
+            <Image
+              src={Hazel}
+              alt="Hazel the cat"
+              className="h-40 min-h-0 w-full flex-1 object-cover object-center lg:h-auto"
+            />
+            <p className="shrink-0 px-4 py-2.5 text-sm text-muted-foreground">My cat Hazel (mraow!)</p>
           </div>
         </div>
       </section>
@@ -122,21 +124,21 @@ export default function HomePage() {
               className="group flex items-center gap-2 text-foreground transition-colors hover:text-primary"
             >
               <span className="font-medium">Client work</span>
-              <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+              <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
             </Link>
             <Link
               href="/art"
               className="group flex items-center gap-2 text-foreground transition-colors hover:text-primary"
             >
               <span className="font-medium">Commissioned art</span>
-              <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+              <MdArrowOutward className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
             </Link>
           </div>
         </div>
 
         <div className="flex flex-col gap-5">
           <h2 className="font-serif text-2xl italic">Say hello</h2>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             Interested in working together, or just want to chat? I&apos;d love to hear from you.
           </p>
           <div className="flex flex-row gap-3">

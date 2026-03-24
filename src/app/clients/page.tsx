@@ -3,12 +3,11 @@ import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
 import { allClients } from "@/lib/content";
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function ClientsPage() {
   return (
     <div className="pt-12 pb-36">
-      <h1 className="font-serif text-4xl italic tracking-tight sm:text-6xl">Clients</h1>
-      <p className="mt-4 max-w-lg text-muted-foreground leading-relaxed">
+      <h1 className="font-serif text-4xl tracking-tight italic sm:text-6xl">Clients</h1>
+      <p className="mt-4 max-w-lg leading-relaxed text-muted-foreground">
         Some of the amazing people I&apos;ve had the pleasure of working with
       </p>
 
@@ -31,19 +30,21 @@ export default function ClientsPage() {
             <div className="relative flex flex-col gap-2 p-6">
               <div className="flex items-center gap-2 text-xs text-white/80">
                 {!client.end && <span className="size-1.5 rounded-full bg-green-400" />}
-                <span>{client.start} - {client.end ?? "Present"}</span>
+                <span>
+                  {client.start} - {client.end ?? "Present"}
+                </span>
               </div>
 
               <div className="flex items-center gap-3">
                 {client.avatar && (
                   <Image src={client.avatar} alt="" width={36} height={36} className="size-9 rounded-lg" />
                 )}
-                <span className="font-serif text-2xl italic text-white">{client.name}</span>
+                <span className="font-serif text-2xl text-white italic">{client.name}</span>
                 <MdArrowOutward className="size-4 text-white/60" />
               </div>
 
               {client.description && (
-                <p className="line-clamp-2 max-w-sm text-sm text-white/80 leading-relaxed">{client.description}</p>
+                <p className="line-clamp-2 max-w-sm text-sm leading-relaxed text-white/80">{client.description}</p>
               )}
             </div>
           </Link>

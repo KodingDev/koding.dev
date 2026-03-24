@@ -17,6 +17,7 @@ export const MediaEmbed: React.FC<MediaEmbedProps> = ({ src, className, title })
 
   if (youtubeMatch) {
     return (
+      // oxlint-disable-next-line jsx-a11y/iframe-has-title, react/iframe-missing-sandbox
       <iframe
         title={title ?? "YouTube video player"}
         src={`https://www.youtube.com/embed/${youtubeMatch[1]}`}

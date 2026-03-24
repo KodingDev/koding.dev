@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: "Over the years, I've commissioned a lot of art. Here's a collection of some of my favorites.",
 };
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default function ArtPage() {
   const allCommissions = allArtists.flatMap((artist) =>
     artist.commissions.map((commission) => ({ artist, commission }))
@@ -19,8 +18,8 @@ export default function ArtPage() {
   return (
     <div className="pb-36">
       <div className="pt-12 pb-14">
-        <h1 className="font-serif text-4xl italic tracking-tight sm:text-6xl">Art</h1>
-        <p className="mt-4 max-w-lg text-muted-foreground leading-relaxed">
+        <h1 className="font-serif text-4xl tracking-tight italic sm:text-6xl">Art</h1>
+        <p className="mt-4 max-w-lg leading-relaxed text-muted-foreground">
           I&apos;ve commissioned a lot of art over the years &mdash; please support these talented artists
         </p>
       </div>
@@ -62,7 +61,9 @@ export default function ArtPage() {
 
               <div className="mt-2.5 px-0.5">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-serif text-[0.9375rem] leading-snug text-foreground italic">{commission.title}</h3>
+                  <h3 className="font-serif text-[0.9375rem] leading-snug text-foreground italic">
+                    {commission.title}
+                  </h3>
                   <div className="flex shrink-0 items-center gap-1.5 pt-0.5">
                     {artist.avatar && (
                       <Image src={artist.avatar} alt="" width={16} height={16} className="size-4 rounded-full" />

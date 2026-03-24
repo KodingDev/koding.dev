@@ -35,7 +35,6 @@ export async function generateMetadata({ params }: PageProps<"/art/[artist]/[slu
   };
 }
 
-// biome-ignore lint/style/noDefaultExport: NextJS
 export default async function CommissionPage({ params }: PageProps<"/art/[artist]/[slug]">) {
   const { artist: artistSlug, slug } = await params;
   const artist = allArtists.find((a) => a.slug === artistSlug);
@@ -46,7 +45,10 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
 
   return (
     <div className="pt-12 pb-36">
-      <Link href="/art" className="group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
+      <Link
+        href="/art"
+        className="group inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+      >
         <MdArrowBack className="size-4 transition-transform group-hover:-translate-x-1" />
         <span className="text-sm">Art</span>
       </Link>
@@ -57,17 +59,17 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
             href={artist.link as Route}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-fit items-center gap-2 text-muted-foreground text-sm transition-colors hover:text-foreground"
+            className="flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Image src={artist.avatar} alt="" width={20} height={20} className="size-5 rounded" />
             <span>By {artist.name}</span>
           </Link>
         )}
 
-        <h1 className="font-serif text-4xl italic tracking-tight sm:text-5xl">{commission.title}</h1>
+        <h1 className="font-serif text-4xl tracking-tight italic sm:text-5xl">{commission.title}</h1>
 
         {commission.description && (
-          <p className="max-w-xl text-muted-foreground leading-relaxed">{commission.description}</p>
+          <p className="max-w-xl leading-relaxed text-muted-foreground">{commission.description}</p>
         )}
 
         {commission.links && commission.links.length > 0 && (
@@ -84,7 +86,7 @@ export default async function CommissionPage({ params }: PageProps<"/art/[artist
       <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {commission.images.map((image, idx) => (
           <ViewTransition
-            // biome-ignore lint/suspicious/noArrayIndexKey: Needed
+            // oxlint-disable-next-line react/no-array-index-key
             key={idx}
             name={`${artist.slug}-${commission.slug}-img-${idx}`}
           >

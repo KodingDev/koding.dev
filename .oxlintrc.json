@@ -1,0 +1,105 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["nextjs", "typescript", "react", "jsx-a11y", "import", "unicorn", "oxc", "promise", "node"],
+  "categories": {
+    "correctness": "warn",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "builtin": true
+  },
+  "options": {
+    "reportUnusedDisableDirectives": "warn"
+  },
+  "ignorePatterns": [".claude", ".next/**", ".velite/**", "out/**", "build/**", "dist/**"],
+  "rules": {
+    // TypeScript
+    "typescript/consistent-type-definitions": ["error", "type"],
+    "typescript/no-explicit-any": "error",
+    "typescript/no-inferrable-types": "error",
+    "typescript/no-duplicate-enum-values": "error",
+    "typescript/no-import-type-side-effects": "error",
+    "typescript/prefer-includes": "error",
+    "typescript/only-throw-error": "error",
+    "typescript/return-await": "error",
+    "typescript/no-deprecated": "warn",
+
+    // Correctness
+    "no-unused-vars": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "array-callback-return": "error",
+    "no-self-compare": "error",
+    "no-constructor-return": "error",
+    "no-promise-executor-return": "error",
+    "eqeqeq": "error",
+    "react/rules-of-hooks": "error",
+
+    // Suspicious
+    "no-alert": "error",
+    "no-template-curly-in-string": "error",
+    "no-shadow-restricted-names": "error",
+    "no-unused-expressions": "error",
+    "no-empty": "error",
+    "no-proto": "error",
+    "no-return-assign": "error",
+    "no-multi-assign": "error",
+    "unicorn/no-document-cookie": "error",
+
+    // Unicorn
+    "unicorn/prefer-set-has": "error",
+    "unicorn/no-new-array": "warn",
+    "unicorn/no-useless-spread": "warn",
+    "unicorn/no-single-promise-in-promise-methods": "warn",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/no-typeof-undefined": "error",
+    "unicorn/no-useless-promise-resolve-reject": "error",
+    "unicorn/prefer-array-some": "error",
+    "unicorn/no-object-as-default-parameter": "warn",
+
+    // Noisy rules - disable
+    "no-shadow": "off",
+    "no-await-in-loop": "off",
+    "unicorn/no-array-sort": "off",
+    "unicorn/prefer-add-event-listener": "off",
+    "unicorn/require-post-message-target-origin": "off",
+    "import/no-unassigned-import": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "typescript/no-unsafe-type-assertion": "off",
+
+    // File size
+    "max-lines": ["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }],
+
+    // Performance
+    "oxc/no-barrel-file": "error",
+    "import/no-cycle": "off",
+
+    // Next.js
+    "@next/next/no-html-link-for-pages": "error",
+    "@next/next/no-sync-scripts": "error",
+    "@next/next/inline-script-id": "error",
+    "@next/next/no-assign-module-variable": "error",
+    "@next/next/no-document-import-in-page": "error",
+    "@next/next/no-duplicate-head": "error",
+    "@next/next/no-head-import-in-document": "error",
+    "@next/next/no-script-component-in-head": "error",
+    "@next/next/no-img-element": "off",
+
+    // React
+    "react/jsx-no-target-blank": "off",
+    "react/no-unknown-property": "off",
+    "react/no-unsafe": "off",
+    "react/react-in-jsx-scope": "off",
+
+    // jsx-a11y
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/aria-props": "warn",
+    "jsx-a11y/aria-proptypes": "warn",
+    "jsx-a11y/aria-unsupported-elements": "warn",
+    "jsx-a11y/role-has-required-aria-props": "warn",
+    "jsx-a11y/role-supports-aria-props": "warn"
+  }
+}
