@@ -7,7 +7,11 @@ import { allArtists } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Art",
-  description: "Over the years, I've commissioned a lot of art. Here's a collection of some of my favorites.",
+  description: "A collection of commissioned artwork from talented artists.",
+  openGraph: {
+    title: "Art",
+    description: "A collection of commissioned artwork from talented artists.",
+  },
 };
 
 export default function ArtPage() {

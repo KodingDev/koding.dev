@@ -5,6 +5,10 @@
   "href": "https://utiliti.ai",
   "avatar": "./avatar.jpg",
   "banner": "./banner.jpg",
+  "brand": {
+    "primary": "#2DD4A8",
+    "secondary": "#3B82F6"
+  },
   "start": "Mar 2022",
   "end": "Oct 2022",
   "projects": [

@@ -5,6 +5,10 @@
   "href": "https://originrealms.com",
   "avatar": "./avatar.png",
   "banner": "./banner.jpg",
+  "brand": {
+    "primary": "#6BBF3B",
+    "secondary": "#2EA5E0"
+  },
   "start": "Dec 2020",
   "end": "Jun 2022",
   "projects": [

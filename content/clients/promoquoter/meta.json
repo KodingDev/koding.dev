@@ -1,9 +1,26 @@
 {
   "slug": "promoquoter",
   "name": "Promo Quoter",
-  "description": "Quoting software for promotional products, built using Symfony",
+  "description": "Modernised legacy quoting software for promotional products, achieving a 10x performance improvement and reducing errors from daily to monthly.",
   "role": "Web Developer",
   "href": "https://promoquoter.com",
   "avatar": "./avatar.svg",
-  "start": "Dec 2022"
+  "start": "Dec 2022",
+  "brand": {
+    "primary": "#F36C36",
+    "secondary": "#231F20",
+    "background": "#FFFFFF"
+  },
+  "projects": [
+    {
+      "name": "Promo Quoter",
+      "description": "Modernised a legacy CodeIgniter 4 application to Symfony, integrating Stripe billing, customer portal, and subscriptions. Restructured the database with indexing and query profiling for a ~10x performance improvement, and migrated blocking workloads like email to background workers. Reduced error rate from daily occurrences to approximately once monthly.",
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://promoquoter.com"
+        }
+      ]
+    }
+  ]
 }

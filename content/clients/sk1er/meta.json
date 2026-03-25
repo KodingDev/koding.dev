@@ -5,6 +5,10 @@
   "href": "https://sk1er.club",
   "avatar": "./avatar.jpg",
   "banner": "./banner.jpg",
+  "brand": {
+    "primary": "#1A1A1A",
+    "secondary": "#5BBFCF"
+  },
   "start": "Apr 2019",
   "end": "Dec 2019",
   "projects": [

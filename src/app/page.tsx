@@ -10,9 +10,15 @@ import { TwinklingStar } from "@/components/home/twinkling-star";
 import { allClients } from "@/lib/content";
 import { NAV_SOCIALS } from "@/lib/data/layout";
 import { PROJECTS } from "@/lib/data/projects";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  description: "Hi, I'm Stella. Crafting rich, engaging gameplay experiences for 8 years.",
+  description:
+    "Game developer and software engineer with a love for building things that people enjoy. Kotlin, TypeScript, Kubernetes.",
+  openGraph: {
+    title: "Stella Inwood",
+    description: "Game developer and software engineer with a love for building things that people enjoy.",
+  },
 };
 
 const featured = PROJECTS.filter((p) => p.featured);
@@ -77,7 +83,10 @@ export default function HomePage() {
                 <Link
                   key={client.slug}
                   href={`/clients/${client.slug}`}
-                  className={`group flex items-center gap-2 py-2 text-sm transition-colors hover:text-primary ${i < 3 ? "border-b border-border/50" : ""}`}
+                  className={cn(
+                    "group flex items-center gap-2 py-2 text-sm transition-colors hover:text-primary",
+                    i < 3 && "border-b border-border/50"
+                  )}
                 >
                   {client.avatar && (
                     <Image src={client.avatar} alt="" width={20} height={20} className="size-5 shrink-0 rounded" />

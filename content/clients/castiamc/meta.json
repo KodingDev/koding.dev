@@ -5,6 +5,11 @@
   "href": "https://castiamc.com",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#F5A623",
+    "secondary": "#8B5E14",
+    "background": "#FFFFFF"
+  },
   "start": "Nov 2022",
   "end": "Jan 2023",
   "projects": [

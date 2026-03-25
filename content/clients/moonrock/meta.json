@@ -1,0 +1,24 @@
+{
+  "slug": "moonrock",
+  "name": "Moonrock",
+  "description": "Discord bot integrations for brand campaigns, working with Walmart and H&R Block across a 41k-member community.",
+  "avatar": "./avatar.svg",
+  "banner": "./banner.png",
+  "start": "Jan 2025",
+  "end": "Jan 2026",
+  "brand": {
+    "primary": "#FFFFFF",
+    "secondary": "#000000",
+    "background": "#000000"
+  },
+  "projects": [
+    {
+      "name": "Walmart Skyward Bot",
+      "description": "Automated announcement and product posting system for Walmart's Minecraft server, Walmart Skyward. Handled daily scheduled product recommendations, promoting Walmart-highlighted Minecraft marketplace items to a Discord community of over 41,000 members."
+    },
+    {
+      "name": "H&R Block Q&A Bot",
+      "description": "RAG-based Q&A Discord bot for H&R Block's community, providing automated support through retrieval-augmented generation."
+    }
+  ]
+}

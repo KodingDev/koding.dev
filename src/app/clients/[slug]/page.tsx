@@ -8,6 +8,8 @@ import { MdArrowBack } from "react-icons/md";
 import { MediaEmbed } from "@/components/base/media-embed";
 import { IconLink } from "@/components/interactive/icon-link";
 import { allClients } from "@/lib/content";
+import { cn } from "@/lib/utils";
+import { ClientAvatar } from "@/components/client/client-avatar";
 
 const LINK_ICONS: Record<string, React.FC<React.ComponentProps<"svg">>> = {
   github: FaGithub,
@@ -23,7 +25,15 @@ export async function generateMetadata({ params }: PageProps<"/clients/[slug]">)
   const { slug } = await params;
   const client = allClients.find((c) => c.slug === slug);
   if (!client) notFound();
-  return { title: client.name, description: client.description };
+  return {
+    title: client.name,
+    description: client.description,
+    openGraph: {
+      title: client.name,
+      description: client.description,
+      ...(client.banner ? { images: [{ url: client.banner.src, alt: client.name }] } : {}),
+    },
+  };
 }
 
 export default async function ClientPage({ params }: PageProps<"/clients/[slug]">) {
@@ -43,17 +53,17 @@ export default async function ClientPage({ params }: PageProps<"/clients/[slug]"
 
       {client.banner && (
         <div className="mt-8 overflow-clip rounded-lg">
-          <Image src={client.banner} alt="" className="aspect-[3/1] w-full object-cover" />
+          <Image src={client.banner} alt="" className="aspect-3/1 w-full object-cover" />
         </div>
       )}
 
-      <header className={`flex flex-col gap-4 ${client.banner ? "mt-8" : "mt-10"}`}>
+      <header className={cn("flex flex-col gap-4", client.banner ? "mt-8" : "mt-10")}>
         <div className="flex items-center gap-4">
-          {client.avatar && <Image src={client.avatar} alt="" width={56} height={56} className="size-14 rounded-xl" />}
+          <ClientAvatar client={client} alt="Client avatar" className="size-16 rounded-xl" />
           <div>
             <h1 className="font-serif text-4xl tracking-tight italic sm:text-5xl">{client.name}</h1>
             <div className="mt-1.5 flex items-center gap-2 text-sm text-muted-foreground">
-              <div className={`size-1.5 rounded-full ${client.end ? "bg-red-400" : "bg-green-400"}`} />
+              <div className={cn("size-1.5 rounded-full", client.end ? "bg-red-400" : "bg-green-400")} />
               <span>{client.role}</span>
               <span className="text-muted-foreground/50">/</span>
               <span>

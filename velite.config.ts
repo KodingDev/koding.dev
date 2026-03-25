@@ -18,6 +18,16 @@ export default defineConfig({
         start: s.string().optional(),
         end: s.string().optional(),
         hidden: s.boolean().optional().default(false),
+        brand: s
+          .object({
+            primary: s.string().regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/),
+            secondary: s.string().regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/),
+            background: s
+              .string()
+              .regex(/^#(?:[0-9a-fA-F]{3}){1,2}$/)
+              .optional(),
+          })
+          .optional(),
         projects: s
           .array(
             s.object({

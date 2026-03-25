@@ -20,9 +20,11 @@ const switzerFont = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "koding.dev",
-    template: "%s | koding.dev",
+    default: "Stella Inwood",
+    template: "%s | Stella Inwood",
   },
+  description:
+    "Software engineer specialising in game infrastructure, full-stack web development, and cloud-native solutions. Kotlin, TypeScript, Kubernetes.",
   metadataBase: new URL("https://koding.dev"),
   robots: {
     follow: true,
@@ -31,6 +33,11 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "koding.dev",
+    locale: "en_AU",
   },
   twitter: {
     card: "summary_large_image",

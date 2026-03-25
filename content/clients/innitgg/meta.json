@@ -1,16 +1,20 @@
 {
   "slug": "innitgg",
   "name": "Innit.gg",
-  "description": "Developing a scalable, highly-available, and performant Minecraft server network, scaled through a custom Kubernetes deployment system.",
+  "description": "A now-defunct Minecraft server network focused on high-quality minigames, built on a custom Kubernetes deployment system for high availability and minimal downtime.",
   "href": "https://innit.gg",
   "avatar": "./avatar.jpg",
   "banner": "./banner.jpg",
+  "brand": {
+    "primary": "#EF4444",
+    "secondary": "#2A2D3A"
+  },
   "start": "Mar 2022",
   "end": "Oct 2022",
   "projects": [
     {
       "name": "Innit.gg",
-      "description": "A (now-defunct 😔) Minecraft server network, with a focus on providing a high-quality minigames. The network was built on a custom Kubernetes deployment system, which allowed for a highly-available, and performant experience, with minimal downtime.",
+      "description": "A Minecraft server network focused on delivering high-quality minigames. Built on a custom Kubernetes deployment system for high availability, performance, and minimal downtime.",
       "avatar": "./avatar.jpg",
       "media": [
         {

@@ -3,6 +3,11 @@
   "name": "Axolotl Studios",
   "description": "Implementation of a points and generator system for Skyblock.",
   "avatar": "./avatar.png",
+  "brand": {
+    "primary": "#F472B6",
+    "secondary": "#EC4899",
+    "background": "#FDF2F8"
+  },
   "start": "Aug 2023",
   "end": "Sep 2023",
   "hidden": true,

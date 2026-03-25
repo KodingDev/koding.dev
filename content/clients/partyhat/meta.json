@@ -1,17 +1,22 @@
 {
   "slug": "partyhat",
   "name": "Partyhat Productions",
-  "description": "Lead server developer for the Masayoshi Games Twitch Rivals event, and an accompanying Minecraft network.",
+  "description": "Lead server developer for the Masayoshi Games Twitch Rivals event, reaching 50k+ concurrent viewers across 100+ creators with live broadcast integration.",
   "role": "Game Server Developer",
   "href": "https://partyhat.dev",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#0F1B3D",
+    "secondary": "#5CE6FF",
+    "background": "#FFFFFF"
+  },
   "start": "Nov 2021",
   "end": "Jun 2023",
   "projects": [
     {
       "name": "Masayoshi Games",
-      "description": "A 64-player Hunger Games event, where players compete to be the last team standing. They are cast into an unfamiliar world, filled with \"The Roots\", and must defeat the infested monsters, and uncover rare loot to become the true \"Root Champions\"",
+      "description": "A 64-player Hunger Games Twitch Rivals event, live-streamed with 100+ creators to 50k+ concurrent viewers. Players compete in an unfamiliar world filled with \"The Roots\", defeating infested monsters and uncovering rare loot. Integrated with GeekLounge to report real-time game metrics from the server to their broadcast overlay system. Originally built on Minestom for performance, then ported to PaperMC under tight deadlines when scope expanded to require more vanilla Minecraft features.",
       "avatar": "./assets/masayoshi-avatar.png",
       "links": [
         {

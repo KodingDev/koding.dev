@@ -6,6 +6,11 @@
   "href": "https://teamvisionary.net",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#9B7FD4",
+    "secondary": "#A0A0A0",
+    "background": "#F3EEFF"
+  },
   "start": "Oct 2023",
   "end": "Feb 2024",
   "projects": [

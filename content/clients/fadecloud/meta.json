@@ -5,6 +5,11 @@
   "href": "https://fadecloud.net",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#5BBAD5",
+    "secondary": "#2D8FAE",
+    "background": "#E0F2FE"
+  },
   "start": "Jan 2023",
   "end": "Mar 2023",
   "hidden": true,

@@ -1,0 +1,28 @@
+{
+  "slug": "influence-gaming",
+  "name": "Influence Gaming",
+  "description": "Built the marketing website for Influence Minecraft, an in-game advertising and creator marketing platform.",
+  "role": "Web Developer",
+  "href": "https://influenceminecraft.com",
+  "avatar": "./avatar.svg",
+  "banner": "./banner.png",
+  "brand": {
+    "primary": "#A9A6FF",
+    "secondary": "#6C63FF",
+    "background": "#1C1535"
+  },
+  "start": "Aug 2025",
+  "end": "Jan 2026",
+  "projects": [
+    {
+      "name": "Influence Minecraft",
+      "description": "Marketing website for Influence Minecraft, an in-game advertising and creator marketing platform. Implemented from designer specifications using Next.js and Tailwind CSS, featuring case studies, creator showcases, server analytics, and a news/blog section powered by Velite as a file-based CMS.",
+      "links": [
+        {
+          "name": "Website",
+          "href": "https://influenceminecraft.com"
+        }
+      ]
+    }
+  ]
+}

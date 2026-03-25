@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
 import { allClients } from "@/lib/content";
+import React from "react";
+import { ClientAvatar } from "@/components/client/client-avatar";
+
+export const metadata: Metadata = {
+  title: "Clients",
+  description:
+    "Freelance client work spanning game server infrastructure, full-stack web development, and cloud-native solutions across Australia, the US, and Europe.",
+};
 
 export default function ClientsPage() {
   return (
@@ -21,10 +30,20 @@ export default function ClientsPage() {
             {client.banner ? (
               <>
                 <Image src={client.banner} alt="" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30" />
               </>
+            ) : client.brand ? (
+              <div
+                className="absolute inset-0 bg-linear-to-br from-(--brand-primary) to-(--brand-secondary)"
+                style={
+                  {
+                    "--brand-primary": client.brand.primary,
+                    "--brand-secondary": client.brand.secondary,
+                  } as React.CSSProperties
+                }
+              />
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-300 via-primary-500 to-primary-800" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary-300 via-primary-500 to-primary-800" />
             )}
 
             <div className="relative flex flex-col gap-2 p-6">
@@ -36,9 +55,7 @@ export default function ClientsPage() {
               </div>
 
               <div className="flex items-center gap-3">
-                {client.avatar && (
-                  <Image src={client.avatar} alt="" width={36} height={36} className="size-9 rounded-lg" />
-                )}
+                {client.avatar && <ClientAvatar client={client} alt="Client logo" className="size-9 rounded-lg" />}
                 <span className="font-serif text-2xl text-white italic">{client.name}</span>
                 <MdArrowOutward className="size-4 text-white/60" />
               </div>

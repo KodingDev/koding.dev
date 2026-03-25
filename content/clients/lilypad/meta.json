@@ -1,17 +1,22 @@
 {
   "slug": "lilypad",
   "name": "Lilypad.gg",
-  "description": "Development of the Lilypad.gg website, billing panel & dashboard. Built with NextJS, Prisma, NextAuth, and TailwindCSS.",
+  "description": "Website, billing panel, and dashboard for a Minecraft server hosting platform. Built with Next.js, Prisma, NextAuth, and Tailwind CSS.",
   "role": "Web Developer",
   "href": "https://lilypad.gg",
   "wordmark": "./wordmark.svg",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#7CB45D",
+    "secondary": "#4A8C3F",
+    "background": "#0D2400"
+  },
   "start": "Jul 2024",
   "projects": [
     {
       "name": "Lilypad.gg",
-      "description": "Development of the Lilypad.gg website, billing panel & dashboard. Built with NextJS, Prisma, NextAuth, and TailwindCSS.",
+      "description": "Full-stack development of a Minecraft server hosting platform, including the marketing website, billing panel with subscription management, and an admin dashboard. Built with Next.js, Prisma, NextAuth, and Tailwind CSS.",
       "links": [
         {
           "name": "Website",

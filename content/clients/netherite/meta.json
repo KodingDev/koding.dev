@@ -1,16 +1,22 @@
 {
   "slug": "netherite",
   "name": "Netherite",
-  "description": "Highly-scalable, high-throughput Minecraft development, built with Kubernetes & a microservice architecture.",
+  "description": "Scalable Minecraft server infrastructure on Kubernetes with auto-scaling, gRPC microservices, and a custom admin panel. 300 peak CCU across 20+ services.",
   "role": "Full Stack Developer",
   "href": "https://netherite.gg",
   "avatar": "./avatar.png",
   "banner": "./banner.png",
+  "brand": {
+    "primary": "#CC2222",
+    "secondary": "#1A1A1A",
+    "background": "#1C1010"
+  },
   "start": "Dec 2023",
+  "end": "Jan 2026",
   "projects": [
     {
       "name": "Netherite",
-      "description": "The new Netherite network is built on a microservice architecture, with a focus on high-throughput, low-latency, and high-scalability. It's built with Kubernetes and Agones, using GRPC as a communication transport between microservices. Each service is scaled dynamically based on demand, ensuring optimal performance and resource utilization across our machines."
+      "description": "Engineered scalable Minecraft server infrastructure on Kubernetes with auto-scaling via Agones and microservice communication over gRPC for player data, instance management, currency, and metrics. Maintained a custom PaperMC fork enabling S3-based dynamic world loading and locking between instances, backed by an in-house plugin framework spanning 100k+ lines of Kotlin. Peaked at 300 concurrent players across 20+ microservices on 3 Kubernetes nodes with 99.9% uptime."
     },
     {
       "name": "Netherite: Prison",

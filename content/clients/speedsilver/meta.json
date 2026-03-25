@@ -5,6 +5,10 @@
   "href": "https://mcparty.live",
   "avatar": "./avatar.jpg",
   "banner": "./banner.jpg",
+  "brand": {
+    "primary": "#F5B731",
+    "secondary": "#FFFFFF"
+  },
   "start": "Mar 2022",
   "end": "Dec 2022",
   "projects": [
