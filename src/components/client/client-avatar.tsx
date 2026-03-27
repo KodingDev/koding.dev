@@ -16,7 +16,7 @@ export const ClientAvatar: React.FC<ClientAvatarProps> = ({ client, className, .
         className={cn("flex items-center justify-center bg-(--client-background)", className)}
         style={{ "--client-background": client.brand.background } as React.CSSProperties}
       >
-        <Image src={client.avatar} className="p-2" {...props} />
+        <Image src={client.avatar} className="p-[20%]" {...props} />
       </div>
     );
   }

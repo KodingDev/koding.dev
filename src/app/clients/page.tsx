@@ -21,7 +21,7 @@ export default function ClientsPage() {
       </p>
 
       <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
-        {allClients.map((client) => (
+        {allClients.map((client, idx) => (
           <Link
             key={client.slug}
             href={`/clients/${client.slug}`}
@@ -29,7 +29,15 @@ export default function ClientsPage() {
           >
             {client.banner ? (
               <>
-                <Image src={client.banner} alt="" fill className="object-cover" />
+                <Image
+                  src={client.banner}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  loading={idx < 2 ? "eager" : "lazy"}
+                  priority={idx < 2}
+                />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30" />
               </>
             ) : client.brand ? (

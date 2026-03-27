@@ -11,6 +11,7 @@ import { allClients } from "@/lib/content";
 import { NAV_SOCIALS } from "@/lib/data/layout";
 import { PROJECTS } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
+import { ClientAvatar } from "@/components/client/client-avatar";
 
 export const metadata: Metadata = {
   description:
@@ -88,9 +89,7 @@ export default function HomePage() {
                     i < 3 && "border-b border-border/50"
                   )}
                 >
-                  {client.avatar && (
-                    <Image src={client.avatar} alt="" width={20} height={20} className="size-5 shrink-0 rounded" />
-                  )}
+                  <ClientAvatar client={client} alt="Client avatar" className="size-5 shrink-0 rounded" />
                   <span className="font-medium">{client.name}</span>
                   <span className="text-muted-foreground">{client.role}</span>
                   <MdArrowOutward className="ml-auto size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
